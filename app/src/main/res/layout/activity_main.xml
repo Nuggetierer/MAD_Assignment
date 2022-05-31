@@ -9,8 +9,8 @@
     <TextView
         android:id="@+id/buttonBox"
         android:layout_width="450dp"
-        android:layout_height="120dp"
-        android:background="@drawable/box"
+        android:layout_height="110dp"
+        android:background="?colorPrimaryVariant"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:text="Search"
-        android:textColor="#D7CCC8"
         android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
