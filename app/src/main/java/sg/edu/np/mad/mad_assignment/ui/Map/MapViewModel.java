@@ -1,16 +1,16 @@
-package sg.edu.np.mad.mad_assignment.ui.home;
+package sg.edu.np.mad.mad_assignment.ui.Map;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MapViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public MapViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is map fragment");
     }
 
     public LiveData<String> getText() {
