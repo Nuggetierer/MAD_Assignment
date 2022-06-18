@@ -98,6 +98,9 @@ public class DBHandler extends SQLiteOpenHelper {
             queryData.setDescription(cursor.getString(2));
             queryData.setSchool(cursor.getString(3));
         }
+        else{
+            queryData = null;
+        }
 
         cursor.close();
         db.close();
@@ -118,9 +121,12 @@ public class DBHandler extends SQLiteOpenHelper {
         if(cursor.moveToPosition(i)){
             queryData.setEventName(cursor.getString(0));
             queryData.setEventDescription(cursor.getString(1));
-            cursor.close();
+        }
+        else{
+            queryData = null;
         }
 
+        cursor.close();
         db.close();
 
         return queryData;
