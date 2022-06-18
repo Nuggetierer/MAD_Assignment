@@ -7,12 +7,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    public static String DATABASE_NAME = "block_info.db";
+    public static String DATABASE_NAME = "info.db";
+
+    //Information for block_info table
     public static String Blocks = "Blocks";
     public static String column_blockno = "BlockNo";
     public static String column_name = "Name";
-    public static String  column_description = "Description";
-    public static String  column_school = "School";
+    public static String column_description = "Description";
+    public static String column_school = "School";
+
+    //Information for event table
+    public static String Events = "Events";
+    public static String column_eventname = "Event_Name";
+    public static String column_eventdescription = "Event_Description";
+
     public static int DATABASE_VERSION = 1;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -22,19 +30,24 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        //sql code for creating table
-        String CREATE_DATABASE = "CREATE TABLE " + Blocks +"(" + column_blockno + " INTEGER," + column_name
+        //sql code for creating table (Blocks)
+        String CREATE_TABLE_1 = "CREATE TABLE " + Blocks +"(" + column_blockno + " INTEGER," + column_name
                 + " TEXT," + column_description + " TEXT," + column_school + " TEXT" + ")";
 
-        //CREATE TABLE BLOCKS(BlockNo INTEGER, Name TEXT, Description TEXT, School TEXT)
-        db.execSQL(CREATE_DATABASE);
+        String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventname + " TEXT,"
+                + column_eventdescription + " TEXT" + ")";
 
-        //sql code for filling up table
+        //execute sql queries
+        db.execSQL(CREATE_TABLE_1);
+        db.execSQL(CREATE_TABLE_2);
+
+        //sql query for filling up tables (pending information)
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + Blocks);
+        db.execSQL("DROP TABLE IF EXISTS " + Events);
         onCreate(db);
     }
 
@@ -57,12 +70,12 @@ public class DBHandler extends SQLiteOpenHelper {
             queryData.setName(cursor.getString(1));
             queryData.setDescription(cursor.getString(2));
             queryData.setSchool(cursor.getString(3));
-            cursor.close();
         }
         else{
             queryData = null;
         }
 
+        cursor.close();
         db.close();
 
         return queryData;
@@ -84,6 +97,27 @@ public class DBHandler extends SQLiteOpenHelper {
             queryData.setName(cursor.getString(1));
             queryData.setDescription(cursor.getString(2));
             queryData.setSchool(cursor.getString(3));
+        }
+
+        cursor.close();
+        db.close();
+
+        return queryData;
+    }
+
+    //function to get event information from database
+    public Event getevent(int i)
+    {
+        String query = "SELECT * FROM " + Events;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        Event queryData = new Event();
+
+        if(cursor.moveToPosition(i)){
+            queryData.setEventName(cursor.getString(0));
+            queryData.setEventDescription(cursor.getString(1));
             cursor.close();
         }
 
