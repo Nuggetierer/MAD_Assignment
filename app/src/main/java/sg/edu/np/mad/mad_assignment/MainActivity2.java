@@ -11,23 +11,57 @@ import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    ArrayList<String> resultList = new ArrayList<>();
+    ArrayList<Block> resultList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DBHandler dbHandler = new DBHandler(this, null, null, 1);
 
-        Intent recieve_intent = getIntent();
+        //intent passes a search information
+        Intent receive_intent = getIntent();
 
-        for(int i = 0; i < 100; i++){
-            resultList.add(String.valueOf(i));
+        //reminder to set the information parsed as search_string
+        String search_info = receive_intent.getStringExtra("search_string", null);
+
+        //use search information (in string) used to run a query to get data
+
+        //these few lines a little bit ?????
+
+        //for when there is no search
+        Block holder = new Block();
+        if (search_info == null) {
+
+            int i = 0;
+            while (true) {
+                holder = dbHandler.getblock(i);
+
+                if (holder == null) {
+                    break;
+                } else {
+                    resultList.add(holder);
+                    i++;
+                }
+            }
         }
+        //for when there is a search
+        else {
+            while (true) {
+                holder = dbHandler.findblock(search_info);
 
-        RecyclerView resultRecycler = findViewById(R.id.resultsView);
-        myAdapter resultAdapter = new myAdapter(resultList);
-        LinearLayoutManager myLayoutManager = new LinearLayoutManager(this);
-        resultRecycler.setLayoutManager(myLayoutManager);
-        resultRecycler.setAdapter(resultAdapter);
+                if (holder == null) {
+                    break;
+                } else {
+                    resultList.add(holder);
+                }
+            }
+
+            RecyclerView resultRecycler = findViewById(R.id.resultsView);
+            myAdapter resultAdapter = new myAdapter(resultList);
+            LinearLayoutManager myLayoutManager = new LinearLayoutManager(this);
+            resultRecycler.setLayoutManager(myLayoutManager);
+            resultRecycler.setAdapter(resultAdapter);
+        }
     }
 }

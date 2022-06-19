@@ -133,6 +133,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return queryData;
     }
+
+    //Above functions may not work for actual usage with recycler view below are rewritten functions
 }
 
 //        ⣿⣿⣿⣿⣿⠟⠋⠄⠄⠄⠄⠄⠄⠄⢁⠈⢻⢿⣿⣿⣿⣿⣿⣿⣿
