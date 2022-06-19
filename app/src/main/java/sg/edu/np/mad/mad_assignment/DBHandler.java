@@ -15,11 +15,13 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_name = "Name";
     public static String column_description = "Description";
     public static String column_school = "School";
+    public static String column_type = "Type";
 
     //Information for event table
     public static String Events = "Events";
     public static String column_eventname = "Event_Name";
     public static String column_eventdescription = "Event_Description";
+    public static String column_eventtype = "Event_Type";
 
     public static int DATABASE_VERSION = 1;
 
@@ -32,10 +34,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //sql code for creating table (Blocks)
         String CREATE_TABLE_1 = "CREATE TABLE " + Blocks +"(" + column_blockno + " INTEGER," + column_name
-                + " TEXT," + column_description + " TEXT," + column_school + " TEXT" + ")";
+                + " TEXT," + column_description + " TEXT," + column_school + " TEXT," + column_type + " TEXT" + ")";
 
         String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventname + " TEXT,"
-                + column_eventdescription + " TEXT" + ")";
+                + column_eventdescription + " TEXT," + column_eventname + " TEXT," + column_type + " TEXT" + ")";
 
         //execute sql queries
         db.execSQL(CREATE_TABLE_1);
