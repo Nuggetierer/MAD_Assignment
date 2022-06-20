@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DBHandler extends SQLiteOpenHelper {
 
     public static String DATABASE_NAME = "info.db";
@@ -37,13 +39,20 @@ public class DBHandler extends SQLiteOpenHelper {
                 + " TEXT," + column_description + " TEXT," + column_school + " TEXT," + column_type + " TEXT" + ")";
 
         String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventname + " TEXT,"
-                + column_eventdescription + " TEXT," + column_eventname + " TEXT," + column_type + " TEXT" + ")";
+                + column_eventdescription + " TEXT," + column_eventtype + " TEXT" + ")";
 
         //execute sql queries
         db.execSQL(CREATE_TABLE_1);
         db.execSQL(CREATE_TABLE_2);
 
         //sql query for filling up tables (pending information)
+        String POPULATE_TABLE_1 = "INSERT INTO " + Blocks + "(" + column_blockno + ", " + column_name + ", " +
+                column_description + ", " + column_school + ", " + column_type + ")"
+                + "VALUES"
+                + "(" + "01, " + "'ONE', " + "'First block in school', " + "'ICT', " + "'home'" + "), "
+                + "(" + "02, " + "'DOS', " + "'Second block in school', " + "'COCK', " + "'home'" + ")";
+
+        db.execSQL(POPULATE_TABLE_1);
     }
 
     @Override
@@ -55,6 +64,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //function to find block use for search function to return to recycler view
     //specific blocks
+    //could be redundant
     public Block findblock(String block_name)
     {
         //sql code to query database for block information
@@ -85,6 +95,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //use in a loop to get every blocks information or use in recycler view to get block indexed i
     //could be faster if when recycler view is open prior to get block keep the database open
+    //redundant
     public Block getblock(int i)
     {
         String query = "SELECT * FROM " + Blocks;
@@ -110,7 +121,42 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryData;
     }
 
+    //Create a list of all blocks
+    public ArrayList<Block> retrieveBlocks()
+    {
+        String query = "SELECT * FROM " + Blocks;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<Block> queryData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                Block queryBlock = new Block();
+                queryBlock.setBlockNo(cursor.getInt(0));
+                queryBlock.setName(cursor.getString(1));
+                queryBlock.setDescription(cursor.getString(2));
+                queryBlock.setSchool(cursor.getString(3));
+                queryBlock.setType(cursor.getString(4));
+
+                queryData.add(queryBlock);
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        db.close();
+        return queryData;
+    }
+
     //function to get event information from database
+    //redundant
     public Event getevent(int i)
     {
         String query = "SELECT * FROM " + Events;

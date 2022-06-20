@@ -4,64 +4,67 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    ArrayList<Block> resultList = new ArrayList<>();
+    RecyclerView resultRecycler;
+    ArrayList<Block> resultList;
+    myAdapter resultAdapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBHandler dbHandler = new DBHandler(this, null, null, 1);
 
-        //intent passes a search information
-        Intent receive_intent = getIntent();
+        //refresh database for use in this activity
+       DBHandler dbHandler = new DBHandler(this, null, null, 1);
 
-        //reminder to set the information parsed as search_string
-        String search_info = receive_intent.getStringExtra("search_string", null);
+        searchView = findViewById(R.id.searchInfo);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
 
-        //use search information (in string) used to run a query to get data
+            @Override
+            public boolean onQueryTextChange(String s) {
+                filterList(s);
+                return true;
+            }
+        });
 
-        //these few lines a little bit ?????
+        resultRecycler = findViewById(R.id.resultsView);
+        resultRecycler.setHasFixedSize(true);
+        resultRecycler.setLayoutManager(new LinearLayoutManager(this));
+        resultList = new ArrayList<>();
 
-        //for when there is no search
-        Block holder = new Block();
-        if (search_info == null) {
+        //add information using db
+        resultList = dbHandler.retrieveBlocks();
 
-            int i = 0;
-            while (true) {
-                holder = dbHandler.getblock(i);
+        resultAdapter = new myAdapter(resultList);
+        resultRecycler.setAdapter(resultAdapter);
+    }
 
-                if (holder == null) {
-                    break;
-                } else {
-                    resultList.add(holder);
-                    i++;
-                }
+    private void filterList(String text) {
+        ArrayList<Block> filteredList = new ArrayList<>();
+        for (Block blk : resultList){
+            if(blk.getName().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(blk);
             }
         }
-        //for when there is a search
-        else {
-            while (true) {
-                holder = dbHandler.findblock(search_info);
 
-                if (holder == null) {
-                    break;
-                } else {
-                    resultList.add(holder);
-                }
-            }
-
-            RecyclerView resultRecycler = findViewById(R.id.resultsView);
-            myAdapter resultAdapter = new myAdapter(resultList);
-            LinearLayoutManager myLayoutManager = new LinearLayoutManager(this);
-            resultRecycler.setLayoutManager(myLayoutManager);
-            resultRecycler.setAdapter(resultAdapter);
+        if (filteredList.isEmpty()){
+            Toast.makeText(this, "No Matching Blocks", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            resultAdapter.setData(filteredList);
         }
     }
 }
