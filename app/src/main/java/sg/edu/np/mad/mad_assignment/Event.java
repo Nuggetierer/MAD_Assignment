@@ -3,13 +3,15 @@ package sg.edu.np.mad.mad_assignment;
 public class Event {
     private String eventName;
     private String eventDescription;
+    private String eventType;
 
     public Event(){}
 
-    public Event(String e_name, String e_desc)
+    public Event(String e_name, String e_desc, String event_type)
     {
         eventName = e_name;
         eventDescription = e_desc;
+        eventType = event_type;
     }
 
     public String getEventName() {
@@ -26,5 +28,13 @@ public class Event {
 
     public void setEventDescription(String eventDescription) {
         this.eventDescription = eventDescription;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 }
