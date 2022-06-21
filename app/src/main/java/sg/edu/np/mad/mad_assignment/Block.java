@@ -7,14 +7,16 @@ public class Block {
     private String Name;
     private String Description;
     private String School;
+    private String Type;
 
-    public Block(){};
+    public Block(){}
 
-    public Block(Integer blockNo,String name, String description, String school) {
+    public Block(Integer blockNo,String name, String description, String school, String type) {
         BlockNo = blockNo;
         Name = name;
         Description = description;
         School = school;
+        Type = type;
     }
 
     public Integer getBlockNo() {
@@ -47,5 +49,13 @@ public class Block {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 }
