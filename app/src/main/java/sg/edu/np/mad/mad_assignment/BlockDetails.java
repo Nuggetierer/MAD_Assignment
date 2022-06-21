@@ -1,4 +1,4 @@
-package sg.edu.np.mad.mad_assignment.ui.Map;
+package sg.edu.np.mad.mad_assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,10 +23,14 @@ public class BlockDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.block_details);
 
+        Block blk_info = new Block();
         Intent receivingEnd = getIntent();
-        String BlockName = receivingEnd.getStringExtra("Block Name");
-        String BlockNumber = receivingEnd.getStringExtra("Block Number");
-        String BlockDescription = receivingEnd.getStringExtra("Block Description");
+
+        blk_info = (Block)receivingEnd.getSerializableExtra("block_info");
+
+        String BlockName = blk_info.getName();
+        String BlockNumber = String.valueOf(blk_info.getBlockNo());
+        String BlockDescription = blk_info.getDescription();
 
         TextView BlkName = findViewById(R.id.Name);
         TextView BlkNo = findViewById(R.id.blockNo);
@@ -37,7 +41,7 @@ public class BlockDetails extends AppCompatActivity {
         BlkDescr.setText(BlockDescription);
 
         ImageView blkIMG = findViewById(R.id.blkImage);
-        blkIMG.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.cat));
+        //0-=-blkIMG.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.cat));
         // cat = file name of photo
     }
 }

@@ -1,8 +1,9 @@
 package sg.edu.np.mad.mad_assignment;
 
 
+import java.io.Serializable;
 
-public class Block {
+public class Block implements Serializable {
     private Integer BlockNo;
     private String Name;
     private String Description;
