@@ -1,5 +1,6 @@
 package sg.edu.np.mad.mad_assignment.ui.Map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import sg.edu.np.mad.mad_assignment.MainActivity2;
 import sg.edu.np.mad.mad_assignment.R;
 import sg.edu.np.mad.mad_assignment.databinding.FragmentMapBinding;
 
@@ -30,6 +32,15 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         View myView = inflater.inflate(R.layout.fragment_map, container, false);
+
+        final Button goToSearch = binding.goToSearch;
+        goToSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent searchIntent = new Intent(getActivity(), MainActivity2.class);
+                startActivity(searchIntent);
+            }
+        });
 
         // Admin Building
         Button AdminBuilding = (Button) myView.findViewById(R.id.AdminBuilding);
