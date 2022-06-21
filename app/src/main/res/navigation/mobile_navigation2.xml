@@ -15,7 +15,7 @@
         android:id="@+id/navigation_map"
         android:name="sg.edu.np.mad.mad_assignment.ui.Map.MapFragment"
         android:label="@string/title_map"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_settings"
