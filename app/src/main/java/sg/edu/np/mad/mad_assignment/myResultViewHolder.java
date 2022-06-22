@@ -13,7 +13,7 @@ public class myResultViewHolder extends RecyclerView.ViewHolder {
     TextView blk_num;
     TextView sch;
     Button goToDetail;
-    Block blk_info; //use class to parse information into details activity
+    //Block blk_info; use class to parse information into details activity
 
     public myResultViewHolder(@NonNull View itemView){
         super(itemView);

@@ -2,6 +2,7 @@ package sg.edu.np.mad.mad_assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 import sg.edu.np.mad.mad_assignment.R;
 
@@ -40,8 +43,20 @@ public class BlockDetails extends AppCompatActivity {
         BlkNo.setText(BlockNumber);
         BlkDescr.setText(BlockDescription);
 
+        //Image of block location
         ImageView blkIMG = findViewById(R.id.blkImage);
-        //0-=-blkIMG.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.cat));
-        // cat = file name of photo
+
+        String blk_name = BlockName.replace(" ", "_").toLowerCase();
+
+        String img_name = blk_name + "_map";
+
+        int drawable = getDrawable(this, img_name);
+
+        blkIMG.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + drawable));
+
+    }
+
+    public static int getDrawable (Context context, String name){
+        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 }
