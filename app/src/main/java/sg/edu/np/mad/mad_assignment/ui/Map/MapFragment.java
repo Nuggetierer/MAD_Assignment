@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import sg.edu.np.mad.mad_assignment.Block;
+import sg.edu.np.mad.mad_assignment.BlockDetails;
+import sg.edu.np.mad.mad_assignment.DBHandler;
 import sg.edu.np.mad.mad_assignment.MainActivity2;
 import sg.edu.np.mad.mad_assignment.R;
 import sg.edu.np.mad.mad_assignment.databinding.FragmentMapBinding;
@@ -19,6 +22,8 @@ import sg.edu.np.mad.mad_assignment.databinding.FragmentMapBinding;
 public class MapFragment extends Fragment implements View.OnClickListener {
 
     private FragmentMapBinding binding;
+
+    DBHandler dbHandler = new DBHandler(getContext(), null, null, 1);
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +49,17 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
         // Admin Building
         Button AdminBuilding = (Button) myView.findViewById(R.id.AdminBuilding);
-        AdminBuilding.setOnClickListener(this);
+        AdminBuilding.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                String Buildingname = "AdminBuilding";
+                Block Building = dbHandler.findblock(Buildingname);
+                Intent Search = new Intent(getActivity(), BlockDetails.class);
+                Search.putExtra("block_info", Building);
+                startActivity(Search);
+            }
+        });
 
         //Dialogue In The Dark
         Button DialogueInTheDark = (Button) myView.findViewById(R.id.DialogueInTheDark);

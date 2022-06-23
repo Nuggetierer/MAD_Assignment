@@ -29,7 +29,7 @@
         android:src="@drawable/npmapdrawn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-5dp" />
 
@@ -43,7 +43,8 @@
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.671" />
+        app:layout_constraintVertical_bias="0.671"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/SchoolofEngineeringWest"
@@ -55,7 +56,8 @@
         app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.712"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/InterdisciplinarySciences"
@@ -124,10 +126,10 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.283"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.211" />
 
     <Button
         android:id="@+id/SolarTechCentre"
@@ -136,10 +138,10 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintVertical_bias="0.152" />
 
     <Button
         android:id="@+id/SchoolofFilmMediaStudies"
@@ -179,7 +181,7 @@
 
     <Button
         android:id="@+id/SchoolofEngineeringEast"
-        android:layout_width="13dp"
+        android:layout_width="12dp"
         android:layout_height="14dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -296,6 +298,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.648" />
+
 
     <Button
         android:id="@+id/goToSearch"
