@@ -43,14 +43,23 @@ public class EventFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        for(int i = 0; i < 20; i++){
+            long val1 = (long) Math.floor(Math.random()*(9_000_000_000L)+1_000_000_000L);
+            String Name = "Name" + val1;
+            long val2 = (long) Math.floor(Math.random()*(9_000_000_000L)+1_000_000_000L);
+            String Description = "Description " + val2;
+            String Date = "Aug 15";
+            String Type = "ICT";
+            UserList20.add(new Event(Date,Name,Description,Type));
+        }
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_event, container, false);
 
-//        recyclerView = view.findViewById(R.id.ErecyclerView);
-//        EventAdaptor eventAdaptor = new EventAdaptor(UserList20);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        recyclerView.setAdapter(eventAdaptor);
+        recyclerView = view.findViewById(R.id.Erecyclerview);
+        EventAdaptor eventAdaptor = new EventAdaptor(UserList20);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(eventAdaptor);
 
         return view;
     }
