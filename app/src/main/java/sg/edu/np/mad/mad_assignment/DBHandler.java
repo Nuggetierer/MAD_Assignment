@@ -21,6 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //Information for event table
     public static String Events = "Events";
+    public static String column_eventdate = "Event_Date";
     public static String column_eventname = "Event_Name";
     public static String column_eventdescription = "Event_Description";
     public static String column_eventtype = "Event_Type";
@@ -38,7 +39,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String CREATE_TABLE_1 = "CREATE TABLE " + Blocks +"(" + column_blockno + " INTEGER," + column_name
                 + " TEXT," + column_description + " TEXT," + column_school + " TEXT," + column_type + " TEXT" + ")";
 
-        String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventname + " TEXT,"
+        String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventdate + " TEXT," + column_eventname + " TEXT,"
                 + column_eventdescription + " TEXT," + column_eventtype + " TEXT" + ")";
 
         //execute sql queries
@@ -79,6 +80,15 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "(" + "0, " + "'Main Field', " + "'No Description', " + "'General', " + "'Genreral'" + ")";
 
         db.execSQL(POPULATE_TABLE_1);
+
+        String POPULATE_TABLE_2 = "INSERT INTO " + Events + "(" + column_eventdate + ", " + column_eventname + ", " +
+                column_eventdescription + " ," + column_eventtype  + ")"
+                + "VALUES"
+                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp'," + "'Ict event'" + "),"
+                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'Ict Orientation Camp'," + "'Ict event'" + "),"
+                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'Sport Activities such as Track and Field and Frisbee'," + "'Np School Wide Event'" + ")";
+
+        db.execSQL(POPULATE_TABLE_2);
     }
 
     @Override
@@ -179,6 +189,38 @@ public class DBHandler extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return queryData;
+    }
+
+    public ArrayList<Event> retrieveEvent()
+    {
+        String query = "SELECT * FROM " + Events;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<Event> queryEData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                Event queryEvent = new Event();
+                queryEvent.setEventDate(cursor.getString(0));
+                queryEvent.setEventName(cursor.getString(1));
+                queryEvent.setEventDescription(cursor.getString(2));
+                queryEvent.setEventType(cursor.getString(3));
+
+                queryEData.add(queryEvent);
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        db.close();
+        return queryEData;
     }
 
     //function to get event information from database
