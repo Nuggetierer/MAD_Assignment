@@ -94,7 +94,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public Block findblock(String block_name)
     {
         //sql code to query database for block information
-        String query = "SELECT * FROM " + Blocks + "WHERE" + column_name
+        String query = "SELECT * FROM " + Blocks + " WHERE " + column_name
                 + "=\"" + block_name + "\"";
 
         SQLiteDatabase db = this.getReadableDatabase();
