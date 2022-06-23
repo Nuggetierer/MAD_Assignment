@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class myImageAdapter extends RecyclerView.Adapter<myImageViewHolder> {
     ArrayList<String> data;
@@ -29,13 +29,12 @@ public class myImageAdapter extends RecyclerView.Adapter<myImageViewHolder> {
         img_name = imgName + "_map";
 
         int drawable = getDrawable(holder.img.getContext(), img_name);
-        holder.img.setImageURI(Uri.parse("android.resource://" + holder.img.getContext() + "/" + drawable));
+        holder.img.setImageURI(Uri.parse("android.resource://" + holder.img.getContext() + "/" + drawable));;
     }
 
     public static int getDrawable (Context context, String name){
         return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
-
     public int getItemCount(){
         return data.size();
     }
