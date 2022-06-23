@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/activity_main3.xml" value="0.25" />
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/block_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/fragment_map.xml" value="0.25" />
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/fragment_settings.xml" value="0.22826086956521738" />
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/result_recyclerview.xml" value="0.22826086956521738" />
+        <entry key="..\:/NP-sem-3/MAD/Assignment/Assignment_Code/app/src/main/res/layout/result_recycleview.xml" value="0.22826086956521738" />
         <entry key="..\:/NP-sem-3/MAD/Assignment/Assingment_Code/app/src/main/res/drawable/box.xml" value="0.2595" />
         <entry key="..\:/NP-sem-3/MAD/Assignment/Assingment_Code/app/src/main/res/drawable/highlightscolor.xml" value="0.2005" />
         <entry key="..\:/NP-sem-3/MAD/Assignment/Assingment_Code/app/src/main/res/layout/activity_main.xml" value="0.176" />
@@ -11,10 +18,6 @@
         <entry key="..\:/NP-sem-3/MAD/Assignment/Assingment_Code/app/src/main/res/layout/fragment_map.xml" value="0.22826086956521738" />
         <entry key="..\:/NP-sem-3/MAD/Assignment/Assingment_Code/app/src/main/res/layout/fragment_settings.xml" value="0.22826086956521738" />
         <entry key="..\:/NP-sem-3/MAD/Assignment/Assingment_Code/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/Assignment 1/app/src/main/res/drawable/popup_bg.xml" value="0.1785" />
-        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/Assignment 1/app/src/main/res/layout/activity_block_details.xml" value="0.22" />
-        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/Assignment 1/app/src/main/res/layout/blkimg_layout.xml" value="0.22" />
-        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/Assignment 1/app/src/main/res/layout/popup_page.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>

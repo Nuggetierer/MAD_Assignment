@@ -9,7 +9,7 @@
         android:id="@+id/navigation_event"
         android:name="sg.edu.np.mad.mad_assignment.ui.Event.EventFragment"
         android:label="@string/title_event"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_event" />
 
     <fragment
         android:id="@+id/navigation_map"
@@ -21,5 +21,5 @@
         android:id="@+id/navigation_settings"
         android:name="sg.edu.np.mad.mad_assignment.ui.Settings.SettingsFragment"
         android:label="@string/title_Settings"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_settings" />
 </navigation>
