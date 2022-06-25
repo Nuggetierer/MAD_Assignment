@@ -68,18 +68,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blockNo" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerVIEW"
-        android:layout_width="409dp"
-        android:layout_height="369dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+    <ImageView
+        android:id="@+id/blockMap"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blockDescr"
-        app:layout_constraintVertical_bias="0.526" />
+        app:srcCompat="@drawable/box" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
