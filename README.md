@@ -2,7 +2,7 @@
 MAD Assignment 2022
 Team Members
 1) Teh Zhi Xian s10221851
-2) Nathan Quek ?
+2) Nathan Quek S10223513
 3) Elijah ?
 4) Shantal ?
 
@@ -15,3 +15,8 @@ Teh Zhi Xian
 - DB handler
 - Search function
 - Search recycler view
+
+Nathan Quek
+- Bottom navigation view
+- Event recycler view
+- Fragment setup

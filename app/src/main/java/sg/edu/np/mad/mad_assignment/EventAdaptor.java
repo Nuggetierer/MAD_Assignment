@@ -50,6 +50,6 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return EList.size();
     }
 }

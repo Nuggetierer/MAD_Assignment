@@ -26,10 +26,6 @@ import sg.edu.np.mad.mad_assignment.databinding.FragmentEventBinding;
 
 public class EventFragment extends Fragment {
 
-    public EventFragment() {
-        // Required empty public constructor
-    }
-
     private FragmentEventBinding binding;
     RecyclerView recyclerView;
     ArrayList<Event> UserList20 = new ArrayList<>();
@@ -38,25 +34,26 @@ public class EventFragment extends Fragment {
 //        EventViewModel eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
 //        binding = FragmentEventBinding.inflate(inflater, container, false);
 //
-//        DBHandler dbHandler = new DBHandler(getActivity(), null, null, 1);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        for(int i = 0; i < 20; i++){
-            long val1 = (long) Math.floor(Math.random()*(9_000_000_000L)+1_000_000_000L);
-            String Name = "Name" + val1;
-            long val2 = (long) Math.floor(Math.random()*(9_000_000_000L)+1_000_000_000L);
-            String Description = "Description " + val2;
-            String Date = "Aug 15";
-            String Type = "ICT";
-            UserList20.add(new Event(Date,Name,Description,Type));
-        }
+//        for(int i = 0; i < 20; i++){
+//            String Name = "Name";
+//            String Description = "Description ";
+//            String Date = "Aug 15";
+//            String Type = "ICT";
+//            UserList20.add(new Event(Date,Name,Description,Type));
+//        }
         // Inflate the layout for this fragment
+        DBHandler dbHandler = new DBHandler(getActivity(), null, null, 1);
+
         View view = inflater.inflate(R.layout.fragment_event, container, false);
+//        add information using db
+        ArrayList<Event> eventlist = dbHandler.retrieveEvent();
 
         recyclerView = view.findViewById(R.id.Erecyclerview);
-        EventAdaptor eventAdaptor = new EventAdaptor(UserList20);
+        EventAdaptor eventAdaptor = new EventAdaptor(eventlist);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(eventAdaptor);
