@@ -3,7 +3,7 @@ MAD Assignment 2022
 Team Members
 1) Teh Zhi Xian s10221851
 2) Nathan Quek S10223513
-3) Elijah ?
+3) Elijah S10222019
 4) Shantal ?
 
 This app is a student helper app with a primary focus on helping students get to places they need to be.
@@ -20,3 +20,10 @@ Nathan Quek
 - Bottom navigation view
 - Event recycler view
 - Fragment setup
+
+Elijah Chang
+- Block Details page
+- Gathering of block details and images
+- Creation of block on map images 
+- App Icon Design
+- Image recycler view
