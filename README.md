@@ -11,6 +11,7 @@ The apps main feature is a map and a search function to help them find the locat
 Future features will work towards adding functionality to the app and providing extra services.
 
 Roles and Contributions
+
 Teh Zhi Xian
 - DB handler
 - Search function
