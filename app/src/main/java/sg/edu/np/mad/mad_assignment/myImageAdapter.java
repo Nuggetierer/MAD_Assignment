@@ -23,13 +23,11 @@ public class myImageAdapter extends RecyclerView.Adapter<myImageViewHolder> {
     }
 
     public void onBindViewHolder(myImageViewHolder holder, int position){
-        String imgName = data.get(position);
+        String name = data.get(position).replace(" ", "_").toLowerCase();
+        String parse_img_name = name + "_map";
 
-        String img_name = imgName.replace(" ", "_").toLowerCase();
-        img_name = imgName + "_map";
-
-        int drawable = getDrawable(holder.img.getContext(), img_name);
-        holder.img.setImageURI(Uri.parse("android.resource://" + holder.img.getContext() + "/" + drawable));;
+        int drawable = getDrawable(holder.img.getContext(), parse_img_name);
+        holder.img.setImageURI(Uri.parse("android.resource://" + MainActivity.PACKAGENAME + "/" + drawable));
     }
 
     public static int getDrawable (Context context, String name){

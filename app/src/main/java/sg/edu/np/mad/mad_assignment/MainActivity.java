@@ -1,6 +1,7 @@
 package sg.edu.np.mad.mad_assignment;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +23,7 @@ import sg.edu.np.mad.mad_assignment.databinding.ActivityMain3Binding;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String PACKAGENAME;
     private ActivityMain3Binding binding;
 
     @Override
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart", true);
+        PACKAGENAME = getApplicationContext().getPackageName();
 
         if (firstStart) {
             showStartDialog();

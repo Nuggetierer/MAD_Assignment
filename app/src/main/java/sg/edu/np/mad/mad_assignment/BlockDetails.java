@@ -46,32 +46,33 @@ public class    BlockDetails extends AppCompatActivity {
         BlkNo.setText(BlockNumber);
         BlkDescr.setText(BlockDescription);
 
-//        RecyclerView name = findViewById(R.id.recyclerVIEW);
-//        name.setLayoutManager(new LinearLayoutManager(this));
-//        String imgname_1 = blk_info.getName();
-//        String imgname_2 = imgname_1 + "_pic";
+        RecyclerView name = findViewById(R.id.blockRecycler);
+        name.setLayoutManager(new LinearLayoutManager(this));
+        String imgname_1 = blk_info.getName();
+        String imgname_2 = imgname_1 + "_pic";
+
+        ArrayList<String> data = new ArrayList<>();
+        data.add(imgname_1);
+        data.add(imgname_2);
+
+        myImageAdapter imgAdp = new myImageAdapter(data);
+        name.setAdapter(imgAdp);
+
+//        //Image of block location
+//        ImageView blkIMG = findViewById(R.id.blockMap);
 //
-//        ArrayList<String> data = new ArrayList<>();
-//        data.add(imgname_1);
-//        data.add(imgname_2);
+//        String blk_name = BlockName.replace(" ", "_").toLowerCase();
 //
-//        myImageAdapter imgAdp = new myImageAdapter(data);
-//        name.setAdapter(imgAdp);
-
-        //Image of block location
-        ImageView blkIMG = findViewById(R.id.blockMap);
-
-        String blk_name = BlockName.replace(" ", "_").toLowerCase();
-
-        String img_name = blk_name + "_map";
-
-        int drawable = getDrawable(this, img_name);
-
-        blkIMG.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + drawable));
-
-    }
-
-    public static int getDrawable (Context context, String name){
-        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+//        String img_name = blk_name + "_map";
+//
+//        int drawable = getDrawable(this, img_name);
+//
+//        blkIMG.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + drawable));
+//
+//    }
+//
+//    public static int getDrawable (Context context, String name){
+//        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+//    }
     }
 }
