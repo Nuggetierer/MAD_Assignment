@@ -26,7 +26,7 @@ public class myAdapter extends RecyclerView.Adapter<myResultViewHolder> {
     @Override
     @NonNull
     public myResultViewHolder onCreateViewHolder(ViewGroup parent, int view){
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.result_recyclerview, parent, false);
+        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.new_resultview, parent, false);
         return new myResultViewHolder(item);
     }
     public void onBindViewHolder(myResultViewHolder holder, @SuppressLint("RecyclerView") int position){

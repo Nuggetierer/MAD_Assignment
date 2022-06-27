@@ -22,7 +22,7 @@ import java.util.Locale;
 
 import sg.edu.np.mad.mad_assignment.R;
 
-public class BlockDetails extends AppCompatActivity {
+public class    BlockDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

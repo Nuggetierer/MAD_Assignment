@@ -20,10 +20,10 @@ public class myResultViewHolder extends RecyclerView.ViewHolder {
 
         //assigning textview locations
         title = itemView.findViewById(R.id.blockName);
-        blk_num = itemView.findViewById(R.id.blkNum);
-        sch = itemView.findViewById(R.id.blkSchool);
+        blk_num = itemView.findViewById(R.id.blockNum);
+        sch = itemView.findViewById(R.id.blockSch);
 
         //button to go to details need to be created (parse block data)
-        goToDetail = itemView.findViewById(R.id.goToDetail);
+        goToDetail = itemView.findViewById(R.id.goToDetailsNew);
     }
 }
