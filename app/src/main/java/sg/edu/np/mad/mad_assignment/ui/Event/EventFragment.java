@@ -70,7 +70,7 @@ public class EventFragment extends Fragment {
             public void onClick(View view) {
                 new AlertDialog.Builder(getContext())
                         .setTitle("This is a work in progress...")
-                        .setMessage("The events will only be allowed to be added by verified user suchs as CCA or ClUB exco teams.")
+                        .setMessage("The events will only be allowed to be added by verified user such as CCA or SIGS exco teams.")
                         .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
