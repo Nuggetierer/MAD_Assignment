@@ -26,7 +26,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_eventdescription = "Event_Description";
     public static String column_eventtype = "Event_Type";
 
-    public static int DATABASE_VERSION = 1;
+    public static int DATABASE_VERSION = 2;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -86,6 +86,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "VALUES"
                 + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp'," + "'Ict event'" + "),"
                 + "(" + "'18-26 Aug', " +"'Exams Week'," + "'Ict Orientation Camp'," + "'Ict event'" + "),"
+                + "(" + "'12 Aug'," +  "'CSF Day'," + "'A day that celebrates all achievements done for Cybeer Security'," + "'Ict event'" + "),"
+                + "(" + "'9 Aug'," +  "'National Day'," + "'National day, the school will be organising games and activities for students to commemorate Singapores birthday'," + "'Np School Wide Event'" + "),"
+                + "(" + "'10 July'," +  "'No Bag Day'," + "'Students will carry their stuff with anything but a backpack'," + "'Np School Wide Event'" + "),"
                 + "(" + "'23 June'," +"'Sports and Dance camp'," + "'Sport Activities such as Track and Field and Frisbee'," + "'Np School Wide Event'" + ")";
 
         db.execSQL(POPULATE_TABLE_2);
