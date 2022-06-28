@@ -3,10 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="4dp"
-    >
+    android:clipToPadding="false"
+    android:layout_margin="5dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHolder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp">
@@ -18,38 +21,48 @@
             android:padding="2dp"
             android:text="Line 1"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            tools:fontFamily="@font/lato"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/blockNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/blockName"
             android:layout_marginTop="2dp"
             android:padding="2dp"
             android:text="Line 2"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:fontFamily="@font/lato"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blockName" />
 
         <TextView
 
             android:id="@+id/blockSch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/blockNum"
             android:padding="2dp"
             android:text="Line 3"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:fontFamily="@font/lato"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blockNum" />
 
         <Button
             android:id="@+id/goToDetailsNew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="18dp"
-            android:text="Details" />
+            android:backgroundTint="@color/blue_china"
+            android:text="Details"
+            tools:fontFamily="@font/lato"
+            android:theme="@style/Button.blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
