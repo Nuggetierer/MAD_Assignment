@@ -34,8 +34,6 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         binding.imageView2.setEnabled(false);
-        final TextView textView = binding.textMap;
-        mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         View myView = inflater.inflate(R.layout.fragment_map, container, false);
 

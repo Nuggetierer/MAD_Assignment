@@ -309,6 +309,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/search"
+        android:backgroundTint="@color/blue_china"
+        tools:fontFamily="@font/lato"
+        android:theme="@style/Button.blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
