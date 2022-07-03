@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="4dp"
     android:clipToPadding="false"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:backgroundTint="?colorSecondary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHolder"
@@ -21,6 +22,7 @@
             android:padding="2dp"
             android:text="Line 1"
             android:textSize="25sp"
+            android:textColor="?colorOnSecondary"
             tools:fontFamily="@font/lato"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +36,7 @@
             android:padding="2dp"
             android:text="Line 2"
             android:textSize="20sp"
+            android:textColor="?colorOnSecondary"
             tools:fontFamily="@font/lato"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/blockName" />
@@ -46,6 +49,7 @@
             android:padding="2dp"
             android:text="Line 3"
             android:textSize="20sp"
+            android:textColor="?colorOnSecondary"
             tools:fontFamily="@font/lato"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/blockNum" />
@@ -54,14 +58,14 @@
             android:id="@+id/goToDetailsNew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="18dp"
-            android:backgroundTint="@color/blue_china"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="?colorPrimary"
             android:text="Details"
-            tools:fontFamily="@font/lato"
-            android:theme="@style/Button.blue"
+            android:textColor="?colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/blockName"
+            tools:fontFamily="@font/lato" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8BC5F3"
+    android:background="?colorPrimaryVariant"
     tools:context=".ui.Map.MapFragment">
 
     <TextView
@@ -309,9 +309,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/search"
-        android:backgroundTint="@color/blue_china"
+        android:backgroundTint="?colorPrimary"
+        android:textColor="?colorOnPrimary"
         tools:fontFamily="@font/lato"
-        android:theme="@style/Button.blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
