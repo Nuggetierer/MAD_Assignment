@@ -84,12 +84,12 @@ public class DBHandler extends SQLiteOpenHelper {
         String POPULATE_TABLE_2 = "INSERT INTO " + Events + "(" + column_eventdate + ", " + column_eventname + ", " +
                 column_eventdescription + " ," + column_eventtype  + ")"
                 + "VALUES"
-                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp'," + "'Ict event'" + "),"
-                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'Ict Orientation Camp'," + "'Ict event'" + "),"
+                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp to introduce freshman to the school through icebreakers and activities'," + "'Ict event'" + "),"
+                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'A week dedicated to common test and exams'," + "'Ict event'" + "),"
                 + "(" + "'12 Aug'," +  "'CSF Day'," + "'A day that celebrates all achievements done for Cybeer Security'," + "'Ict event'" + "),"
                 + "(" + "'9 Aug'," +  "'National Day'," + "'National day, the school will be organising games and activities for students to commemorate Singapores birthday'," + "'Np School Wide Event'" + "),"
                 + "(" + "'10 July'," +  "'No Bag Day'," + "'Students will carry their stuff with anything but a backpack'," + "'Np School Wide Event'" + "),"
-                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'Sport Activities such as Track and Field and Frisbee'," + "'Np School Wide Event'" + ")";
+                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'A camp that has Sport Activities such as Track and Field, Frisbee and captains ball'," + "'Np School Wide Event'" + ")";
 
         db.execSQL(POPULATE_TABLE_2);
     }
