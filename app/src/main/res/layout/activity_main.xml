@@ -9,7 +9,6 @@
     >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:background="@drawable/box"
         android:id="@+id/resultsView"
         android:layout_width="0dp"
         android:layout_height="0dp"
