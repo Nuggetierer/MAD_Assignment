@@ -57,4 +57,27 @@
             android:textColor="?colorOnPrimary"/>
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/loginStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Log In"
+        android:textColor="?colorOnSecondary"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupThemes" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Login to account"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginStatus" />
 </androidx.constraintlayout.widget.ConstraintLayout>

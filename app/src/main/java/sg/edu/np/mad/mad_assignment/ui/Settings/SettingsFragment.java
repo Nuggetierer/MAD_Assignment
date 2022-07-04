@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class SettingsFragment extends Fragment {
 
     private FragmentSettingsBinding binding;
     private RadioGroup themeButtons;
+    private Button loginButton;
 
     @Nullable
     @Override
@@ -59,6 +61,14 @@ public class SettingsFragment extends Fragment {
                 SharedPreferences.Editor myEdit = sharedpref.edit();
                 myEdit.putInt("viewSetting", store);
                 myEdit.commit();
+            }
+        });
+
+        loginButton = binding.loginButton;
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
             }
         });
 
