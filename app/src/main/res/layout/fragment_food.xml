@@ -4,19 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?colorPrimaryVariant"
     tools:context=".ui.Food.FoodFragment">
 
-    <TextView
-        android:id="@+id/text_food"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <Button
+        android:id="@+id/foodClub"
+        android:layout_width="258dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="72dp"
+        android:text="Food Club"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mknPlc"
+        android:layout_width="258dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:text="Makan Place"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodClub" />
+
+    <Button
+        android:id="@+id/munch"
+        android:layout_width="258dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:text="Munch"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mknPlc" />
+
+    <Button
+        android:id="@+id/othrs"
+        android:layout_width="258dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:text="Others"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/munch" />
 </androidx.constraintlayout.widget.ConstraintLayout>
