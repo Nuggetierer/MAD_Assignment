@@ -54,6 +54,32 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        final Button RedZone = binding.RedZonebutton;
+        RedZone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RedZone.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button YellowZone = binding.YellowZonebutton;
+        YellowZone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), YellowZone.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button GreenZone = binding.GreenZonebutton;
+        GreenZone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GreenZone.class);
+                startActivity(intent);
+            }
+        });
 //        // Admin Building
 //        Button AdminBuilding = binding.AdminBuilding;
 //        AdminBuilding.setOnClickListener(new View.OnClickListener()
