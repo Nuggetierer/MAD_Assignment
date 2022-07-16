@@ -75,7 +75,6 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
     LocationRequest locationRequest;
     FusedLocationProviderClient fusedLocationProviderClient;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,6 +186,7 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.getUiSettings().setScrollGesturesEnabled(true);
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
