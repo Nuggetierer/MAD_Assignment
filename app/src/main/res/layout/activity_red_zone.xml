@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/redzone"
-        android:layout_width="410dp"
-        android:layout_height="878dp"
+        android:layout_width="398dp"
+        android:layout_height="817dp"
         android:layout_marginStart="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
