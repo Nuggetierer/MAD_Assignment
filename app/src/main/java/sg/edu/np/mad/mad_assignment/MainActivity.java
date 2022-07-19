@@ -37,6 +37,8 @@ import sg.edu.np.mad.mad_assignment.databinding.ActivityMain3Binding;
 public class MainActivity extends AppCompatActivity {
 
     public static String PACKAGENAME;
+    public static boolean loggedin;
+    public static String userID;
     private ActivityMain3Binding binding;
 
     @Override
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart", true);
         int viewSetting = prefs.getInt("viewSetting", 0);
+        //if logged in show as true and allows access to certain activities
+        loggedin = prefs.getBoolean("loggedin", false);
+        userID = prefs.getString("uid", "");
         PACKAGENAME = getApplicationContext().getPackageName();
 
         if (firstStart) {
