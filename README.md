@@ -4,7 +4,7 @@ Team Members
 1) Teh Zhi Xian s10221851
 2) Nathan Quek S10223513
 3) Elijah S10222019
-4) Shantal ?
+4) Palaniappan Shanthal S10222337
 
 This app is a student helper app with a primary focus on helping students get to places they need to be.
 The apps main feature is a map and a search function to help them find the location of the block they need to be at.
@@ -28,3 +28,10 @@ Elijah Chang
 - Creation of block on map images 
 - App Icon Design
 - Image recycler view
+
+Palaniappan Shanthal
+- Map Page
+- Google Maps API
+- Buttons which shows details of the blocks
+- Created a DirectionParser for the map to get info of the route from
+- App Icon Design
