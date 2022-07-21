@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import sg.edu.np.mad.mad_assignment.MainActivity;
 import sg.edu.np.mad.mad_assignment.R;
 import sg.edu.np.mad.mad_assignment.User;
 import sg.edu.np.mad.mad_assignment.databinding.FragmentSettingsBinding;
@@ -80,11 +81,44 @@ public class SettingsFragment extends Fragment {
 
         //login button
         //Take login status to change the text on button
+        //initial setup phase
+        boolean loginStatus = MainActivity.loggedin;
         loginButton = binding.loginButton;
+
+        if(loginStatus){
+            loginButton.setText("Logout");
+        }
+        else{
+            loginButton.setText("Login");
+        }
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginDialog();
+                //note that login status has to be checked constantly so as to make sure its up to date
+                boolean login_check;
+                SharedPreferences prefs = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                login_check = prefs.getBoolean("loggedin", false);
+
+                if (login_check){
+                    auth = FirebaseAuth.getInstance();
+                    auth.signOut();
+
+                    //user is signed out
+                    SharedPreferences sharedpref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor myEdit = sharedpref.edit();
+                    myEdit.putBoolean("loggedin", false);
+                    myEdit.putString("uid", "");
+                    myEdit.commit();
+
+                    //changes to texts
+                    loginButton.setText("Login");
+
+                    Toast.makeText(getContext(), "Logged out", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    loginDialog();
+                }
             }
         });
 
@@ -224,7 +258,7 @@ public class SettingsFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            //add username to firebase user
+                            //add username to firebase user (use .getDisplayName to get the display name from firebase auth instance)
                             UserProfileChangeRequest addNick = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(user.getNickname())
                                     .build();
@@ -270,6 +304,9 @@ public class SettingsFragment extends Fragment {
 
                             //close dialog
                             dialog.cancel();
+
+                            //change login text
+                            loginButton.setText("Logout");
                         }
                         else{
                             Toast.makeText(getContext(), "Error logging in try again!", Toast.LENGTH_SHORT).show();
