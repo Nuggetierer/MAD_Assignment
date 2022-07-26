@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public static String PACKAGENAME;
     public static boolean loggedin;
     public static String userID;
+    public static String userUsername;
+    public static String userEmail;
     private ActivityMain3Binding binding;
 
     @Override
@@ -50,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         //if logged in show as true and allows access to certain activities
         loggedin = prefs.getBoolean("loggedin", false);
         userID = prefs.getString("uid", "");
+        userUsername = prefs.getString("username", "");
+        userEmail = prefs.getString("useremail", "");
+
+
         PACKAGENAME = getApplicationContext().getPackageName();
 
         if (firstStart) {

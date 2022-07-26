@@ -27,6 +27,8 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import java.security.KeyStore;
+
 import sg.edu.np.mad.mad_assignment.MainActivity;
 import sg.edu.np.mad.mad_assignment.R;
 import sg.edu.np.mad.mad_assignment.User;
@@ -38,6 +40,7 @@ public class SettingsFragment extends Fragment {
     private RadioGroup themeButtons;
     private Button loginButton;
     private FirebaseAuth auth;
+    private User tempuser = new User();
 
     @Nullable
     @Override
@@ -87,9 +90,18 @@ public class SettingsFragment extends Fragment {
 
         if(loginStatus){
             loginButton.setText("Logout");
+
+            //set up temp user to parse
+            SharedPreferences sharedpref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+
+            tempuser.setNickname(MainActivity.userUsername);
+            tempuser.setEmail(MainActivity.userEmail);
+
+            changeLoginText(true, tempuser);
         }
         else{
             loginButton.setText("Login");
+            changeLoginText(false, tempuser);
         }
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +125,7 @@ public class SettingsFragment extends Fragment {
 
                     //changes to texts
                     loginButton.setText("Login");
+                    changeLoginText(false, tempuser);
 
                     Toast.makeText(getContext(), "Logged out", Toast.LENGTH_SHORT).show();
                 }
@@ -296,10 +309,14 @@ public class SettingsFragment extends Fragment {
 
                             //store UID to preferences for reference
                             String UID = auth.getCurrentUser().getUid();
+                            String username = auth.getCurrentUser().getDisplayName();
+                            String email = auth.getCurrentUser().getEmail();
                             SharedPreferences sharedpref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor myEdit = sharedpref.edit();
                             myEdit.putBoolean("loggedin", true);
                             myEdit.putString("uid", UID);
+                            myEdit.putString("username", username);
+                            myEdit.putString("useremail", email);
                             myEdit.commit();
 
                             //close dialog
@@ -307,11 +324,31 @@ public class SettingsFragment extends Fragment {
 
                             //change login text
                             loginButton.setText("Logout");
+
+                            user.setNickname(username);
+                            changeLoginText(true, user);
                         }
                         else{
                             Toast.makeText(getContext(), "Error logging in try again!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+    public void changeLoginText(boolean status, User user){
+        TextView title = binding.accountInfoHeaderText;
+        TextView accountText = binding.accountInfoText;
+
+        if(status){
+            title.setText("Welcome " + user.getNickname().toString() + "!");
+            accountText.setText
+                    ("Email: " + user.getEmail().toString());
+        }
+        else{
+            title.setText("Login to use the following!");
+            accountText.setText
+                    ("Uploading Posts,\n" +
+                    "Show interest for events,\n" +
+                    "and many more cool features!");
+        }
     }
 }
