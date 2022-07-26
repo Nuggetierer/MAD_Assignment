@@ -8,14 +8,25 @@
         android:title="Event" />
 
     <item
+        android:id="@+id/navigation_study"
+        android:icon="@drawable/ic_studyarea_foreground"
+        android:title="Study" />
+
+    <item
         android:id="@+id/navigation_map"
         android:icon="@drawable/ic_map_foreground"
         android:title="Map" />
 
     <item
+        android:id="@+id/navigation_food"
+        android:icon="@drawable/ic_foodbank_foreground"
+        android:title="Food" />
+
+    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings_foreground"
         android:title="Settings" />
+
 <!--    <item-->
 <!--        android:id="@+id/navigation_home"-->
 <!--        android:icon="@drawable/ic_home_black_24dp"-->

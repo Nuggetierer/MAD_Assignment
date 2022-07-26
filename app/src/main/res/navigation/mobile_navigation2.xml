@@ -12,10 +12,22 @@
         tools:layout="@layout/fragment_event" />
 
     <fragment
+        android:id="@+id/navigation_study"
+        android:name="sg.edu.np.mad.mad_assignment.ui.Study.StudyFragment"
+        android:label="Study"
+        tools:layout="@layout/fragment_study" />
+
+    <fragment
         android:id="@+id/navigation_map"
         android:name="sg.edu.np.mad.mad_assignment.ui.Map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/navigation_food"
+        android:name="sg.edu.np.mad.mad_assignment.ui.Food.FoodFragment"
+        android:label="Food"
+        tools:layout="@layout/fragment_food" />
 
     <fragment
         android:id="@+id/navigation_settings"

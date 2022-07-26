@@ -33,7 +33,11 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         DBHandler dbHandler = new DBHandler(getContext(), null, null, 1);
         binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         binding.imageView.setEnabled(false);
+
+        binding.imageView2.setEnabled(false);
+
         View myView = inflater.inflate(R.layout.fragment_map, container, false);
 
         final Button goToSearch = binding.goToSearch;

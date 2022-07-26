@@ -2,6 +2,7 @@ package sg.edu.np.mad.mad_assignment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
     private String TAG = "My Adaptor";
 
     ArrayList<Event> EList;
+    ArrayList<Event> EList2;
 //    private Context context;
 
     public EventAdaptor(ArrayList<Event> input) {
@@ -44,9 +46,12 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
         if(i.getAttend() == null){
             i.setAttend(Boolean.TRUE);
         }
+//        Boolean ebool = i.getAttend();
+//        String Etype = i.getEventType();
+//        EList2.add(new Event(Edate,Ename,EDesc,Etype,ebool));
         //using data to set text
         Boolean Eattend = i.getAttend();
-//        Eattend = !Eattend;
+//       Eattend = !Eattend;
         String Header = "Date: " + Edate + ", " +  Ename;
 
         holder.etxt1.setText(Header);

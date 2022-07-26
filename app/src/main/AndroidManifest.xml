@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignment">
+
         <activity
             android:name=".ui.Map.YellowZone"
             android:exported="false" />
@@ -30,6 +31,7 @@
         <activity
             android:name=".ui.Map.Map_Google"
             android:exported="false" />
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
