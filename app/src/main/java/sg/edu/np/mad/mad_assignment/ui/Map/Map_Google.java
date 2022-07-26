@@ -6,14 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.PersistableBundle;
@@ -47,8 +50,11 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.internal.IGoogleMapDelegate;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.karumi.dexter.Dexter;
@@ -58,7 +64,18 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -73,7 +90,13 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
     EditText inputLocation;
     Menu menu;
     LocationRequest locationRequest;
+    private static final int LOCATION_REQUEST = 500;
     FusedLocationProviderClient fusedLocationProviderClient;
+    ArrayList<LatLng> listpoints;
+    Polyline mPolyline;
+    LatLng mOrigin;
+    LatLng mDestination;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +105,7 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
 
         imageViewSearch = (ImageView) findViewById(R.id.imageViewSearch);
         inputLocation = (EditText) findViewById(R.id.inputlocation);
+        listpoints = new ArrayList<>();
 
         checkPermission();
 
@@ -99,32 +123,128 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
         }
 
         imageViewSearch.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                if(listpoints.size() == 2)
+                {
+                    listpoints.clear();
+                    googleMap.clear();
+                }
                 String Location = inputLocation.getText().toString();
+
                 if (Location == null) {
                     Toast.makeText(Map_Google.this, "Type any location name", Toast.LENGTH_SHORT).show();
-                } else {
-                    Geocoder geocoder = new Geocoder(Map_Google.this, Locale.getDefault());
-                    try {
-                        List<Address> listAddress = geocoder.getFromLocationName(Location, 1);
-                        if (listAddress.size() > 0) {
-                            googleMap = googleMap;
-                            LatLng latLng = new LatLng(listAddress.get(0).getLatitude(), listAddress.get(0).getLongitude());
+                }
+                else {
 
-                            MarkerOptions markerOptions = new MarkerOptions();
-                            markerOptions.title("Search Location");
-                            markerOptions.position(latLng);
-                            googleMap.addMarker(markerOptions);
-                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 16);
-                            googleMap.animateCamera(cameraUpdate);
+                    new AsyncTask<String, Void, Address>()
+                    {
+                        @SuppressLint("WrongThread")
+                        @Override
+                        protected Address doInBackground(String...params)
+                        {
+                            Geocoder geocoder = new Geocoder(Map_Google.this, Locale.getDefault());
+                            try {
+                                List<Address> listAddress = geocoder.getFromLocationName(Location, 1);
+                                LatLng latLng1 = new LatLng(listAddress.get(0).getLatitude(), listAddress.get(0).getLongitude());
+                                if (listAddress.size() > 0) {
+                                    listpoints.add(latLng1);
+                                    MarkerOptions markerOptions = new MarkerOptions();
+                                    markerOptions.position(latLng1);
+
+                                    if(listpoints.size()==1){
+                                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                                        markerOptions.title("Start Location");
+                                    }else if(listpoints.size()==2){
+                                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                                        markerOptions.title("Destination");
+                                    }
+                                    Map_Google.this.runOnUiThread(new Runnable(){
+                                        public void run(){
+                                            googleMap.addMarker(markerOptions);
+                                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng1, 16);
+                                            googleMap.animateCamera(cameraUpdate);
+
+                                            if (listpoints.size() == 2)
+                                            {
+                                                String url = getRequestUrl(listpoints.get(0), listpoints.get(1));
+                                                TaskRequestDirections taskRequestDirections = new TaskRequestDirections();
+                                                taskRequestDirections.execute(url);
+                                            }
+                                        }
+                                    });
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return null;
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+                        @Override
+                        protected void onPostExecute(Address address)
+                        {
+                            // do whatever you want/need to do with the address found
+                            // remember to check first that it's not null
+                        }
+                    }.execute();
                 }
             }
         });
+    }
+
+    private String getRequestUrl(LatLng origin, LatLng dest) {
+        // Value Of Origin
+        String str_org = "origin=" + origin.latitude +","+ origin.longitude;
+        // Value Of Destination
+        String str_destination = "destination=" + dest.latitude +","+ dest.longitude;
+        // Set Value enable the Sensor
+        String key = "&key="+ "AIzaSyCcTgH2IOJx_ysHPNSnnl42k7soGPnGqfE";
+        String sensor = "sensor=false";
+        // Mode for find direction
+        String mode = "mode=driving";
+        // Full Param
+        String Param = str_org +"&" + str_destination + "&" +sensor+"&" +mode +key;
+        //Output Format
+        String output = "json";
+        //Create URl to request
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + Param;
+        return url;
+    }
+
+    private String requestDirection(String reqUrl) throws IOException {
+        String responseString = "";
+        InputStream inputStream = null;
+        HttpURLConnection httpURLConnection = null;
+        try{
+            URL url = new URL(reqUrl);
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.connect();
+
+            // Get the response result
+            inputStream = httpURLConnection.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            StringBuffer stringBuffer = new StringBuffer();
+            String line = "";
+            while((line = bufferedReader.readLine()) != null){
+                stringBuffer.append(line);
+            }
+
+            responseString = stringBuffer.toString();
+            bufferedReader.close();
+            inputStream.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(inputStream != null){
+                inputStream.close();
+            }
+            httpURLConnection.disconnect();
+        }
+        return responseString;
     }
 
     private boolean checkGooglePlayService() {
@@ -175,6 +295,7 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
         this.googleMap = googleMap;
         LatLng latLng = new LatLng(1.3321, 103.7743);
         MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         markerOptions.title("Ngee Ann Polytechnic");
         markerOptions.position(latLng);
         googleMap.addMarker(markerOptions);
@@ -188,10 +309,23 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_REQUEST );
             return;
         }
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);
         googleMap.setMyLocationEnabled(true);
+    }
+
+    @SuppressLint({"MissingPermission", "MissingSuperCall"})
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch(requestCode){
+            case LOCATION_REQUEST:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    googleMap.setMyLocationEnabled(true);
+                }
+                break;
+        }
     }
 
     private void CheckGPS() {
@@ -290,6 +424,75 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
         return super.onOptionsItemSelected(item);
     }
 
+    public class TaskRequestDirections extends AsyncTask<String, Void,String >{
+        @Override
+        protected String doInBackground(String... strings) {
+            String responsestring = "";
+            try {
+                responsestring = requestDirection(strings[0]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return responsestring;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            // Parse json here
+            TaskParser taskParser = new TaskParser();
+            taskParser.execute(s);
+        }
+    }
+    public class TaskParser extends AsyncTask<String, Void,List<List<HashMap<String, String>>> >
+    {
+
+        @Override
+        protected List<List<HashMap<String, String>>> doInBackground(String... strings) {
+            JSONObject jsonObject = null;
+            List<List<HashMap<String, String>>> routes = null;
+            try {
+                jsonObject = new JSONObject(strings[0]);
+                DirectionParsers directionParsers = new DirectionParsers();
+                routes = directionParsers.parse(jsonObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return routes;
+        }
+
+        @Override
+        protected void onPostExecute(List<List<HashMap<String, String>>> lists) {
+            //Get list route and display it into the map
+            ArrayList points = null;
+
+            PolylineOptions polylineOptions = null;
+
+            for(List<HashMap<String, String>> path: lists)
+            {
+                points = new ArrayList();
+                polylineOptions = new PolylineOptions();
+
+                for(HashMap<String, String> point :path){
+                    double lat = Double.parseDouble(point.get("lat"));
+                    double lng = Double.parseDouble(point.get("lng"));
+
+                    points.add(new LatLng(lat, lng));
+                }
+                polylineOptions.addAll(points);
+                polylineOptions.width(15);
+                polylineOptions.color(Color.BLUE);
+                polylineOptions.geodesic(true);
+            }
+            if(polylineOptions != null)
+            {
+                googleMap.addPolyline(polylineOptions);
+            }else{
+                Toast.makeText(getApplicationContext(), "Direction not found!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -305,4 +508,5 @@ public class Map_Google extends AppCompatActivity implements OnMapReadyCallback 
             }
         }
     }
+
 }

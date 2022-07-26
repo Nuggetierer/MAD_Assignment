@@ -6,4 +6,110 @@
     android:layout_height="match_parent"
     tools:context=".ui.Map.GreenZone">
 
+    <ImageView
+        android:id="@+id/greenzone"
+        android:layout_width="372dp"
+        android:layout_height="839dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_zone" />
+
+    <Button
+        android:id="@+id/ConventionCenter"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.773" />
+
+    <Button
+        android:id="@+id/InterdisciplinarySciences"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <Button
+        android:id="@+id/SchoolofInfocommTechnology"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.626" />
+
+    <Button
+        android:id="@+id/FoodClub"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.693" />
+
+    <Button
+        android:id="@+id/AerospaceHub"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <Button
+        android:id="@+id/SolarTechCentre"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.343" />
+
+    <Button
+        android:id="@+id/SchoolofEngineeringWest"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.376" />
+
+    <Button
+        android:id="@+id/SchoolofDesignandEnvironment"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightgreen"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.516" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,4 +16,100 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/redzonepic" />
+
+    <Button
+        android:id="@+id/SchoolofFilmMediaStudies"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.406" />
+
+    <Button
+        android:id="@+id/SchoolofBusinessAccountancy"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.546" />
+
+    <Button
+        android:id="@+id/SchoolofHealthSciences"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.318" />
+
+    <Button
+        android:id="@+id/SchoolofHumanitiesSocialSciences"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.44" />
+
+    <Button
+        android:id="@+id/SchoolofLifeSciencesChemicalTechnology"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.44" />
+
+    <Button
+        android:id="@+id/MakanPlace"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.294" />
+
+    <Button
+        android:id="@+id/Munch"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <Button
+        android:id="@+id/TrainingField"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.154" />
 </androidx.constraintlayout.widget.ConstraintLayout>

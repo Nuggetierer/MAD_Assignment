@@ -8,11 +8,83 @@
 
     <ImageView
         android:id="@+id/yellowzone"
-        android:layout_width="469dp"
-        android:layout_height="929dp"
+        android:layout_width="398dp"
+        android:layout_height="817dp"
+        android:layout_marginStart="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/yellowzone" />
+
+    <Button
+        android:id="@+id/MainField"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.585" />
+
+    <Button
+        android:id="@+id/AdminBuilding"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone" />
+
+    <Button
+        android:id="@+id/SchoolofEngineeringEast"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone" />
+
+    <Button
+        android:id="@+id/DialogueInTheDark"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone" />
+
+    <Button
+        android:id="@+id/PoolSide"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.369" />
+
+    <Button
+        android:id="@+id/SportsComplex"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.518" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
