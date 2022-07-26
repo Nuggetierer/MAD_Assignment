@@ -30,8 +30,6 @@ Elijah Chang
 - Image recycler view
 
 Palaniappan Shanthal
-- Map Page
+- Map Fragement Page
 - Google Maps API
-- Buttons which shows details of the blocks
-- Created a DirectionParser for the map to get info of the route from
-- App Icon Design
+- Finding the current and the destination of user

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="sg.edu.np.mad.mad_assignment">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
 
     <application
         android:allowBackup="true"
@@ -11,6 +18,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignment">
+
+        <activity
+            android:name=".ui.Map.YellowZone"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Map.GreenZone"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Map.RedZone"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Map.Map_Google"
+            android:exported="false" />
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -23,8 +44,11 @@
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
         <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyCcTgH2IOJx_ysHPNSnnl42k7soGPnGqfE" />
 
         <activity
             android:name=".MainActivity2"

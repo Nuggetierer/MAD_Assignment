@@ -39,6 +39,15 @@
         <entry key="..\:/Projects/Android/MAD_Assignment/app/src/main/res/layout/fragment_map.xml" value="0.176" />
         <entry key="..\:/Projects/Android/MAD_Assignment/app/src/main/res/layout/fragment_settings.xml" value="0.2259963768115942" />
         <entry key="..\:/Projects/Android/MAD_Assignment/app/src/main/res/layout/result_recyclerview.xml" value="0.2259963768115942" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_google_app.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_green_zone.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_main3.xml" value="0.1042611060743427" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_map_google.xml" value="0.17248459958932238" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_map_zoom.xml" value="0.1480978260869565" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_maps_google_play.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_red_zone.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/activity_yellow_zone.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/blkimg_layout.xml" value="0.1042611060743427" />
         <entry key="..\:/Projects/Android/MAD_Assignmentcopy1/app/src/main/res/layout/activity_study_detailspage.xml" value="0.25" />
         <entry key="..\:/Projects/Android/MAD_Assignmentcopy1/app/src/main/res/layout/block_details.xml" value="0.25" />
         <entry key="..\:/Projects/Android/MAD_Assignmentcopy1/app/src/main/res/layout/event_fragmentlayout.xml" value="0.25" />
@@ -49,7 +58,11 @@
         <entry key="..\:/Projects/Android/MAD_Assignmentcopy1/app/src/main/res/layout/study_layout.xml" value="0.4" />
         <entry key="..\:/Projects/Android/MAD_Assignmentcopy1/app/src/main/res/layout/study_recyclerview_layout.xml" value="0.264" />
         <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/fragment_event.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/fragment_map.xml" value="0.24528301886792453" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/fragment_map.xml" value="0.22" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/layout/fragment_settings.xml" value="0.1042611060743427" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15104166666666666" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/menu/maptype.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/shant/AndroidStudioProjects/MAD_Assignment/app/src/main/res/menu/menu.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>

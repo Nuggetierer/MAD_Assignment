@@ -15,4 +15,6 @@
     <string name="textview">TextView</string>
     <string name="search_location">Search Location</string>
     <string name="search">Search</string>
+    <color name="lightgrey">#E6E6E6</color>
+
 </resources>
