@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="377dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
@@ -43,8 +43,8 @@
 
             <TextView
                 android:id="@+id/EventTextView_Bottom"
-                android:layout_width="371dp"
-                android:layout_height="53dp"
+                android:layout_width="347dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="37dp"
                 android:layout_marginBottom="47dp"
                 android:fontFamily="sans-serif"
@@ -52,7 +52,7 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/AttendButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
@@ -76,33 +76,30 @@
 
             <ImageView
                 android:id="@+id/eventimageView"
-                android:layout_width="63dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="11dp"
+                android:layout_width="55dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="4dp"
                 android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EventTextView_Bottom"
-                app:layout_constraintVertical_bias="0.571"
+                app:layout_constraintHorizontal_bias="0.961"
+                app:layout_constraintStart_toEndOf="@+id/AttendButton"
                 app:srcCompat="@drawable/ic_cross_x_foreground" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="75dp"
+                android:layout_height="28dp"
                 android:layout_marginStart="68dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/lato"
                 android:text="Attend:"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.191"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/AttendButton"
-                app:layout_constraintTop_toBottomOf="@+id/EventTextView_Bottom"
-                app:layout_constraintVertical_bias="0.448"
                 tools:textStyle="bold" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

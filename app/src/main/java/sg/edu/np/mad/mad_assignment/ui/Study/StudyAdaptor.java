@@ -1,5 +1,7 @@
 package sg.edu.np.mad.mad_assignment.ui.Study;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> {
     private String TAG = "My Adaptor";
 
     ArrayList<StudyPlaces> SList;
+    Context context;
 
     public StudyAdaptor(ArrayList<StudyPlaces> input) {
         this.SList = input;
@@ -43,6 +46,17 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> {
         String Sloc = sp.getStudyLocation();
 
         holder.stxt1.setText(Sname);
+
+        holder.viewmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.viewmore.getContext(), StudyDetailsPage.class);
+                intent.putExtra("Name",Sname);
+                intent.putExtra("Desc",Sdesc);
+                intent.putExtra("Loc",Sloc);
+                holder.viewmore.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

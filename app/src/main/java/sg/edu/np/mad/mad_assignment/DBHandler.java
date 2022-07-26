@@ -1,5 +1,6 @@
 package sg.edu.np.mad.mad_assignment;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -27,6 +28,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_eventname = "Event_Name";
     public static String column_eventdescription = "Event_Description";
     public static String column_eventtype = "Event_Type";
+    public static String column_eventattend = "Event_Attend";
 
     //Information for StudyPlaces table
     public static String Study = "Studys";
@@ -49,7 +51,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + " TEXT," + column_description + " TEXT," + column_school + " TEXT," + column_type + " TEXT" + ")";
 
         String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventdate + " TEXT," + column_eventname + " TEXT,"
-                + column_eventdescription + " TEXT," + column_eventtype + " TEXT" + ")";
+                + column_eventdescription + " TEXT," + column_eventtype + " TEXT," + column_eventattend + " TEXT" +  ")";
 
         String CREATE_TABLE_3 = "CREATE TABLE " + Study + "(" + column_studyname + " TEXT," + column_studydescription + " TEXT,"
                 + column_studylocation + " TEXT," + column_studycords + " TEXT" + ")";
@@ -95,14 +97,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(POPULATE_TABLE_1);
 
         String POPULATE_TABLE_2 = "INSERT INTO " + Events + "(" + column_eventdate + ", " + column_eventname + ", " +
-                column_eventdescription + " ," + column_eventtype  + ")"
+                column_eventdescription + " ," + column_eventtype  + " ," + column_eventattend + ")"
                 + "VALUES"
-                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp to introduce freshman to the school through icebreakers and activities'," + "'Ict event'" + "),"
-                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'A week dedicated to common test and exams'," + "'Ict event'" + "),"
-                + "(" + "'12 Aug'," +  "'CSF Day'," + "'A day that celebrates all achievements done for Cybeer Security'," + "'Ict event'" + "),"
-                + "(" + "'9 Aug'," +  "'National Day'," + "'National day, the school will be organising games and activities for students to commemorate Singapores birthday'," + "'Np School Wide Event'" + "),"
-                + "(" + "'10 July'," +  "'No Bag Day'," + "'Students will carry their stuff with anything but a backpack'," + "'Np School Wide Event'" + "),"
-                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'A camp that has Sport Activities such as Track and Field, Frisbee and captains ball'," + "'Np School Wide Event'" + ")";
+                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp to introduce freshman to the school through icebreakers and activities'," + "'Ict event'," + "'1'" + "),"
+                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'A week dedicated to common test and exams'," + "'Ict event'," + "'1'" + "),"
+                + "(" + "'12 Aug'," +  "'CSF Day'," + "'A day that celebrates all achievements done for Cybeer Security'," + "'Ict event'," + "'1'" + "),"
+                + "(" + "'9 Aug'," +  "'National Day'," + "'National day, the school will be organising games and activities for students to commemorate Singapores birthday'," + "'Np School Wide Event'," + "'1'" + "),"
+                + "(" + "'10 July'," +  "'No Bag Day'," + "'Students will carry their stuff with anything but a backpack'," + "'Np School Wide Event'," + "'1'" + "),"
+                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'A camp that has Sport Activities such as Track and Field, Frisbee and captains ball'," + "'Np School Wide Event'," + "'1'" + ")";
 
         db.execSQL(POPULATE_TABLE_2);
 
@@ -121,6 +123,21 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Events);
         db.execSQL("DROP TABLE IF EXISTS " + Study);
         onCreate(db);
+    }
+    public void updateEvent(String name, String attend) {
+
+        // calling a method to get writable database.
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // on below line we are passing all values
+        // along with its key and value pair.
+        values.put(column_eventattend, attend);
+
+        // on below line we are calling a update method to update our database and passing our values.
+        // and we are comparing it with name of our course which is stored in original name variable.
+        db.update(Events , values, "Event_Name=?", new String[]{name});
+        db.close();
     }
 
     //function to find block use for search function to return to recycler view
@@ -234,6 +251,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 queryEvent.setEventName(cursor.getString(1));
                 queryEvent.setEventDescription(cursor.getString(2));
                 queryEvent.setEventType(cursor.getString(3));
+                queryEvent.setAttend(cursor.getString(4));
 
                 queryEData.add(queryEvent);
                 counter += 1;
@@ -255,7 +273,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
-        ArrayList<StudyPlaces> querySData = new ArrayList<>();
+        ArrayList<StudyPlaces> querySData = new ArrayList<StudyPlaces>();
 
         int counter = 0;
 

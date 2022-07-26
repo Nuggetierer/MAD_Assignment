@@ -1,5 +1,6 @@
 package sg.edu.np.mad.mad_assignment.ui.Study;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ import sg.edu.np.mad.mad_assignment.DBHandler;
 import sg.edu.np.mad.mad_assignment.Event;
 import sg.edu.np.mad.mad_assignment.EventAdaptor;
 import sg.edu.np.mad.mad_assignment.databinding.FragmentStudyBinding;
+import sg.edu.np.mad.mad_assignment.ui.Event.SendEmail;
 
 public class StudyFragment extends Fragment {
 
@@ -45,7 +48,7 @@ public class StudyFragment extends Fragment {
         binding = FragmentStudyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        DBHandler dbHandler = new DBHandler(getActivity(), null, null, 1);
+        DBHandler dbHandler = new DBHandler(getActivity(), null, null, 3);
 
         ArrayList<StudyPlaces> Studylist = dbHandler.retrieveStudy();
 
@@ -53,6 +56,15 @@ public class StudyFragment extends Fragment {
 
         studyRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         studyRecyclerview.setAdapter(new StudyAdaptor(Studylist));
+
+        final FloatingActionButton newstudy = binding.StudyfloatingActionButton;
+        newstudy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentaddstudy = new Intent(getContext(), AddStudyLocation.class);
+                startActivity(intentaddstudy);
+            }
+        });
 
         return root;
     }
