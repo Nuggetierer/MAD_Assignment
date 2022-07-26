@@ -14,14 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.security.cert.TrustAnchor;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 import sg.edu.np.mad.mad_assignment.ui.Event.EventFragment;
+import sg.edu.np.mad.mad_assignment.ui.Event.Updateeventactivity;
+import sg.edu.np.mad.mad_assignment.ui.Study.StudyDetailsPage;
 
 
 public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
     private String TAG = "My Adaptor";
 
     ArrayList<Event> EList;
+    private DBHandler dbHandler;
     ArrayList<Event> EList2;
 //    private Context context;
 
@@ -43,14 +47,14 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
         String Edate = i.getEventDate();
         String Ename  = i.getEventName();
         String EDesc = i.getEventDescription();
-        if(i.getAttend() == null){
-            i.setAttend(Boolean.TRUE);
-        }
+//        if(i.getAttend() == null){
+//            i.setAttend("1");
+//        }
 //        Boolean ebool = i.getAttend();
 //        String Etype = i.getEventType();
 //        EList2.add(new Event(Edate,Ename,EDesc,Etype,ebool));
         //using data to set text
-        Boolean Eattend = i.getAttend();
+        String Eattend = i.getAttend();
 //       Eattend = !Eattend;
         String Header = "Date: " + Edate + ", " +  Ename;
 
@@ -59,18 +63,29 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
         holder.attend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean Eattend = i.getAttend();
-                if (Eattend == Boolean.FALSE){
+                String Eattend = i.getAttend();
+                if (Eattend == "0"){
                     holder.attend.setText("Attending");
                     Toast.makeText(view.getContext(), "Attending",Toast.LENGTH_SHORT).show();
-                    i.setAttend(Boolean.TRUE);
+                    i.setAttend("1");
                     holder.image.setImageResource(R.drawable.ic_cross_x_foreground);
+
+                    Intent intent = new Intent(holder.attend.getContext(), Updateeventactivity.class);
+                    intent.putExtra("Name",Ename);
+                    intent.putExtra("Attend","1");
+//                    holder.attend.getContext().startActivity(intent);
+//                    dbHandler.updateEvent(Ename, "1");
                 }
                 else {
                     holder.attend.setText("Cancel");
                     Toast.makeText(view.getContext(), "Not attending",Toast.LENGTH_SHORT).show();
-                    i.setAttend(Boolean.FALSE);
+                    i.setAttend("0");
                     holder.image.setImageResource(R.drawable.ic_check_y_foreground);
+                    Intent intent = new Intent(holder.attend.getContext(), Updateeventactivity.class);
+                    intent.putExtra("Name",Ename);
+                    intent.putExtra("Attend","0");
+//                    holder.attend.getContext().startActivity(intent);
+//                    dbHandler.updateEvent(Ename, "0");
                 }
             }
         });

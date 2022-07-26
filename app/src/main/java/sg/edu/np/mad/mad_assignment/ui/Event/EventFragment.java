@@ -2,6 +2,7 @@ package sg.edu.np.mad.mad_assignment.ui.Event;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,8 +31,11 @@ import sg.edu.np.mad.mad_assignment.Event;
 import sg.edu.np.mad.mad_assignment.EventAdaptor;
 import sg.edu.np.mad.mad_assignment.R;
 import sg.edu.np.mad.mad_assignment.databinding.FragmentEventBinding;
+import sg.edu.np.mad.mad_assignment.ui.Study.StudyDetailsPage;
 
 public class EventFragment extends Fragment {
+
+    String Ename, Eattend;
 
     private FragmentEventBinding binding;
     RecyclerView recyclerView;
@@ -49,8 +53,9 @@ public class EventFragment extends Fragment {
         binding = FragmentEventBinding.inflate(inflater, container, false);
         DBHandler dbHandler = new DBHandler(getActivity(), null, null, 1);
 
-//        View view = inflater.inflate(R.layout.fragment_event, container, false);
-//        add information using db
+//        getData();
+//        setdata(dbHandler);
+
         ArrayList<Event> eventlist = dbHandler.retrieveEvent();
 
         final RecyclerView erecyclerView = binding.Erecyclerview;
@@ -58,78 +63,39 @@ public class EventFragment extends Fragment {
         erecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         erecyclerView.setAdapter(new EventAdaptor(eventlist));
 
-//        recyclerView = view.findViewById(R.id.Erecyclerview);
-//        EventAdaptor eventAdaptor = new EventAdaptor(eventlist);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        recyclerView.setAdapter(eventAdaptor);
-
         final FloatingActionButton newevent = binding.EventfloatingActionButton;
         newevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("This is a work in progress...")
-                        .setMessage("The events will only be allowed to be added by verified user such as CCA or SIGS exco teams.")
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create().show();
+                Intent intentsendemail = new Intent(getContext(), SendEmail.class);
+                startActivity(intentsendemail);
             }
         });
         return binding.getRoot();
     }
+//                new AlertDialog.Builder(getContext())
+//                        .setTitle("This is a work in progress...")
+//                        .setMessage("The events will only be allowed to be added by verified user such as CCA or SIGS exco teams.")
+//                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        })
+//                        .create().show();
+    private void getData() {
+    if (getActivity().getIntent().hasExtra("Name") &&
+            getActivity().getIntent().hasExtra("Attend")) {
 
-
-//        add information using db
-//        ArrayList<Event> eventlist = dbHandler.retrieveEvent();
-
-//        for(int i = 0; i < 20; i++){
-//            String Name = "Name";
-//            String Description = "Description ";
-//            String Date = "Aug 15";
-//            String Type = "ICT";
-//            UserList20.add(new Event(Date,Name,Description,Type));
-//        }
-    // Inflate the layout for this fragment
-
-//    View root = binding.getRoot();
-
-//        final RecyclerView erecyclerView = binding.ErecyclerView;
-//
-//        erecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        erecyclerView.setAdapter(new EventAdaptor(getContext(), UserList20));
-
-//        View view = inflater.inflate(R.layout.fragment_event, container, false);
-//         Add the following lines to create RecyclerView
-//        RecyclerView ErecyclerView = view.findViewById(R.id.ErecyclerView);
-//        EventAdaptor eadaptor = new EventAdaptor(Eventlist);
-//        ErecyclerView.setHasFixedSize(true);
-//        ErecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        ErecyclerView.setAdapter(eadaptor);
-
-//        final TextView textView = binding.textEvent;
-//        eventViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-/*Button newEvent = view.findViewById(R.id.EventfloatingActionButton);
-        newEvent.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            new AlertDialog.Builder(getContext())
-                    .setTitle("This is a work in progress...")
-                    .setMessage("The events will only be allowed to be added by verified user suchs as CCA or ClUB exco teams.")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .create().show();
+        Ename = getActivity().getIntent().getStringExtra("Name");
+        Eattend = getActivity().getIntent().getStringExtra("Attend");}
+    else {
+        Toast.makeText(getContext(), "No Data", Toast.LENGTH_SHORT).show();
         }
-    });*/
-
+    }
+    private void setdata (DBHandler dbHandler) {
+        dbHandler.updateEvent(Ename, Eattend);
+    }
 
     @Override
     public void onDestroyView() {

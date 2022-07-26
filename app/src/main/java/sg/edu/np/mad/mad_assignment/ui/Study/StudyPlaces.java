@@ -1,10 +1,25 @@
 package sg.edu.np.mad.mad_assignment.ui.Study;
 
+import android.graphics.drawable.Drawable;
+
 public class StudyPlaces {
     private String studyName;
     private String studyDescription;
     private String studyLocation;//Like block 22 #05-01
     private String studycoordinates;// Set incase needed for map pathing
+    private Drawable drawable;
+
+    public Drawable getDrawable() {
+        return drawable;
+    }
+
+    public void setDrawable(Drawable drawable) {
+        this.drawable = drawable;
+    }
+
+    public StudyPlaces(Drawable drawable) {
+        this.drawable = drawable;
+    }
 
     public StudyPlaces(){}
 

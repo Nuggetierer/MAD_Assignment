@@ -5,11 +5,11 @@ public class Event {
     private String eventName;
     private String eventDescription;
     private String eventType;
-    private Boolean attend;
+    private String attend;
 
     public Event(){}
 
-    public Event(String e_date, String e_name, String e_desc, String event_type, Boolean e_attend)
+    public Event(String e_date, String e_name, String e_desc, String event_type, String e_attend)
     {
         eventDate = e_date;
         eventName = e_name;
@@ -18,11 +18,11 @@ public class Event {
         attend = e_attend;
     }
 
-    public Boolean getAttend() {
+    public String getAttend() {
         return attend;
     }
 
-    public void setAttend(Boolean attend) {
+    public void setAttend(String attend) {
         this.attend = attend;
     }
 
