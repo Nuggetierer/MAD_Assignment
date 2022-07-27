@@ -36,6 +36,8 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
         binding.imageView.setEnabled(false);
 
+        binding.imageView2.setEnabled(false);
+
         View myView = inflater.inflate(R.layout.fragment_map, container, false);
 
         final Button goToSearch = binding.goToSearch;
