@@ -27,9 +27,26 @@
             android:layout_height="122dp">
 
             <TextView
+                android:id="@+id/txt_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="98dp"
+                android:text="&#8942;"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/StudyimageView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
                 android:id="@+id/StudyTextView"
-                android:layout_width="207dp"
-                android:layout_height="58dp"
+                android:layout_width="179dp"
+                android:layout_height="61dp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="sans-serif"
                 android:text="@string/textview"
@@ -60,13 +77,13 @@
 
             <ImageView
                 android:id="@+id/StudyimageView"
-                android:layout_width="159dp"
-                android:layout_height="98dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="182dp"
+                android:layout_height="102dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/atrium_mad" />
+                app:srcCompat="@drawable/atrium_map" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

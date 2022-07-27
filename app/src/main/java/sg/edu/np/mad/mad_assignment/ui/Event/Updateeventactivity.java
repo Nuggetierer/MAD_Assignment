@@ -2,6 +2,7 @@ package sg.edu.np.mad.mad_assignment.ui.Event;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -15,11 +16,13 @@ public class Updateeventactivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_event);
-        DBHandler dbHandler = new DBHandler(this, null, null, 4);
+        DBHandler dbHandler = new DBHandler(this, null, null, 1);
 
         getData();
         setdata(dbHandler);
+
+        Intent intentfrag = new Intent(this , EventFragment.class);
+        startActivity(intentfrag);
     }
     private void getData() {
         if (getIntent().hasExtra("Name") &&

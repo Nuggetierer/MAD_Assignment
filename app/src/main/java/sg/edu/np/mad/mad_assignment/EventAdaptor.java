@@ -3,6 +3,7 @@ package sg.edu.np.mad.mad_assignment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,12 +26,14 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
     private String TAG = "My Adaptor";
 
     ArrayList<Event> EList;
-    private DBHandler dbHandler;
     ArrayList<Event> EList2;
+    DBHandler dbhandler;
 //    private Context context;
 
-    public EventAdaptor(ArrayList<Event> input) {
+    public EventAdaptor(ArrayList<Event> input,DBHandler dbHandler) {
         this.EList = input;
+        this.dbhandler = dbHandler;
+
     }
     @NonNull
     @Override
@@ -47,12 +50,7 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
         String Edate = i.getEventDate();
         String Ename  = i.getEventName();
         String EDesc = i.getEventDescription();
-//        if(i.getAttend() == null){
-//            i.setAttend("1");
-//        }
-//        Boolean ebool = i.getAttend();
-//        String Etype = i.getEventType();
-//        EList2.add(new Event(Edate,Ename,EDesc,Etype,ebool));
+
         //using data to set text
         String Eattend = i.getAttend();
 //       Eattend = !Eattend;
@@ -70,22 +68,24 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
                     i.setAttend("1");
                     holder.image.setImageResource(R.drawable.ic_cross_x_foreground);
 
-                    Intent intent = new Intent(holder.attend.getContext(), Updateeventactivity.class);
-                    intent.putExtra("Name",Ename);
-                    intent.putExtra("Attend","1");
+//                    Intent intent = new Intent(holder.attend.getContext(), Updateeventactivity.class);
+//                    intent.putExtra("Name",Ename);
+//                    intent.putExtra("Attend","1");
 //                    holder.attend.getContext().startActivity(intent);
-//                    dbHandler.updateEvent(Ename, "1");
+                    dbhandler.updateEvent(Ename, "1");
+                    Log.d("Mytag0", i.getAttend() + Ename);
                 }
                 else {
                     holder.attend.setText("Cancel");
                     Toast.makeText(view.getContext(), "Not attending",Toast.LENGTH_SHORT).show();
                     i.setAttend("0");
                     holder.image.setImageResource(R.drawable.ic_check_y_foreground);
-                    Intent intent = new Intent(holder.attend.getContext(), Updateeventactivity.class);
-                    intent.putExtra("Name",Ename);
-                    intent.putExtra("Attend","0");
+//                    Intent intent = new Intent(holder.attend.getContext(), Updateeventactivity.class);
+//                    intent.putExtra("Name",Ename);
+//                    intent.putExtra("Attend","0");
 //                    holder.attend.getContext().startActivity(intent);
-//                    dbHandler.updateEvent(Ename, "0");
+                    dbhandler.updateEvent(Ename, "0");
+                    Log.d("Mytag1", i.getAttend() + Ename);
                 }
             }
         });

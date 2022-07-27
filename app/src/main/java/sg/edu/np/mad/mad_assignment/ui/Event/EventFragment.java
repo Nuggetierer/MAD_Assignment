@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -60,8 +61,12 @@ public class EventFragment extends Fragment {
 
         final RecyclerView erecyclerView = binding.Erecyclerview;
 
+        EventAdaptor adapter =  new EventAdaptor(eventlist, dbHandler);
+
         erecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        erecyclerView.setAdapter(new EventAdaptor(eventlist));
+        erecyclerView.setAdapter(adapter);
+
+//        adapter.notifyDataSetChanged();
 
         final FloatingActionButton newevent = binding.EventfloatingActionButton;
         newevent.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,7 @@
 package sg.edu.np.mad.mad_assignment.ui.Study;
 
+import static java.lang.Boolean.FALSE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +40,9 @@ public class StudyFragment extends Fragment {
 
     private FragmentStudyBinding binding;
     DatabaseReference databaseReference;
+    DAOStudyPlaces daosd;
+    StudyAdaptor studyAdaptor;
+
     public String TAG = "Main Acitivty: ";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,14 +53,19 @@ public class StudyFragment extends Fragment {
         binding = FragmentStudyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        DBHandler dbHandler = new DBHandler(getActivity(), null, null, 3);
+        DBHandler dbHandler = new DBHandler(getActivity(), null, null, 1);
 
         ArrayList<StudyPlaces> Studylist = dbHandler.retrieveStudy();
 
         final RecyclerView studyRecyclerview = binding.StudyRecyclerview;
 
+
+        studyAdaptor =  new StudyAdaptor(Studylist);
         studyRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        studyRecyclerview.setAdapter(new StudyAdaptor(Studylist));
+        studyRecyclerview.setAdapter(studyAdaptor);
+
+        daosd = new DAOStudyPlaces();
+        loadData();
 
         final FloatingActionButton newstudy = binding.StudyfloatingActionButton;
         newstudy.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +77,29 @@ public class StudyFragment extends Fragment {
         });
 
         return root;
+    }
+    private void loadData()
+    {
+        daosd.get().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                ArrayList<StudyPlaces> spal = new ArrayList<>();
+                for(DataSnapshot data : snapshot.getChildren()){
+                    StudyPlaces sp =  data.getValue(StudyPlaces.class);
+                    spal.add(sp);
+                }
+                boolean check = studyAdaptor.setItems(spal);
+                if(check == FALSE){
+                    studyAdaptor.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override

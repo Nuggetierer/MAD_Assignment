@@ -15,7 +15,7 @@
             android:layout_width="394dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/atrium_mad" />
+            android:src="@drawable/atrium_map" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_studyname = "Study_Name";
     public static String column_studydescription = "Study_Description";
     public static String column_studylocation = "Study_Location";
-    public static String column_studycords = "Study_Cords";
+    public static String column_studyimg = "Study_Image";
 
     public static int DATABASE_VERSION = 3;
 
@@ -54,7 +55,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + column_eventdescription + " TEXT," + column_eventtype + " TEXT," + column_eventattend + " TEXT" +  ")";
 
         String CREATE_TABLE_3 = "CREATE TABLE " + Study + "(" + column_studyname + " TEXT," + column_studydescription + " TEXT,"
-                + column_studylocation + " TEXT," + column_studycords + " TEXT" + ")";
+                + column_studylocation + " TEXT," + column_studyimg + " TEXT" + ")";
 
         //execute sql queries
         db.execSQL(CREATE_TABLE_1);
@@ -111,8 +112,8 @@ public class DBHandler extends SQLiteOpenHelper {
         String POPULATE_TABLE_3 = "INSERT INTO " + Study + "(" + column_studyname + ", " + column_studydescription + ", " +
                 column_studylocation + " ," + column_studydescription  + ")"
                 + "VALUES"
-                + "(" + "'Study Lounge@22'," +"'The cosy corners and plush seats at the new student lounge make ploughing through group work that much easier!'," + "'Block 22'," + "'0.12,123.3'" + "),"
-                + "(" + "'Atrium'," +"'Catch up on homework or chill with friends at the newly-revamped Atrium! Grab a coffee at the café or have that heart-to-heart talk on the synthetic grass patch,picnic style.'," + "'Admin Block 1'," + "'1,1'" + ")";
+                + "(" + "'StudyLounge 22'," +"'The cosy corners and plush seats at the new student lounge make ploughing through group work that much easier!'," + "'Block 22'" + "),"
+                + "(" + "'Atrium'," +"'Catch up on homework or chill with friends at the newly-revamped Atrium! Grab a coffee at the café or have that heart-to-heart talk on the synthetic grass patch,picnic style.'," + "'Admin Block 1'" + ")";
 
         db.execSQL(POPULATE_TABLE_3);
     }
@@ -136,7 +137,32 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are calling a update method to update our database and passing our values.
         // and we are comparing it with name of our course which is stored in original name variable.
-        db.update(Events , values, "Event_Name=?", new String[]{name});
+        long result = db.update(Events , values, "Event_Name=?", new String[]{name});
+        Cursor cursor = db.rawQuery("Select * FROM " + Events + " where Event_Name = ?", new String[]{name});
+        ArrayList<Event> queryEData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                Event queryEvent = new Event();
+                queryEvent.setEventDate(cursor.getString(0));
+                queryEvent.setEventName(cursor.getString(1));
+                queryEvent.setEventDescription(cursor.getString(2));
+                queryEvent.setEventType(cursor.getString(3));
+                queryEvent.setAttend(cursor.getString(4));
+
+                queryEData.add(queryEvent);
+                Log.d("getEvent", queryEvent.getAttend());
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        Log.d("UpdateEvent", result + name + attend);
         db.close();
     }
 
@@ -283,7 +309,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 queryStudy.setStudyName(cursor.getString(0));
                 queryStudy.setStudyDescription(cursor.getString(1));
                 queryStudy.setStudyLocation(cursor.getString(2));
-                queryStudy.setStudycoordinates(cursor.getString(3));
+//                queryStudy.setStudycoordinates(cursor.getString(3));
 
                 querySData.add(queryStudy);
                 counter += 1;

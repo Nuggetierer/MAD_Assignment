@@ -3,7 +3,6 @@ package sg.edu.np.mad.mad_assignment.ui.Study;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 import sg.edu.np.mad.mad_assignment.R;
-import sg.edu.np.mad.mad_assignment.ui.Event.SendEmail;
 
 public class AddStudyLocation extends AppCompatActivity {
 
@@ -29,6 +27,7 @@ public class AddStudyLocation extends AppCompatActivity {
         location = (TextInputEditText)findViewById(R.id.StudyPlaceLocationText);
         desc = (TextInputEditText)findViewById(R.id.StudyPlaceDescriptionText);
         Button buttonsubmit = findViewById(R.id.buttonsubmitStudy);
+        DAOStudyPlaces dao = new DAOStudyPlaces();
 
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +39,16 @@ public class AddStudyLocation extends AppCompatActivity {
                     String locationstr = location.getText().toString();
                     String descstr = desc.getText().toString();
 
-
+                    StudyPlaces newsp = new StudyPlaces(titlestr,descstr,locationstr);
+                    dao.add(newsp).addOnSuccessListener(suc->
+                    {
+                        Toast.makeText(AddStudyLocation.this, "Study is Added", Toast.LENGTH_SHORT).show();
+//                        Intent backtodisplay = new Intent(getApplicationContext(), StudyFragment.class);
+//                        startActivity(backtodisplay);
+                    }).addOnFailureListener(er->
+                    {
+                        Toast.makeText(AddStudyLocation.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
                 }
                 else {
                     Toast.makeText(AddStudyLocation.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();

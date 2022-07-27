@@ -6,7 +6,6 @@ public class StudyPlaces {
     private String studyName;
     private String studyDescription;
     private String studyLocation;//Like block 22 #05-01
-    private String studycoordinates;// Set incase needed for map pathing
     private Drawable drawable;
 
     public Drawable getDrawable() {
@@ -23,11 +22,10 @@ public class StudyPlaces {
 
     public StudyPlaces(){}
 
-    public StudyPlaces(String studyName, String studyDescription, String studyLocation, String studycoordinates) {
+    public StudyPlaces(String studyName, String studyDescription, String studyLocation) {
         this.studyName = studyName;
         this.studyDescription = studyDescription;
         this.studyLocation = studyLocation;
-        this.studycoordinates = studycoordinates;
     }
 
     public String getStudyName() {
@@ -54,11 +52,4 @@ public class StudyPlaces {
         this.studyLocation = studyLocation;
     }
 
-    public String getStudycoordinates() {
-        return studycoordinates;
-    }
-
-    public void setStudycoordinates(String studycoordinates) {
-        this.studycoordinates = studycoordinates;
-    }
 }
