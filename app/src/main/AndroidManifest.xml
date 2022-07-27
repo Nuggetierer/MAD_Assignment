@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignment">
         <activity
+            android:name=".ui.Food.MakanPlace.MknPlc"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Food.Others.OtherFood"
+            android:exported="false" />
+        <activity
             android:name=".ui.Food.FoodClub.FdCb"
             android:exported="true">
             <intent-filter>

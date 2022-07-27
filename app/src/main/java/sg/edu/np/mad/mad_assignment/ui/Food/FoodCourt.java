@@ -1,4 +1,4 @@
-package sg.edu.np.mad.mad_assignment;
+package sg.edu.np.mad.mad_assignment.ui.Food;
 
 public class FoodCourt {
     private String FoodCourtName;

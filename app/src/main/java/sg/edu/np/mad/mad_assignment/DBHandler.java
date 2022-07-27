@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
+
 public class DBHandler extends SQLiteOpenHelper {
 
     public static String DATABASE_NAME = "info.db";
@@ -122,7 +124,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'VEGETARIAN', " + "'Mixes Rice Veg Dishes.'" + "),"
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'BAN MIAN', " + "'Craving for something soupy? We are that place.'" + "),"
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'YONG TAU FU', " + "'Choices of 3 noodles and 1 rice. With a choice of soup, dry and laksa.'" + "),"
-                // PUT MUNCH STUFF HERE
                 + "(" + "'Others'," + "'Located at Block 73', " + "'Old Chang Kee', " + "'Grab a quick and light snack.'" + "),"
                 + "(" + "'Others'," + "'Located at OurSpace@72', " + "'TuckShop', " + "'Best known for the Cheesy Hot Dog, Chicken Sandwich and Ice Cream Bread/Wafer.'" + "),"
                 + "(" + "'Others'," + "'Located at Block 27 (beside OIC)', " + "'What Tea', " + "'Refreshing teas to brighten your busy day.'" + "),"

@@ -12,11 +12,11 @@
         android:id="@+id/foodClub"
         android:layout_width="258dp"
         android:layout_height="100dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="148dp"
         android:text="Food Club"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,18 +33,6 @@
         app:layout_constraintTop_toBottomOf="@+id/foodClub" />
 
     <Button
-        android:id="@+id/munch"
-        android:layout_width="258dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        android:text="Munch"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mknPlc" />
-
-    <Button
         android:id="@+id/othrs"
         android:layout_width="258dp"
         android:layout_height="100dp"
@@ -54,5 +42,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/munch" />
+        app:layout_constraintTop_toBottomOf="@+id/mknPlc" />
 </androidx.constraintlayout.widget.ConstraintLayout>

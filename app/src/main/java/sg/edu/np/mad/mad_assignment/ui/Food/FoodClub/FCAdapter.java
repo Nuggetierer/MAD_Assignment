@@ -1,33 +1,25 @@
 package sg.edu.np.mad.mad_assignment.ui.Food.FoodClub;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import sg.edu.np.mad.mad_assignment.FoodCourt;
+import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
 import sg.edu.np.mad.mad_assignment.MainActivity;
 import sg.edu.np.mad.mad_assignment.R;
-import sg.edu.np.mad.mad_assignment.myImageViewHolder;
-import sg.edu.np.mad.mad_assignment.myResultViewHolder;
 
 public class FCAdapter extends RecyclerView.Adapter<FCViewHolder> {
-    ArrayList<FoodCourt> data;
-    public FCAdapter(ArrayList<FoodCourt> input) {this.data = input;}
 
-    public void setData(ArrayList<FoodCourt> data){
-        this.data = data;
-        notifyDataSetChanged();
-    }
+    ArrayList<FoodCourt> FCList;
+
+    public FCAdapter(ArrayList<FoodCourt> input) {this.FCList = input;}
 
     @Override
     @NonNull
@@ -36,23 +28,48 @@ public class FCAdapter extends RecyclerView.Adapter<FCViewHolder> {
         return new FCViewHolder(item);
     }
 
-    public void onBindViewHolder(FCViewHolder holder, @SuppressLint("RecyclerView") int position){
-
+    @Override
+    public void onBindViewHolder(@NonNull FCViewHolder holder, int position) {
         //set data
-//        String fct_name = data.get(position).getFoodCourtName();
-//        String fct_loca = data.get(position).getfctLocation();
-        FoodCourt f = data.get(position);
-        String stall_name = f.getstallname();
-        String stall_descr = f.getstalldescription();
+        ArrayList<FoodCourt> FCfilteredList = new ArrayList<>();
+        for (FoodCourt FC : FCList) {
+            if (FC.getFoodCourtName().toLowerCase().contains("food club")) {
+                FCfilteredList.add(FC);
+            }
+        }
+
+        FoodCourt FC = FCfilteredList.get(position);
+
+        String stall_name = FC.getstallname();
+        String stall_descr = FC.getstalldescription();
+
+        //for image
+        String name = FCfilteredList.get(position).toString().replace(" ","_").toLowerCase();
+        String parse_img_name = name + "_foodclub";
+        // need to name it like : 'indonesian_foodclub'
+
+        int drawable = getDrawable(holder.STLimg.getContext(), parse_img_name);
+        holder.STLimg.setImageURI(Uri.parse("android.resource://" + MainActivity.PACKAGENAME + "/" + drawable));
 
         //using data to set text
-//        holder.FCTname.setText(fct_name);
-//        holder.FCTloca.setText(fct_loca);
         holder.STLname.setText(stall_name);
         holder.STLdescr.setText(stall_descr);
+    }
 
+    public static int getDrawable (Context context, String name){
+        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 
     //return size of array list
-    public int getItemCount() {return data.size();}
+    public int getItemCount() {return FCList.size();}
+
+//    public class FCViewHolder extends RecyclerView.ViewHolder{
+//        TextView STLname, STLdescr;
+//
+//        public FCViewHolder(@NonNull View itemView){
+//            super(itemView);
+//            STLname = itemView.findViewById(R.id.STLname);
+//            STLdescr = itemView.findViewById(R.id.STLdescr);
+//        }
+//    }
 }

@@ -23,7 +23,7 @@
             android:padding="5dp">
 
             <ImageView
-                android:id="@+id/STLimg"
+                android:id="@+id/OTHimg"
                 android:layout_width="150dp"
                 android:layout_height="166dp"
                 android:layout_marginEnd="4dp"
@@ -33,34 +33,50 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/STLname"
+                android:id="@+id/OTHname"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Stall Name"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/STLimg"
+                app:layout_constraintEnd_toStartOf="@+id/OTHimg"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.191" />
+                app:layout_constraintVertical_bias="0.117" />
 
             <TextView
-                android:id="@+id/STLdescr"
+                android:id="@+id/OTHdescr"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
                 android:text="Stall Description"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/STLimg"
+                app:layout_constraintEnd_toStartOf="@+id/OTHimg"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/STLname"
-                app:layout_constraintVertical_bias="0.339" />
+                app:layout_constraintTop_toBottomOf="@+id/OTHloca" />
+
+            <TextView
+                android:id="@+id/OTHloca"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Stall Location"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/OTHimg"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OTHname"
+                app:layout_constraintVertical_bias="0.141" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

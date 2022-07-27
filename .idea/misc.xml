@@ -43,6 +43,9 @@
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/activity_fd_cb.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/activity_main3.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/activity_mkn_plc.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/activity_munch.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/activity_other_food.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/blkimg_layout.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/block_details.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/event_fragmentlayout.xml" value="0.14130434782608695" />
@@ -51,8 +54,12 @@
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/fragment_event.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/fragment_food.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/fragment_map.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/mknstall_recyclerview.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/munchstall_recyclerview.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/new_resultview.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/othstall_recyclerview.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/result_recyclerview.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/elija/OneDrive - Ngee Ann Polytechnic/YEAR 2 SEM 1/MAD/MAD_Assignment/app/src/main/res/layout/stlimg_layout.xml" value="0.14130434782608695" />
       </map>
     </option>
   </component>

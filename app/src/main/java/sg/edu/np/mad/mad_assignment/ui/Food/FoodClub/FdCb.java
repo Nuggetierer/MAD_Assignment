@@ -5,20 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.SearchView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import sg.edu.np.mad.mad_assignment.DBHandler;
-import sg.edu.np.mad.mad_assignment.FoodCourt;
+import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
 import sg.edu.np.mad.mad_assignment.R;
-import sg.edu.np.mad.mad_assignment.myAdapter;
 
 public class FdCb extends AppCompatActivity {
 
-    RecyclerView stallRecycler;
-    ArrayList<FoodCourt> stallList;
+    RecyclerView FCRecycler;
+    ArrayList<FoodCourt> FCList;
     FCAdapter fcdAdapter;
 
     @Override
@@ -35,15 +34,15 @@ public class FdCb extends AppCompatActivity {
         TextView loca = findViewById(R.id.FCloca);
         loca.setText("Located at Block 22");
 
-        stallRecycler = findViewById(R.id.stallRecycler);
-        stallRecycler.setHasFixedSize(true);
-        stallRecycler.setLayoutManager(new LinearLayoutManager(this));
-        stallList = new ArrayList<>();
+        FCRecycler = findViewById(R.id.FCRecycler);
+        FCRecycler.setHasFixedSize(true);
+        FCRecycler.setLayoutManager(new LinearLayoutManager(this));
+        FCList = new ArrayList<>();
 
         //add information using db
-        stallList = dbHandler.retrieveFoodCourt();
+        FCList = dbHandler.retrieveFoodCourt();
 
-        fcdAdapter = new FCAdapter(stallList);
-        stallRecycler.setAdapter(fcdAdapter);
+        fcdAdapter = new FCAdapter(FCList);
+        FCRecycler.setAdapter(fcdAdapter);
     }
 }
