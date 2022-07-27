@@ -110,7 +110,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(POPULATE_TABLE_2);
 
         String POPULATE_TABLE_3 = "INSERT INTO " + Study + "(" + column_studyname + ", " + column_studydescription + ", " +
-                column_studylocation + " ," + column_studydescription  + ")"
+                column_studylocation  + ")"
                 + "VALUES"
                 + "(" + "'StudyLounge 22'," +"'The cosy corners and plush seats at the new student lounge make ploughing through group work that much easier!'," + "'Block 22'" + "),"
                 + "(" + "'Atrium'," +"'Catch up on homework or chill with friends at the newly-revamped Atrium! Grab a coffee at the café or have that heart-to-heart talk on the synthetic grass patch,picnic style.'," + "'Admin Block 1'" + ")";
