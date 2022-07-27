@@ -27,6 +27,8 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:text="Email"
+        android:background="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regisIntroText" />
 
@@ -39,6 +41,8 @@
         android:ems="10"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registrationEmail" />
 
@@ -51,6 +55,8 @@
         android:ems="10"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registrationPass1" />
 
@@ -64,6 +70,8 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Nickname"
+        android:background="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registrationPass2" />
 

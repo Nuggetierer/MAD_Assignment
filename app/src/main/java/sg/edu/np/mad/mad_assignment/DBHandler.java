@@ -37,7 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_studylocation = "Study_Location";
     public static String column_studycords = "Study_Cords";
 
-    public static int DATABASE_VERSION = 2;
+    public static int DATABASE_VERSION = 3;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
