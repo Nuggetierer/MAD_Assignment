@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
 import sg.edu.np.mad.mad_assignment.ui.Study.StudyPlaces;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -38,6 +39,13 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_studylocation = "Study_Location";
     public static String column_studyimg = "Study_Image";
 
+    // Information for Food table
+    public static String FoodCourt = "Food_Court";
+    public static String column_fctName = "Fct_Name";
+    public static String column_fctLocation = "Location";
+    public static String column_stallname = "Stall_Name";
+    public static String column_stalldescription = "Stall_Description";
+    
     public static int DATABASE_VERSION = 3;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -56,6 +64,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String CREATE_TABLE_3 = "CREATE TABLE " + Study + "(" + column_studyname + " TEXT," + column_studydescription + " TEXT,"
                 + column_studylocation + " TEXT," + column_studyimg + " TEXT" + ")";
+
+        String CREATE_TABLE_3 = "CREATE TABLE " + FoodCourt +"(" + column_fctName + " TEXT," + column_fctLocation + " TEXT," + column_stallname + " TEXT,"
+                + column_stalldescription + " TEXT" + ")";
 
         //execute sql queries
         db.execSQL(CREATE_TABLE_1);
@@ -109,6 +120,29 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(POPULATE_TABLE_2);
 
+        String POPULATE_TABLE_3 = "INSERT INTO " + FoodCourt +"(" + column_fctName + ", " + column_fctLocation + ", " + column_stallname + ", "
+                + column_stalldescription + ")"
+                + "VALUES"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'INDONESIAN', " + "'Perfect for Muslim diners since food is halal, and is known for their Ayam Penyet.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'KOREAN', " + "'Perfect for Muslim diners since food is halal, and is known for their hotplate set.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'WESTERN FUSION', " + "'The main comes with 1 carb, 1 side and a choice of either salad or miso soup.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'SALAD', " + "'Toss and turn with your favourite ingredients.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'MIXED VEG RICE', " + "'Mixed Rice Veg Dishes.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'WAFFLE & TAKOYAKI', " + "'Not very hungry? Visit us for a light snack.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'YOGURT', " + "'Order a fresh yogurt or parfait, to cool down from the warm and humid weather!'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'SUBWAY', " + "'Perfect for Muslim diners since food is halal, they may select a wide variety of meats, vegetables, fresh baked breads and flavorful condiments and sauces.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'THAI', " + "'Perfect for Muslim diners since food is halal, and is known for their Tom Yum Fried Rice and Garlic Chicken.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'WESTERN', " + "'Best known for their Crispy Chicken Cutlet, Crispy Breaded Fish Rice and Popcorn Chicken.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'JAPANESE', " + "'Best known for their Curry Rice with Cheese Omelette or Chicken Kaarage.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'MALA', " + "'Most loved by spicy food enthusiasts with 5 levels of spiciness.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'VEGETARIAN', " + "'Mixes Rice Veg Dishes.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'BAN MIAN', " + "'Craving for something soupy? We are that place.'" + "),"
+                + "(" + "'Makan Place'," + "'Located at Block 51', " + "'YONG TAU FU', " + "'Choices of 3 noodles and 1 rice. With a choice of soup, dry and laksa.'" + "),"
+                + "(" + "'Others'," + "'Located at Block 73', " + "'Old Chang Kee', " + "'Grab a quick and light snack.'" + "),"
+                + "(" + "'Others'," + "'Located at OurSpace@72', " + "'TuckShop', " + "'Best known for the Cheesy Hot Dog, Chicken Sandwich and Ice Cream Bread/Wafer.'" + "),"
+                + "(" + "'Others'," + "'Located at Block 27 (beside OIC)', " + "'What Tea', " + "'Refreshing teas to brighten your busy day.'" + "),"
+                + "(" + "'Others'," + "'Located at Agile@Blk58', " + "'Canvas Yogurt', " + "'Mix & Match with fruits and toppings.'" + "),"
+                + "(" + "'Others'," + "'Located at Block 1', " + "'Cheers', " + "'A convenience store with microwaveable food, snacks and drinks.'" + ")";
         String POPULATE_TABLE_3 = "INSERT INTO " + Study + "(" + column_studyname + ", " + column_studydescription + ", " +
                 column_studylocation  + ")"
                 + "VALUES"
@@ -122,6 +156,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + Blocks);
         db.execSQL("DROP TABLE IF EXISTS " + Events);
+        db.execSQL("DROP TABLE IF EXISTS " + FoodCourt);
         db.execSQL("DROP TABLE IF EXISTS " + Study);
         onCreate(db);
     }
@@ -346,6 +381,39 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
 
         return queryData;
+    }
+
+    //Create a list of all food courts
+    public ArrayList<FoodCourt> retrieveFoodCourt()
+    {
+        String query = "SELECT * FROM " + FoodCourt;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<FoodCourt> queryFCData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                FoodCourt queryFCT = new FoodCourt();
+                queryFCT.setFoodCourtName(cursor.getString(0));
+                queryFCT.setfctLocation(cursor.getString(1));
+                queryFCT.setstallname(cursor.getString(2));
+                queryFCT.setstalldescription(cursor.getString(3));
+
+                queryFCData.add(queryFCT);
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        db.close();
+        return queryFCData;
     }
 
     //Above functions may not work for actual usage with recycler view below are rewritten functions
