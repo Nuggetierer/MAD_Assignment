@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Map.YellowZone">
+
+    <ImageView
+        android:id="@+id/yellowzone"
+        android:layout_width="398dp"
+        android:layout_height="817dp"
+        android:layout_marginStart="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yellowzone" />
+
+    <Button
+        android:id="@+id/MainField"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        android:tooltipText = "Ngee Ann Polytechnic, Main Field"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.585" />
+
+    <Button
+        android:id="@+id/AdminBuilding"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        android:tooltipText = "Ngee Ann Polytechnic, Block 1"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone" />
+
+    <Button
+        android:id="@+id/SchoolofEngineeringEast"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        android:tooltipText = "Ngee Ann Polytechnic, Block 7"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone" />
+
+    <Button
+        android:id="@+id/DialogueInTheDark"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        android:tooltipText = "Ngee Ann Polytechnic, Block 5"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone" />
+
+    <Button
+        android:id="@+id/PoolSide"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        android:tooltipText = "Ngee Ann Polytechnic, Poolside"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.369" />
+
+    <Button
+        android:id="@+id/SportsComplex"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:backgroundTint="@color/lightyellow"
+        android:tooltipText = "Ngee Ann Polytechnic, Sports Complex"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.518" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

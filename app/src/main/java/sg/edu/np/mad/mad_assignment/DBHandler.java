@@ -1,13 +1,16 @@
 package sg.edu.np.mad.mad_assignment;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
 import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
+import sg.edu.np.mad.mad_assignment.ui.Study.StudyPlaces;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -27,6 +30,14 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_eventname = "Event_Name";
     public static String column_eventdescription = "Event_Description";
     public static String column_eventtype = "Event_Type";
+    public static String column_eventattend = "Event_Attend";
+
+    //Information for StudyPlaces table
+    public static String Study = "Studys";
+    public static String column_studyname = "Study_Name";
+    public static String column_studydescription = "Study_Description";
+    public static String column_studylocation = "Study_Location";
+    public static String column_studyimg = "Study_Image";
 
     // Information for Food table
     public static String FoodCourt = "Food_Court";
@@ -34,8 +45,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_fctLocation = "Location";
     public static String column_stallname = "Stall_Name";
     public static String column_stalldescription = "Stall_Description";
-
-    public static int DATABASE_VERSION = 2;
+    
+    public static int DATABASE_VERSION = 3;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -49,7 +60,10 @@ public class DBHandler extends SQLiteOpenHelper {
                 + " TEXT," + column_description + " TEXT," + column_school + " TEXT," + column_type + " TEXT" + ")";
 
         String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventdate + " TEXT," + column_eventname + " TEXT,"
-                + column_eventdescription + " TEXT," + column_eventtype + " TEXT" + ")";
+                + column_eventdescription + " TEXT," + column_eventtype + " TEXT," + column_eventattend + " TEXT" +  ")";
+
+        String CREATE_TABLE_3 = "CREATE TABLE " + Study + "(" + column_studyname + " TEXT," + column_studydescription + " TEXT,"
+                + column_studylocation + " TEXT," + column_studyimg + " TEXT" + ")";
 
         String CREATE_TABLE_3 = "CREATE TABLE " + FoodCourt +"(" + column_fctName + " TEXT," + column_fctLocation + " TEXT," + column_stallname + " TEXT,"
                 + column_stalldescription + " TEXT" + ")";
@@ -95,14 +109,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(POPULATE_TABLE_1);
 
         String POPULATE_TABLE_2 = "INSERT INTO " + Events + "(" + column_eventdate + ", " + column_eventname + ", " +
-                column_eventdescription + " ," + column_eventtype  + ")"
+                column_eventdescription + " ," + column_eventtype  + " ," + column_eventattend + ")"
                 + "VALUES"
-                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp to introduce freshman to the school through icebreakers and activities'," + "'Ict event'" + "),"
-                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'A week dedicated to common test and exams'," + "'Ict event'" + "),"
-                + "(" + "'12 Aug'," +  "'CSF Day'," + "'A day that celebrates all achievements done for Cybeer Security'," + "'Ict event'" + "),"
-                + "(" + "'9 Aug'," +  "'National Day'," + "'National day, the school will be organising games and activities for students to commemorate Singapores birthday'," + "'Np School Wide Event'" + "),"
-                + "(" + "'10 July'," +  "'No Bag Day'," + "'Students will carry their stuff with anything but a backpack'," + "'Np School Wide Event'" + "),"
-                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'A camp that has Sport Activities such as Track and Field, Frisbee and captains ball'," + "'Np School Wide Event'" + ")";
+                + "(" + "'17 Apr'," +  "'CSOP'," + "'Ict Orientation Camp to introduce freshman to the school through icebreakers and activities'," + "'Ict event'," + "'1'" + "),"
+                + "(" + "'18-26 Aug', " +"'Exams Week'," + "'A week dedicated to common test and exams'," + "'Ict event'," + "'1'" + "),"
+                + "(" + "'12 Aug'," +  "'CSF Day'," + "'A day that celebrates all achievements done for Cybeer Security'," + "'Ict event'," + "'1'" + "),"
+                + "(" + "'9 Aug'," +  "'National Day'," + "'National day, the school will be organising games and activities for students to commemorate Singapores birthday'," + "'Np School Wide Event'," + "'1'" + "),"
+                + "(" + "'10 July'," +  "'No Bag Day'," + "'Students will carry their stuff with anything but a backpack'," + "'Np School Wide Event'," + "'1'" + "),"
+                + "(" + "'23 June'," +"'Sports and Dance camp'," + "'A camp that has Sport Activities such as Track and Field, Frisbee and captains ball'," + "'Np School Wide Event'," + "'1'" + ")";
 
         db.execSQL(POPULATE_TABLE_2);
 
@@ -129,6 +143,11 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "(" + "'Others'," + "'Located at Block 27 (beside OIC)', " + "'What Tea', " + "'Refreshing teas to brighten your busy day.'" + "),"
                 + "(" + "'Others'," + "'Located at Agile@Blk58', " + "'Canvas Yogurt', " + "'Mix & Match with fruits and toppings.'" + "),"
                 + "(" + "'Others'," + "'Located at Block 1', " + "'Cheers', " + "'A convenience store with microwaveable food, snacks and drinks.'" + ")";
+        String POPULATE_TABLE_3 = "INSERT INTO " + Study + "(" + column_studyname + ", " + column_studydescription + ", " +
+                column_studylocation  + ")"
+                + "VALUES"
+                + "(" + "'StudyLounge 22'," +"'The cosy corners and plush seats at the new student lounge make ploughing through group work that much easier!'," + "'Block 22'" + "),"
+                + "(" + "'Atrium'," +"'Catch up on homework or chill with friends at the newly-revamped Atrium! Grab a coffee at the café or have that heart-to-heart talk on the synthetic grass patch,picnic style.'," + "'Admin Block 1'" + ")";
 
         db.execSQL(POPULATE_TABLE_3);
     }
@@ -138,7 +157,48 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Blocks);
         db.execSQL("DROP TABLE IF EXISTS " + Events);
         db.execSQL("DROP TABLE IF EXISTS " + FoodCourt);
+        db.execSQL("DROP TABLE IF EXISTS " + Study);
         onCreate(db);
+    }
+    public void updateEvent(String name, String attend) {
+
+        // calling a method to get writable database.
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // on below line we are passing all values
+        // along with its key and value pair.
+        values.put(column_eventattend, attend);
+
+        // on below line we are calling a update method to update our database and passing our values.
+        // and we are comparing it with name of our course which is stored in original name variable.
+        long result = db.update(Events , values, "Event_Name=?", new String[]{name});
+        Cursor cursor = db.rawQuery("Select * FROM " + Events + " where Event_Name = ?", new String[]{name});
+        ArrayList<Event> queryEData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                Event queryEvent = new Event();
+                queryEvent.setEventDate(cursor.getString(0));
+                queryEvent.setEventName(cursor.getString(1));
+                queryEvent.setEventDescription(cursor.getString(2));
+                queryEvent.setEventType(cursor.getString(3));
+                queryEvent.setAttend(cursor.getString(4));
+
+                queryEData.add(queryEvent);
+                Log.d("getEvent", queryEvent.getAttend());
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        Log.d("UpdateEvent", result + name + attend);
+        db.close();
     }
 
     //function to find block use for search function to return to recycler view
@@ -252,6 +312,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 queryEvent.setEventName(cursor.getString(1));
                 queryEvent.setEventDescription(cursor.getString(2));
                 queryEvent.setEventType(cursor.getString(3));
+                queryEvent.setAttend(cursor.getString(4));
 
                 queryEData.add(queryEvent);
                 counter += 1;
@@ -266,6 +327,37 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryEData;
     }
 
+    public ArrayList<StudyPlaces> retrieveStudy()
+    {
+        String query = "SELECT * FROM " + Study;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<StudyPlaces> querySData = new ArrayList<StudyPlaces>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                StudyPlaces queryStudy = new StudyPlaces();
+                queryStudy.setStudyName(cursor.getString(0));
+                queryStudy.setStudyDescription(cursor.getString(1));
+                queryStudy.setStudyLocation(cursor.getString(2));
+//                queryStudy.setStudycoordinates(cursor.getString(3));
+
+                querySData.add(queryStudy);
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        db.close();
+        return querySData;
+    }
     //function to get event information from database
     //redundant
     public Event getevent(int i)
@@ -326,20 +418,3 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //Above functions may not work for actual usage with recycler view below are rewritten functions
 }
-
-//        ⣿⣿⣿⣿⣿⠟⠋⠄⠄⠄⠄⠄⠄⠄⢁⠈⢻⢿⣿⣿⣿⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⡀⠭⢿⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⡟⠄⢀⣾⣿⣿⣿⣷⣶⣿⣷⣶⣶⡆⠄⠄⠄⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⡇⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠄⠄⢸⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣇⣼⣿⣿⠿⠶⠙⣿⡟⠡⣴⣿⣽⣿⣧⠄⢸⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣿⣾⣿⣿⣟⣭⣾⣿⣷⣶⣶⣴⣶⣿⣿⢄⣿⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣿⣿⣿⣿⡟⣩⣿⣿⣿⡏⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣿⣿⣹⡋⠘⠷⣦⣀⣠⡶⠁⠈⠁⠄⣿⣿⣿⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣿⣿⣍⠃⣴⣶⡔⠒⠄⣠⢀⠄⠄⠄⡨⣿⣿⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⣿⣿⣿⣦⡘⠿⣷⣿⠿⠟⠃⠄⠄⣠⡇⠈⠻⣿⣿⣿⣿
-//        ⣿⣿⣿⣿⡿⠟⠋⢁⣷⣠⠄⠄⠄⠄⣀⣠⣾⡟⠄⠄⠄⠄⠉⠙⠻
-//        ⡿⠟⠋⠁⠄⠄⠄⢸⣿⣿⡯⢓⣴⣾⣿⣿⡟⠄⠄⠄⠄⠄⠄⠄⠄
-//        ⠄⠄⠄⠄⠄⠄⠄⣿⡟⣷⠄⠹⣿⣿⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄
-//        ⠄⠄⠄⠄⠄⠄⣸⣿⡷⡇⠄⣴⣾⣿⣿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄
-//        ⠄⠄⠄⠄⠄⠄⣿⣿⠃⣦⣄⣿⣿⣿⠇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
-//        ⠄⠄⠄⠄⠄⢸⣿⠗⢈⡶⣷⣿⣿⡏⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
