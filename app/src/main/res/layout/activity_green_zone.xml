@@ -194,15 +194,15 @@
 
     <TextView
         android:id="@+id/SIT"
-        android:layout_width="21dp"
-        android:layout_height="18dp"
+        android:layout_width="38dp"
+        android:layout_height="24dp"
         android:text="SIT"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintHorizontal_bias="0.748"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.584" />
 
     <TextView
         android:id="@+id/Block25"
