@@ -1,6 +1,13 @@
-package sg.edu.np.mad.mad_assignment;
+package sg.edu.np.mad.mad_assignment.ui.Event;
 
-public class Event {
+import com.google.firebase.database.Exclude;
+
+import java.io.Serializable;
+
+public class Event  implements Serializable {
+    @Exclude
+    private String Key;
+
     private String eventDate;
     private String eventName;
     private String eventDescription;
@@ -56,5 +63,13 @@ public class Event {
 
     public void setEventType(String eventType) {
         this.eventType = eventType;
+    }
+
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
     }
 }

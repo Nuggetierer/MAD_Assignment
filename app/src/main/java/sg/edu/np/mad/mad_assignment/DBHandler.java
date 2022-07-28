@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import sg.edu.np.mad.mad_assignment.ui.Event.Event;
 import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
 import sg.edu.np.mad.mad_assignment.ui.Study.StudyPlaces;
 
@@ -45,7 +46,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_fctLocation = "Location";
     public static String column_stallname = "Stall_Name";
     public static String column_stalldescription = "Stall_Description";
-    
+
     public static int DATABASE_VERSION =4;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

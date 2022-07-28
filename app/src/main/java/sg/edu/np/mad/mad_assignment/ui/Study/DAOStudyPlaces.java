@@ -6,10 +6,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.HashMap;
-import java.util.Queue;
 
-import sg.edu.np.mad.mad_assignment.Event;
-import sg.edu.np.mad.mad_assignment.ui.Study.StudyPlaces;
+import sg.edu.np.mad.mad_assignment.ui.Event.Event;
 
 public class DAOStudyPlaces {
 
@@ -42,5 +40,17 @@ public class DAOStudyPlaces {
     public Task<Void> adde(Event event)
     {
         return databaseReference2.push().setValue(event);
+    }
+    public Task<Void> updatee(String key, HashMap<String,Object> hashMap)
+    {
+        return databaseReference2.child(key).updateChildren(hashMap);
+    }
+    public Task<Void> updateAttende(String key, HashMap<String,Object> hashMap)
+    {
+        return databaseReference2.child(key).updateChildren(hashMap);
+    }
+    public Query gete()
+    {
+        return databaseReference2.orderByKey();
     }
 }

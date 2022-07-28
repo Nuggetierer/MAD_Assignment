@@ -29,6 +29,12 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".ui.Study.ImportImages"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Study.EditStudyLocation"
+            android:exported="false" />
+        <activity
             android:name=".ui.Study.AddStudyLocation"
             android:exported="false" />
         <activity

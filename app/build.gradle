@@ -55,7 +55,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'androidx.cardview:cardview:1.0.0' // for cardview
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'   // for recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.firebase:firebase-storage:20.0.1'// for recyclerview
     // https://mvnrepository.com/artifact/com.google.android.material/material
     runtimeOnly group: 'com.google.android.material', name: 'material', version: '1.7.0-alpha02'
     testImplementation 'junit:junit:4.13.2'
