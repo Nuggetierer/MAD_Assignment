@@ -46,6 +46,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         SettingsViewModel settingsViewModel =
                 new ViewModelProvider(this).get(SettingsViewModel.class);
 
@@ -85,15 +86,14 @@ public class SettingsFragment extends Fragment {
         //login button
         //Take login status to change the text on button
         //initial setup phase
-        boolean loginStatus = MainActivity.loggedin;
+        SharedPreferences sharedpref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        boolean loginStatus = sharedpref.getBoolean("loggedin", false);
         loginButton = binding.loginButton;
 
         if(loginStatus){
             loginButton.setText("Logout");
 
             //set up temp user to parse
-            SharedPreferences sharedpref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
-
             tempuser.setNickname(MainActivity.userUsername);
             tempuser.setEmail(MainActivity.userEmail);
 

@@ -46,7 +46,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_stallname = "Stall_Name";
     public static String column_stalldescription = "Stall_Description";
     
-    public static int DATABASE_VERSION = 3;
+    public static int DATABASE_VERSION =4;
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -65,13 +65,14 @@ public class DBHandler extends SQLiteOpenHelper {
         String CREATE_TABLE_3 = "CREATE TABLE " + Study + "(" + column_studyname + " TEXT," + column_studydescription + " TEXT,"
                 + column_studylocation + " TEXT," + column_studyimg + " TEXT" + ")";
 
-        String CREATE_TABLE_3 = "CREATE TABLE " + FoodCourt +"(" + column_fctName + " TEXT," + column_fctLocation + " TEXT," + column_stallname + " TEXT,"
+        String CREATE_TABLE_4 = "CREATE TABLE " + FoodCourt +"(" + column_fctName + " TEXT," + column_fctLocation + " TEXT," + column_stallname + " TEXT,"
                 + column_stalldescription + " TEXT" + ")";
 
         //execute sql queries
         db.execSQL(CREATE_TABLE_1);
         db.execSQL(CREATE_TABLE_2);
         db.execSQL(CREATE_TABLE_3);
+        db.execSQL(CREATE_TABLE_4);
 
         //sql query for filling up tables (pending information)
 
@@ -143,13 +144,16 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "(" + "'Others'," + "'Located at Block 27 (beside OIC)', " + "'What Tea', " + "'Refreshing teas to brighten your busy day.'" + "),"
                 + "(" + "'Others'," + "'Located at Agile@Blk58', " + "'Canvas Yogurt', " + "'Mix & Match with fruits and toppings.'" + "),"
                 + "(" + "'Others'," + "'Located at Block 1', " + "'Cheers', " + "'A convenience store with microwaveable food, snacks and drinks.'" + ")";
-        String POPULATE_TABLE_3 = "INSERT INTO " + Study + "(" + column_studyname + ", " + column_studydescription + ", " +
+
+        db.execSQL(POPULATE_TABLE_3);
+
+        String POPULATE_TABLE_4 = "INSERT INTO " + Study + "(" + column_studyname + ", " + column_studydescription + ", " +
                 column_studylocation  + ")"
                 + "VALUES"
                 + "(" + "'StudyLounge 22'," +"'The cosy corners and plush seats at the new student lounge make ploughing through group work that much easier!'," + "'Block 22'" + "),"
                 + "(" + "'Atrium'," +"'Catch up on homework or chill with friends at the newly-revamped Atrium! Grab a coffee at the café or have that heart-to-heart talk on the synthetic grass patch,picnic style.'," + "'Admin Block 1'" + ")";
 
-        db.execSQL(POPULATE_TABLE_3);
+        db.execSQL(POPULATE_TABLE_4);
     }
 
     @Override
