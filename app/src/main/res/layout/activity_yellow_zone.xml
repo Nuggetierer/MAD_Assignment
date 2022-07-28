@@ -92,5 +92,51 @@
         app:layout_constraintTop_toTopOf="@+id/yellowzone"
         app:layout_constraintVertical_bias="0.518" />
 
+    <TextView
+        android:id="@+id/Block4"
+        android:layout_width="20dp"
+        android:layout_height="23dp"
+        android:text="4"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.389" />
 
+    <TextView
+        android:id="@+id/Block6"
+        android:layout_width="14dp"
+        android:layout_height="20dp"
+        android:text="6"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.373" />
+
+    <TextView
+        android:id="@+id/Block8"
+        android:layout_width="21dp"
+        android:layout_height="22dp"
+        android:text="8"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.361" />
+
+    <TextView
+        android:id="@+id/Block16"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:text="16"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowzone"
+        app:layout_constraintEnd_toEndOf="@+id/yellowzone"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toStartOf="@+id/yellowzone"
+        app:layout_constraintTop_toTopOf="@+id/yellowzone"
+        app:layout_constraintVertical_bias="0.467" />
 </androidx.constraintlayout.widget.ConstraintLayout>

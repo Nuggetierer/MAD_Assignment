@@ -120,4 +120,149 @@
         app:layout_constraintTop_toTopOf="@+id/greenzone"
         app:layout_constraintVertical_bias="0.516" />
 
+    <TextView
+        android:id="@+id/Block44"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="44"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.172"/>
+
+    <TextView
+        android:id="@+id/Block43"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="43"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.124" />
+
+    <TextView
+        android:id="@+id/Block40"
+        android:layout_width="32dp"
+        android:layout_height="36dp"
+        android:text="40"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <TextView
+        android:id="@+id/Block47"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="47"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <TextView
+        android:id="@+id/Block39"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="39"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.302" />
+
+    <TextView
+        android:id="@+id/Block35"
+        android:layout_width="20dp"
+        android:layout_height="22dp"
+        android:text="35"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.485" />
+
+    <TextView
+        android:id="@+id/SIT"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="SIT"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.588" />
+
+    <TextView
+        android:id="@+id/Block25"
+        android:layout_width="38dp"
+        android:layout_height="31dp"
+        android:text="25"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.672" />
+
+    <TextView
+        android:id="@+id/Block23"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="23"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.732" />
+
+    <TextView
+        android:id="@+id/Block20"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="20"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/Block27"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="27"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/Block56"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="56"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.875" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

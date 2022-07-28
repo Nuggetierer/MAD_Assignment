@@ -114,11 +114,107 @@
         android:layout_width="30dp"
         android:layout_height="27dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Training Field"
+        android:tooltipText="Ngee Ann Polytechnic, Training Field"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
         app:layout_constraintHorizontal_bias="0.269"
         app:layout_constraintStart_toStartOf="@+id/redzone"
         app:layout_constraintTop_toTopOf="@+id/redzone"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.153" />
+
+    <TextView
+        android:id="@+id/Block50"
+        android:layout_width="23dp"
+        android:layout_height="16dp"
+        android:text="50"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.176" />
+
+    <TextView
+        android:id="@+id/Block51"
+        android:layout_width="28dp"
+        android:layout_height="23dp"
+        android:text="51"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.245" />
+
+    <TextView
+        android:id="@+id/Block80"
+        android:layout_width="40dp"
+        android:layout_height="31dp"
+        android:text="80"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.295" />
+
+    <TextView
+        android:id="@+id/Block82"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="82"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.438" />
+
+    <TextView
+        android:id="@+id/Block54"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="54"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.359" />
+
+    <TextView
+        android:id="@+id/Block75"
+        android:layout_width="43dp"
+        android:layout_height="53dp"
+        android:text="75"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.575" />
+
+    <TextView
+        android:id="@+id/Block71"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="71"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/Block73"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="73"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.649" />
 </androidx.constraintlayout.widget.ConstraintLayout>

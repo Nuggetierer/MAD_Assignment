@@ -21,7 +21,6 @@ public class GreenZone extends AppCompatActivity {
         setContentView(R.layout.activity_green_zone);
         DBHandler dbHandler = new DBHandler(GreenZone.this, null, null, 1);
 
-
         //Convention Center
         Button ConventionCenter = (Button) findViewById(R.id.ConventionCenter);
         ConventionCenter.setOnClickListener(new View.OnClickListener()
