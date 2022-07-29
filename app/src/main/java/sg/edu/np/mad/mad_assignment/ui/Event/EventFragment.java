@@ -2,9 +2,9 @@ package sg.edu.np.mad.mad_assignment.ui.Event;
 
 import static android.content.ContentValues.TAG;
 import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,17 +31,18 @@ import java.util.ArrayList;
 import sg.edu.np.mad.mad_assignment.DBHandler;
 import sg.edu.np.mad.mad_assignment.databinding.FragmentEventBinding;
 import sg.edu.np.mad.mad_assignment.ui.Study.DAOStudyPlaces;
-import sg.edu.np.mad.mad_assignment.ui.Study.StudyPlaces;
 
 public class EventFragment extends Fragment {
 
     String Ename, Eattend;
     DAOStudyPlaces dao;
+    DAOEvent daoE;
     String Key;
     private FirebaseAuth mAuth;
-    private FirebaseUser FirebaseUser;
+    private FirebaseUser mFirebaseUser;
     String currentUserID;
     EventAdaptor adapter;
+    private ArrayList<Event> eventlist;
 
     private FragmentEventBinding binding;
     RecyclerView recyclerView;
@@ -62,28 +63,50 @@ public class EventFragment extends Fragment {
 //        getData();
 //        setdata(dbHandler);
 
-        ArrayList<Event> eventlist = dbHandler.retrieveEvent();
+        eventlist = dbHandler.retrieveEvent();
 
         ArrayList<Event> eventlist1 = new ArrayList<Event>();
 
         final RecyclerView erecyclerView = binding.Erecyclerview;
 
         dao = new DAOStudyPlaces();
+        Log.d("Dao","Dao: " + dao);
         if (dao == null) {
             for (int i = 0; i < eventlist.size(); i++) {
                 dao.adde(eventlist.get(i));
             }
         }
-        loadData();
 
+        daoE = new DAOEvent();
         mAuth = FirebaseAuth.getInstance();
-        final FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
+        mFirebaseUser = mAuth.getCurrentUser();
         if (mFirebaseUser != null) {
             currentUserID = mFirebaseUser.getUid();
+            Log.d("Uid","Uid: " + currentUserID);
+            Log.d("DaoE","DaoE: " + daoE +" "+ (daoE == null) +" "+(daoE.geteUser()));
+            if(daoE.geteUserCheck() == null){
+                for (int i = 0; i < eventlist.size(); i++) {
+                    daoE.addeUser(eventlist.get(i));
+                }
+            }
+        }
+        else{
+            new AlertDialog.Builder(getContext())
+                    .setTitle("ALERT")
+                    .setMessage("Log in to save your attendance.\n\nRegistration or logging in \nis done on the settings page.")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
         }
 
+        loadData();
+
 //        adapter = new EventAdaptor(eventlist, dbHandler);
-        adapter = new EventAdaptor(eventlist1, getContext());
+        adapter = new EventAdaptor(getContext());
 
         erecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         erecyclerView.setAdapter(adapter);
@@ -101,40 +124,63 @@ public class EventFragment extends Fragment {
         return binding.getRoot();
     }
 
-    //                new AlertDialog.Builder(getContext())
-//                        .setTitle("This is a work in progress...")
-//                        .setMessage("The events will only be allowed to be added by verified user such as CCA or SIGS exco teams.")
-//                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                            }
-//                        })
-//                        .create().show();
     private void loadData() {
-        dao.gete().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Event> events = new ArrayList<>();
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    Event event = data.getValue(Event.class);
-                    event.setKey(data.getKey());
-                    events.add(event);
-                    Key = data.getKey();
-                }
-                if( events != null){
-                    boolean check = adapter.setItems(events);
-                    if(check == TRUE){
-                        adapter.notifyDataSetChanged();
+        if(mFirebaseUser != null){
+            daoE.geteUser().addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<Event> events = new ArrayList<>();
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        Event event = data.getValue(Event.class);
+                        event.setKey(data.getKey());
+                        events.add(event);
+                        Key = data.getKey();
+                    }
+                    if (events != null) {
+                        boolean check = adapter.setItems(events);
+                        if (check == FALSE) {
+                            adapter.notifyDataSetChanged();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.w(TAG, "loadPost:onCancelled" + error.toException());
+                }
+            });
+        }
+        else {
+            dao.gete().addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<Event> events = new ArrayList<>();
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        Event event = data.getValue(Event.class);
+                        event.setKey(data.getKey());
+                        events.add(event);
+                        Key = data.getKey();
+                    }
+                    if (events != null) {
+                        boolean check = adapter.setItems(events);
+                        if (check == FALSE) {
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.w(TAG, "loadPost:onCancelled", error.toException());
+                }
+            });
+        }
+    }
+
+    private void refreshdata(){
+        if (getActivity().getIntent().hasExtra("update")){
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void getData() {
@@ -157,4 +203,14 @@ public class EventFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+    //                new AlertDialog.Builder(getContext())
+//                        .setTitle("This is a work in progress...")
+//                        .setMessage("The events will only be allowed to be added by verified user such as CCA or SIGS exco teams.")
+//                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        })
+//                        .create().show();
 }

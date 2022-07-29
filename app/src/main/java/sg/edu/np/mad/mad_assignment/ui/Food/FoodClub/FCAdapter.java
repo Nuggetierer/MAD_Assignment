@@ -2,6 +2,7 @@ package sg.edu.np.mad.mad_assignment.ui.Food.FoodClub;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class FCAdapter extends RecyclerView.Adapter<FCViewHolder> {
                 FCfilteredList.add(FC);
             }
         }
+        Log.d("size ", "" + FCList.size());
 
         FoodCourt FC = FCfilteredList.get(position);
 

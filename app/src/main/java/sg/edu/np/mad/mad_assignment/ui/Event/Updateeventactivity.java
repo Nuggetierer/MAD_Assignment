@@ -12,17 +12,17 @@ import sg.edu.np.mad.mad_assignment.R;
 public class Updateeventactivity extends AppCompatActivity {
 
     String Ename, Eattend;
+    EventAdaptor adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DBHandler dbHandler = new DBHandler(this, null, null, 1);
 
-        getData();
-        setdata(dbHandler);
+        refreshdata();
 
-        Intent intentfrag = new Intent(this , EventFragment.class);
-        startActivity(intentfrag);
+//        Intent intentfrag = new Intent(this , EventFragment.class);
+//        startActivity(intentfrag);
     }
     private void getData() {
         if (getIntent().hasExtra("Name") &&
@@ -36,5 +36,11 @@ public class Updateeventactivity extends AppCompatActivity {
     }
     private void setdata (DBHandler dbHandler) {
         dbHandler.updateEvent(Ename, Eattend);
+    }
+
+    private void refreshdata(){
+        if (getIntent().hasExtra("update")){
+
+        }
     }
 }

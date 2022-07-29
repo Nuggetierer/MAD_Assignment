@@ -42,18 +42,30 @@ public class EditStudyLocation extends AppCompatActivity implements Serializable
             editbuttons.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    HashMap<String,Object> hashMap=new HashMap<>();
-                    hashMap.put("studyName",title.getText().toString());
-                    hashMap.put("studyLocation",location.getText().toString());
-                    hashMap.put("studyDescription",desc.getText().toString());
-                    dao.update(sp_edit.getKey(), hashMap).addOnSuccessListener(suc->
-                    {
-                        Toast.makeText(EditStudyLocation.this,"Record is updated",Toast.LENGTH_SHORT).show();
-                        finish();
-                    }).addOnFailureListener(er->
-                    {
-                        Toast.makeText(EditStudyLocation.this,""+er.getMessage(),Toast.LENGTH_SHORT).show();
-                    });
+
+                    title = (TextInputEditText)findViewById(R.id.EditStudyPlaceNameText);
+                    location = (TextInputEditText)findViewById(R.id.EditStudyPlaceLocationText);
+                    desc = (TextInputEditText)findViewById(R.id.EditStudyPlaceDescriptionText);
+
+                    if (!title.getText().toString().isEmpty() && !location.getText().toString().isEmpty()
+                            && !desc.getText().toString().isEmpty()) {
+
+                        HashMap<String,Object> hashMap=new HashMap<>();
+                        hashMap.put("studyName",title.getText().toString());
+                        hashMap.put("studyLocation",location.getText().toString());
+                        hashMap.put("studyDescription",desc.getText().toString());
+                        dao.update(sp_edit.getKey(), hashMap).addOnSuccessListener(suc->
+                        {
+                            Toast.makeText(EditStudyLocation.this,"Record is updated",Toast.LENGTH_SHORT).show();
+                            finish();
+                        }).addOnFailureListener(er->
+                        {
+                            Toast.makeText(EditStudyLocation.this,""+er.getMessage(),Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                    else {
+                        Toast.makeText(EditStudyLocation.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+                    }
 
                 }
             });

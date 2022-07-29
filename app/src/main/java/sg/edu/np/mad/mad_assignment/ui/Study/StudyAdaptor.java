@@ -29,31 +29,48 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
     private String TAG = "My Adaptor";
 
     ArrayList<StudyPlaces> SList;
+    ArrayList<StudyPlaces> SListcheck;
 
     public StudyAdaptor(ArrayList<StudyPlaces> input) {
         this.SList = input;
     }
 
     public boolean setItems(ArrayList<StudyPlaces> spl){
-        int count = SList.size();
+        int count = spl.size();
         int counter = 0;
         for(int i = 0; i < spl.size(); i++ ){
             Boolean exist = FALSE;
             StudyPlaces sp1 = spl.get(i);
-            Log.d("sp1 ", ""+ sp1.getStudyName());
+            Log.d("sp1 ", ""+ sp1.getKey() + " " + sp1.getStudyName());
 
             for(int j = 0; j < SList.size(); j++ ){
                 StudyPlaces sp2 = SList.get(j);
-                Log.d("sp2 ","" + sp2.getStudyName());
-                if(sp1.getStudyName() == sp2.getStudyName()){
+                Log.d("sp2 ","" + sp2.getKey()+ " " + sp2.getStudyName() );
+
+                String sp1key = sp1.getKey();
+                String sp2key = sp2.getKey();
+
+                if(sp1key.equals(sp2key)){
                     exist = TRUE;
-                    counter += 1;
+                    Log.d("spTest ","found");
+                    if(!sp1.getStudyName().equals(sp2.getStudyName()) || !sp1.getStudyLocation().equals(sp2.getStudyLocation()) ||
+                            !sp1.getStudyDescription().equals(sp2.getStudyDescription())){
+                        SList.set(j, sp1 );
+                        notifyItemChanged(i+2);
+                        Log.d("Update List ", i + " " + j + " size: " + SList.size());
+                    }
+                    break;
                 }
             }
             if(exist != TRUE) {
                 SList.add(sp1);
             }
+            else{
+                counter += 1;
+            }
         }
+//        replace(spl);
+        Log.d("spCount  ","count: " + count + " counter: " + counter + " Size: " + SList.size());
         return(count == counter);
     }
     @NonNull
@@ -67,6 +84,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
     @Override
     public void onBindViewHolder(@NonNull StudyViewHolder holder, int position) {
         //set data
+
         int pos = position;
         StudyPlaces sp = SList.get(position);
         String Sname = sp.getStudyName();
@@ -139,7 +157,44 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                 popupMenu.show();
             }
         });
+        Log.d("spSize  ","size: " + SList.size());
     }
+     public void replace(ArrayList<StudyPlaces> sp ){
+
+         for(int i = 0; i < sp.size(); i++ ){
+             StudyPlaces sp1 = sp.get(i);
+             Log.d("InitialSize ","Size: " + sp.size());
+             SListcheck = new ArrayList<>(SList);
+             Log.d("SizeAfter ","Size: " + SListcheck.size());
+             SListcheck.remove(i+2);
+
+             String sp1key = sp1.getKey();
+             Log.d("SizeAfter ","Size: " + SListcheck.size());
+
+             for(int j = 0; j < SListcheck.size(); j++ ){
+                 StudyPlaces sp2 = SListcheck.get(j);
+                 String sp2key = sp2.getKey();
+                 if(sp1key == null){
+                     sp1key = "null";
+                 }
+                 if(sp2key == null){
+                     sp2key = "null";
+                 }
+                 Log.d("spKeys","Keys " + sp1key + " key2: " + sp2key);
+                 if((sp1key.equals(sp2key)) && sp1.getKey() != null){
+                     Log.d("spTestDupe ","found Duplicate" + " Size: " + SList.size() + " Key: "
+                             + sp1.getKey() + " Name: " + sp1.getStudyName() + " Key: " + sp2.getKey() + " Name: " + sp2.getStudyName());
+
+                     SList.set(i, sp1 );
+                     notifyItemChanged(i);
+                     int index = j + 1;
+                     SList.remove(index);
+                     Log.d("spTestSize ","found Duplicate" + " Size: " + SList.size() + " " + j);
+                 }
+             }
+         }
+         notifyDataSetChanged();
+     }
 
     @Override
     public int getItemCount() {
