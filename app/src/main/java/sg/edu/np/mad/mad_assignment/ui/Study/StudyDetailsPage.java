@@ -10,10 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 import sg.edu.np.mad.mad_assignment.MainActivity;
 import sg.edu.np.mad.mad_assignment.R;
 
-public class StudyDetailsPage extends AppCompatActivity {
+public class StudyDetailsPage extends AppCompatActivity implements Serializable {
     RecyclerView rv;
     LinearLayoutManager linearLayoutManager;
     StudyDetailsAdapter mysdAdapter;

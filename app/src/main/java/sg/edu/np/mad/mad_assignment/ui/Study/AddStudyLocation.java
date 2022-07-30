@@ -39,12 +39,13 @@ public class AddStudyLocation extends AppCompatActivity {
                     String locationstr = location.getText().toString();
                     String descstr = desc.getText().toString();
 
-                    StudyPlaces newsp = new StudyPlaces(titlestr,descstr,locationstr);
+                    StudyPlaces newsp = new StudyPlaces(titlestr,locationstr,descstr);
                     dao.add(newsp).addOnSuccessListener(suc->
                     {
                         Toast.makeText(AddStudyLocation.this, "Study is Added", Toast.LENGTH_SHORT).show();
-//                        Intent backtodisplay = new Intent(getApplicationContext(), StudyFragment.class);
-//                        startActivity(backtodisplay);
+                        title.setText("");
+                        location.setText("");
+                        desc.setText("");
                     }).addOnFailureListener(er->
                     {
                         Toast.makeText(AddStudyLocation.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();

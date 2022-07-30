@@ -18,106 +18,271 @@
 
     <Button
         android:id="@+id/ConventionCenter"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Convention Center"
+        android:text="CC"
+        android:tooltipText="Ngee Ann Polytechnic, Convention Center"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.773" />
+        app:layout_constraintVertical_bias="0.785" />
 
     <Button
         android:id="@+id/InterdisciplinarySciences"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="51dp"
+        android:layout_height="39dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 58"
+        android:text="58"
+        android:tooltipText="Ngee Ann Polytechnic, Block 58"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintVertical_bias="0.688" />
 
     <Button
         android:id="@+id/SchoolofInfocommTechnology"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="64dp"
+        android:layout_height="39dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 31"
+        android:text="31"
+        android:tooltipText="Ngee Ann Polytechnic, Block 31"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.626" />
+        app:layout_constraintVertical_bias="0.633" />
 
     <Button
         android:id="@+id/FoodClub"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="62dp"
+        android:layout_height="38dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Food Club"
+        android:text="FC"
+        android:tooltipText="Ngee Ann Polytechnic, Food Club"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintVertical_bias="0.703" />
 
     <Button
         android:id="@+id/AerospaceHub"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="63dp"
+        android:layout_height="45dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 46"
+        android:text="AH"
+        android:tooltipText="Ngee Ann Polytechnic, Block 46"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <Button
         android:id="@+id/SolarTechCentre"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="33dp"
+        android:layout_height="39dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Solar Tech Centre"
+        android:text="STC"
+        android:tooltipText="Ngee Ann Polytechnic, Solar Tech Centre"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintVertical_bias="0.339" />
 
     <Button
         android:id="@+id/SchoolofEngineeringWest"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 37"
+        android:text="37"
+        android:tooltipText="Ngee Ann Polytechnic, Block 37"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
-        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <Button
         android:id="@+id/SchoolofDesignandEnvironment"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="60dp"
+        android:layout_height="42dp"
         android:backgroundTint="@color/lightgreen"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 34"
+        android:text="34"
+        android:tooltipText="Ngee Ann Polytechnic, Block 34"
         app:layout_constraintBottom_toBottomOf="@+id/greenzone"
         app:layout_constraintEnd_toEndOf="@+id/greenzone"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/greenzone"
         app:layout_constraintTop_toTopOf="@+id/greenzone"
         app:layout_constraintVertical_bias="0.516" />
+
+    <TextView
+        android:id="@+id/Block44"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="44"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.172"/>
+
+    <TextView
+        android:id="@+id/Block43"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="43"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.124" />
+
+    <TextView
+        android:id="@+id/Block40"
+        android:layout_width="32dp"
+        android:layout_height="36dp"
+        android:text="40"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <TextView
+        android:id="@+id/Block47"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="47"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <TextView
+        android:id="@+id/Block39"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="39"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.302" />
+
+    <TextView
+        android:id="@+id/Block35"
+        android:layout_width="20dp"
+        android:layout_height="22dp"
+        android:text="35"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.485" />
+
+    <TextView
+        android:id="@+id/SIT"
+        android:layout_width="38dp"
+        android:layout_height="24dp"
+        android:text="SIT"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.584" />
+
+    <TextView
+        android:id="@+id/Block25"
+        android:layout_width="38dp"
+        android:layout_height="31dp"
+        android:text="25"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.672" />
+
+    <TextView
+        android:id="@+id/Block23"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="23"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.732" />
+
+    <TextView
+        android:id="@+id/Block20"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="20"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/Block27"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="27"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/Block56"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
+        android:text="56"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/greenzone"
+        app:layout_constraintEnd_toEndOf="@+id/greenzone"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/greenzone"
+        app:layout_constraintTop_toTopOf="@+id/greenzone"
+        app:layout_constraintVertical_bias="0.875" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
