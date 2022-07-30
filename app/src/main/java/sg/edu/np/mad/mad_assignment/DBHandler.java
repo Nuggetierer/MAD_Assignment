@@ -29,6 +29,13 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_eventdescription = "Event_Description";
     public static String column_eventtype = "Event_Type";
 
+    //Information for StudyPlaces table
+    public static String Study = "Studys";
+    public static String column_studyname = "Study_Name";
+    public static String column_studydescription = "Study_Description";
+    public static String column_studylocation = "Study_Location";
+    public static String column_studyimg = "Study_Image";
+
     // Information for Food table
     public static String FoodCourt = "Food_Court";
     public static String column_fctName = "Fct_Name";
@@ -53,6 +60,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String CREATE_TABLE_2 = "CREATE TABLE " + Events + "(" + column_eventdate + " TEXT," + column_eventname + " TEXT,"
                 + column_eventdescription + " TEXT," + column_eventtype + " TEXT" + ")";
+
+        String CREATE_TABLE_3 = "CREATE TABLE " + Study + "(" + column_studyname + " TEXT," + column_studydescription + " TEXT,"
+                + column_studylocation + " TEXT," + column_studyimg + " TEXT" + ")";
 
         String CREATE_TABLE_4 = "CREATE TABLE " + FoodCourt +"(" + column_fctName + " TEXT," + column_fctLocation + " TEXT," + column_stallname + " TEXT,"
                 + column_stalldescription + " TEXT" + ")";
