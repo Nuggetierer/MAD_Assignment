@@ -7,54 +7,109 @@
     tools:context=".ui.Settings.SettingsFragment"
     android:background="?colorPrimaryVariant">
 
-    <TextView
-        android:id="@+id/settingsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Settings"
-        android:textSize="35dp"
-        android:textColor="?colorOnSecondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <RadioGroup
         android:id="@+id/radioGroupThemes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTitle">
+        app:layout_constraintTop_toBottomOf="@+id/apperanceText">
 
         <RadioButton
             android:id="@+id/deviceSettingButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Device Setting"
-            android:textSize="20dp"
             android:padding="5dp"
-            android:textColor="?colorOnPrimary"/>
+            android:text="Device Setting"
+            android:textColor="?colorOnPrimary"
+            android:textSize="20dp" />
 
         <RadioButton
             android:id="@+id/lightModeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Light Mode"
-            android:textSize="20dp"
             android:padding="5dp"
-            android:textColor="?colorOnPrimary"/>
+            android:text="Light Mode"
+            android:textColor="?colorOnPrimary"
+            android:textSize="20dp" />
 
         <RadioButton
             android:id="@+id/darkModeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dark Mode"
-            android:textSize="20dp"
             android:padding="5dp"
-            android:textColor="?colorOnPrimary"/>
+            android:text="Dark Mode"
+            android:textColor="?colorOnPrimary"
+            android:textSize="20dp" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/loginStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Accounts"
+        android:textColor="?colorOnSecondary"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupThemes" />
+
+    <TextView
+        android:id="@+id/apperanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Appperance"
+        android:textColor="?colorOnSecondary"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Login"
+        android:textSize="20dp"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginStatus" />
+
+    <TextView
+        android:id="@+id/accountInfoHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="Account Info"
+        android:textColor="?colorOnSecondary"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <TextView
+        android:id="@+id/accountInfoText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/box"
+        android:padding="15dp"
+        android:text="TextView"
+        android:textColor="?colorOnPrimary"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountInfoHeaderText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

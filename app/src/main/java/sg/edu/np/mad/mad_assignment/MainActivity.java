@@ -6,11 +6,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
@@ -25,6 +37,10 @@ import sg.edu.np.mad.mad_assignment.databinding.ActivityMain3Binding;
 public class MainActivity extends AppCompatActivity {
 
     public static String PACKAGENAME;
+    public static boolean loggedin;
+    public static String userID;
+    public static String userUsername;
+    public static String userEmail;
     private ActivityMain3Binding binding;
 
     @Override
@@ -33,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart", true);
         int viewSetting = prefs.getInt("viewSetting", 0);
+        //if logged in show as true and allows access to certain activities
+        loggedin = prefs.getBoolean("loggedin", false);
+        userID = prefs.getString("uid", "");
+        userUsername = prefs.getString("username", "");
+        userEmail = prefs.getString("useremail", "");
+
+
         PACKAGENAME = getApplicationContext().getPackageName();
 
         if (firstStart) {
