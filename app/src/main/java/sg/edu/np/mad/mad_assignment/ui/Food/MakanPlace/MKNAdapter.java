@@ -62,8 +62,17 @@ public class MKNAdapter extends RecyclerView.Adapter<MKNViewHolder> {
         return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 
+    private final int mknlimit = 8;
+
     //return size of array list
     public int getItemCount() {
-        return MknList.size();
+
+        if (MknList.size() == mknlimit){
+            return MknList.size();
+        }
+        else
+        {
+            return mknlimit;
+        }
     }
 }
