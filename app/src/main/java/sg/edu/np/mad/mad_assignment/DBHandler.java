@@ -124,11 +124,11 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'VEGETARIAN', " + "'Mixes Rice Veg Dishes.'" + "),"
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'BAN MIAN', " + "'Craving for something soupy? We are that place.'" + "),"
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'YONG TAU FU', " + "'Choices of 3 noodles and 1 rice. With a choice of soup, dry and laksa.'" + "),"
-                + "(" + "'Others'," + "'Located at Block 73', " + "'Old Chang Kee', " + "'Grab a quick and light snack.'" + "),"
-                + "(" + "'Others'," + "'Located at OurSpace@72', " + "'TuckShop', " + "'Best known for the Cheesy Hot Dog, Chicken Sandwich and Ice Cream Bread/Wafer.'" + "),"
-                + "(" + "'Others'," + "'Located at Block 27 (beside OIC)', " + "'What Tea', " + "'Refreshing teas to brighten your busy day.'" + "),"
-                + "(" + "'Others'," + "'Located at Agile@Blk58', " + "'Canvas Yogurt', " + "'Mix & Match with fruits and toppings.'" + "),"
-                + "(" + "'Others'," + "'Located at Block 1', " + "'Cheers', " + "'A convenience store with microwaveable food, snacks and drinks.'" + ")";
+                + "(" + "'Others'," + "'Located at Block 73', " + "'OLD CHANG KEE', " + "'Grab a quick and light snack.'" + "),"
+                + "(" + "'Others'," + "'Located at OurSpace@72', " + "'TUCKSHOP', " + "'Best known for the Cheesy Hot Dog, Chicken Sandwich and Ice Cream Bread/Wafer.'" + "),"
+                + "(" + "'Others'," + "'Located at Block 27 (beside OIC)', " + "'WHAT TEA', " + "'Refreshing teas to brighten your busy day.'" + "),"
+                + "(" + "'Others'," + "'Located at Agile@Blk58', " + "'CANVAS YOGURT', " + "'Mix & Match with fruits and toppings.'" + "),"
+                + "(" + "'Others'," + "'Located at Block 1', " + "'CHEERS', " + "'A convenience store with microwaveable food, snacks and drinks.'" + ")";
 
         db.execSQL(POPULATE_TABLE_3);
     }

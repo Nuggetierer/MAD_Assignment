@@ -60,8 +60,17 @@ public class FCAdapter extends RecyclerView.Adapter<FCViewHolder> {
         return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 
+    private final int fdcblimit = 7;
+
     //return size of array list
-    public int getItemCount() {return FCList.size();}
+    public int getItemCount() {
+        if (FCList.size() == fdcblimit){
+            return FCList.size();
+        }
+        else
+        {
+            return fdcblimit;
+        }
 
 //    public class FCViewHolder extends RecyclerView.ViewHolder{
 //        TextView STLname, STLdescr;
@@ -72,4 +81,6 @@ public class FCAdapter extends RecyclerView.Adapter<FCViewHolder> {
 //            STLdescr = itemView.findViewById(R.id.STLdescr);
 //        }
 //    }
+    }
 }
+

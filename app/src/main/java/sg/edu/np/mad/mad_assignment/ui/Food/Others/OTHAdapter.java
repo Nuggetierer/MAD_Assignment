@@ -64,6 +64,16 @@ public class OTHAdapter extends RecyclerView.Adapter<OTHViewHolder> {
         return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 
+    private final int othlimit = 5;
+
     //return size of array list
-    public int getItemCount() {return othList.size();}
+    public int getItemCount() {
+        if (othList.size() == othlimit){
+            return othList.size();
+        }
+        else
+        {
+            return othlimit;
+        }
+    }
 }
