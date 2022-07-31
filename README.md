@@ -13,14 +13,17 @@ Future features will work towards adding functionality to the app and providing 
 Roles and Contributions
 
 Teh Zhi Xian
-- DB handler
 - Search function
 - Search recycler view
+- DB interactions (Cloud and local)
+- Settings Page (Login feature and Changing of view setting)
+- Debugging and Application Launch Management
 
 Nathan Quek
 - Bottom navigation view
 - Event recycler view
 - Fragment setup
+- DB interactions (Cloud and local)
 
 Elijah Chang
 - Block Details page
