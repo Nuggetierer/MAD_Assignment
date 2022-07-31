@@ -2,6 +2,7 @@ package sg.edu.np.mad.mad_assignment.ui.Food.FoodClub;
 
 import android.content.Context;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class FCAdapter extends RecyclerView.Adapter<FCViewHolder> {
         String stall_descr = FC.getstalldescription();
 
         //for image
-        String name = FCfilteredList.get(position).toString().replace(" ","_").toLowerCase();
+        String name = FC.getstallname().replace(" ","_").toLowerCase();
         String parse_img_name = name + "_foodclub";
         // need to name it like : 'indonesian_foodclub'
 

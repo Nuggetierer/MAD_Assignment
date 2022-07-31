@@ -47,7 +47,7 @@ public class OTHAdapter extends RecyclerView.Adapter<OTHViewHolder> {
         String stall_loca = other.getfctLocation();
 
         //for image
-        String name = OTHfilteredList.get(position).toString().replace(" ","_").toLowerCase();
+        String name = stall_name.replace(" ","_").toLowerCase();
         String parse_img_name = name + "_other";
         // need to name it like : 'old_chang_kee_other'
 

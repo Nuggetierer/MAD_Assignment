@@ -46,7 +46,7 @@ public class MKNAdapter extends RecyclerView.Adapter<MKNViewHolder> {
         String stall_descr = Mkn.getstalldescription();
 
         //for image
-        String name = MknfilteredList.get(position).toString().replace(" ", "_").toLowerCase();
+        String name = stall_name.replace(" ", "_").toLowerCase();
         String parse_img_name = name + "_makanplace";
         // need to name it like : 'indonesian_makanplace'
 
