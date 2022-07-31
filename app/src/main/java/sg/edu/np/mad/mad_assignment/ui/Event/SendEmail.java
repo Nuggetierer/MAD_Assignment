@@ -38,7 +38,8 @@ public class SendEmail extends AppCompatActivity {
                     intent.putExtra(Intent.EXTRA_EMAIL, email);
                     intent.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
                     intent.putExtra(Intent.EXTRA_TEXT, body.getText().toString());
-                    intent.setData(Uri.parse("mailto:"));
+                    intent.setType("message/rfc822");
+
                     if (intent.resolveActivity(getPackageManager()) != null) {
                         startActivity(intent);
                     } else {

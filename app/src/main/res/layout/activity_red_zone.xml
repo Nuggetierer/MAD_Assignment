@@ -19,24 +19,26 @@
 
     <Button
         android:id="@+id/SchoolofFilmMediaStudies"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="53dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 53"
+        android:text="53"
+        android:tooltipText="Ngee Ann Polytechnic, Block 53"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
         app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="@+id/redzone"
         app:layout_constraintTop_toTopOf="@+id/redzone"
-        app:layout_constraintVertical_bias="0.406"
+        app:layout_constraintVertical_bias="0.38"
         tools:targetApi="o" />
 
     <Button
         android:id="@+id/SchoolofBusinessAccountancy"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="58dp"
+        android:layout_height="39dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 72"
+        android:text="72"
+        android:tooltipText="Ngee Ann Polytechnic, Block 72"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
         app:layout_constraintHorizontal_bias="0.627"
@@ -46,36 +48,39 @@
 
     <Button
         android:id="@+id/SchoolofHealthSciences"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="52dp"
+        android:layout_height="42dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 81"
+        android:text="81"
+        android:tooltipText="Ngee Ann Polytechnic, Block 81"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="@+id/redzone"
         app:layout_constraintTop_toTopOf="@+id/redzone"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintVertical_bias="0.315" />
 
     <Button
         android:id="@+id/SchoolofHumanitiesSocialSciences"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="59dp"
+        android:layout_height="46dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 52"
+        android:text="52"
+        android:tooltipText="Ngee Ann Polytechnic, Block 52"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.626"
         app:layout_constraintStart_toStartOf="@+id/redzone"
         app:layout_constraintTop_toTopOf="@+id/redzone"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.439" />
 
     <Button
         android:id="@+id/SchoolofLifeSciencesChemicalTechnology"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="53dp"
+        android:layout_height="46dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Block 83"
+        android:text="83"
+        android:tooltipText="Ngee Ann Polytechnic, Block 83"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
         app:layout_constraintHorizontal_bias="0.269"
@@ -85,10 +90,11 @@
 
     <Button
         android:id="@+id/MakanPlace"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="59dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Makan Place"
+        android:text="MP"
+        android:tooltipText="Ngee Ann Polytechnic, Makan Place"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
         app:layout_constraintHorizontal_bias="0.66"
@@ -98,10 +104,11 @@
 
     <Button
         android:id="@+id/Munch"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="106dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Munch"
+        android:text="Munch"
+        android:tooltipText="Ngee Ann Polytechnic, Munch"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
         app:layout_constraintHorizontal_bias="0.66"
@@ -111,14 +118,119 @@
 
     <Button
         android:id="@+id/TrainingField"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="87dp"
+        android:layout_height="53dp"
         android:backgroundTint="@color/lightred"
-        android:tooltipText = "Ngee Ann Polytechnic, Training Field"
+        android:text="TF"
+        android:tooltipText="Ngee Ann Polytechnic, Training Field"
         app:layout_constraintBottom_toBottomOf="@+id/redzone"
         app:layout_constraintEnd_toEndOf="@+id/redzone"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.244"
         app:layout_constraintStart_toStartOf="@+id/redzone"
         app:layout_constraintTop_toTopOf="@+id/redzone"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.149" />
+
+    <TextView
+        android:id="@+id/Block50"
+        android:layout_width="23dp"
+        android:layout_height="16dp"
+        android:text="50"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.176" />
+
+    <TextView
+        android:id="@+id/Block51"
+        android:layout_width="28dp"
+        android:layout_height="23dp"
+        android:text="51"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.245" />
+
+    <TextView
+        android:id="@+id/Block80"
+        android:layout_width="40dp"
+        android:layout_height="31dp"
+        android:text="80"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.295" />
+
+    <TextView
+        android:id="@+id/Block82"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="82"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.438" />
+
+    <TextView
+        android:id="@+id/Block54"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="54"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.359" />
+
+    <TextView
+        android:id="@+id/Block75"
+        android:layout_width="43dp"
+        android:layout_height="53dp"
+        android:text="75"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.575" />
+
+    <TextView
+        android:id="@+id/Block71"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="71"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/Block73"
+        android:layout_width="30dp"
+        android:layout_height="24dp"
+        android:text="73"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/redzone"
+        app:layout_constraintEnd_toEndOf="@+id/redzone"
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="@+id/redzone"
+        app:layout_constraintTop_toTopOf="@+id/redzone"
+        app:layout_constraintVertical_bias="0.649" />
 </androidx.constraintlayout.widget.ConstraintLayout>
