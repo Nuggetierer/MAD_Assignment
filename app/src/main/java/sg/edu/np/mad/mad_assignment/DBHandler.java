@@ -114,7 +114,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "(" + "'Food Club'," + "'Located at Block 22', " + "'WESTERN FUSION', " + "'The main comes with 1 carb, 1 side and a choice of either salad or miso soup.'" + "),"
                 + "(" + "'Food Club'," + "'Located at Block 22', " + "'SALAD', " + "'Toss and turn with your favourite ingredients.'" + "),"
                 + "(" + "'Food Club'," + "'Located at Block 22', " + "'MIXED VEG RICE', " + "'Mixed Rice Veg Dishes.'" + "),"
-                + "(" + "'Food Club'," + "'Located at Block 22', " + "'WAFFLE & TAKOYAKI', " + "'Not very hungry? Visit us for a light snack.'" + "),"
+                + "(" + "'Food Club'," + "'Located at Block 22', " + "'WAFFLE AND TAKOYAKI', " + "'Not very hungry? Visit us for a light snack.'" + "),"
                 + "(" + "'Food Club'," + "'Located at Block 22', " + "'YOGURT', " + "'Order a fresh yogurt or parfait, to cool down from the warm and humid weather!'" + "),"
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'SUBWAY', " + "'Perfect for Muslim diners since food is halal, they may select a wide variety of meats, vegetables, fresh baked breads and flavorful condiments and sauces.'" + "),"
                 + "(" + "'Makan Place'," + "'Located at Block 51', " + "'THAI', " + "'Perfect for Muslim diners since food is halal, and is known for their Tom Yum Fried Rice and Garlic Chicken.'" + "),"
