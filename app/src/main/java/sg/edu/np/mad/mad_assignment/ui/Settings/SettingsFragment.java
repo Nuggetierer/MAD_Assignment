@@ -341,7 +341,7 @@ public class SettingsFragment extends Fragment {
         if(status){
             title.setText("User Information");
             accountText.setText
-                    ("Username: " + user.getNickname() +
+                    ("Username: " + user.getNickname() + "\n" +
                             "Email: " + user.getEmail().toString());
         }
         else{
