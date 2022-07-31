@@ -1,14 +1,17 @@
 package sg.edu.np.mad.mad_assignment;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
 import sg.edu.np.mad.mad_assignment.ui.Event.Event;
 import sg.edu.np.mad.mad_assignment.ui.Food.FoodCourt;
+import sg.edu.np.mad.mad_assignment.ui.Study.StudyPlaces;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -28,6 +31,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_eventname = "Event_Name";
     public static String column_eventdescription = "Event_Description";
     public static String column_eventtype = "Event_Type";
+    public static String column_eventattend = "Event_Attend";
 
     //Information for StudyPlaces table
     public static String Study = "Studys";
@@ -160,7 +164,81 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Blocks);
         db.execSQL("DROP TABLE IF EXISTS " + Events);
         db.execSQL("DROP TABLE IF EXISTS " + FoodCourt);
+        db.execSQL("DROP TABLE IF EXISTS " + Study);
         onCreate(db);
+    }
+
+    public void updateEvent(String name, String attend) {
+
+        // calling a method to get writable database.
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // on below line we are passing all values
+        // along with its key and value pair.
+        values.put(column_eventattend, attend);
+
+        // on below line we are calling a update method to update our database and passing our values.
+        // and we are comparing it with name of our course which is stored in original name variable.
+        long result = db.update(Events , values, "Event_Name=?", new String[]{name});
+        Cursor cursor = db.rawQuery("Select * FROM " + Events + " where Event_Name = ?", new String[]{name});
+        ArrayList<Event> queryEData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                Event queryEvent = new Event();
+                queryEvent.setEventDate(cursor.getString(0));
+                queryEvent.setEventName(cursor.getString(1));
+                queryEvent.setEventDescription(cursor.getString(2));
+                queryEvent.setEventType(cursor.getString(3));
+                queryEvent.setAttend(cursor.getString(4));
+
+                queryEData.add(queryEvent);
+                Log.d("getEvent", queryEvent.getAttend());
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        Log.d("UpdateEvent", result + name + attend);
+        db.close();
+    }
+
+    public ArrayList<StudyPlaces> retrieveStudy()
+    {
+        String query = "SELECT * FROM " + Study;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<StudyPlaces> querySData = new ArrayList<>();
+
+        int counter = 0;
+
+        while (true){
+            if(cursor.moveToPosition(counter)){
+                StudyPlaces queryStudy = new StudyPlaces();
+                queryStudy.setStudyName(cursor.getString(0));
+                queryStudy.setStudyDescription(cursor.getString(1));
+                queryStudy.setStudyLocation(cursor.getString(2));
+//                queryStudy.setStudycoordinates(cursor.getString(3));
+
+                querySData.add(queryStudy);
+                counter += 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        cursor.close();
+        db.close();
+        return querySData;
     }
 
     //function to find block use for search function to return to recycler view
@@ -345,6 +423,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return queryFCData;
     }
+
+
 
     //Above functions may not work for actual usage with recycler view below are rewritten functions
 }
