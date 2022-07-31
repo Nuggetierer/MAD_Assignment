@@ -7,18 +7,17 @@
     tools:context=".ui.Study.StudyDetailsPage"
     android:id="@+id/StudyDetailsLayout">
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/StudyDetailshorizontalRv"-->
-<!--        android:layout_width="407dp"-->
-<!--        android:layout_height="258dp"-->
-<!--        android:scrollbars="horizontal"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.333"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.27"-->
-<!--        tools:listitem="@layout/study_details_layout" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/StudyDetailshorizontalRv"
+        android:layout_width="407dp"
+        android:layout_height="258dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276"
+        tools:listitem="@layout/study_details_layout" />
 
     <TextView
         android:id="@+id/StudyDetailsTop"
@@ -84,17 +83,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/SDimageview"
-        android:layout_width="398dp"
-        android:layout_height="232dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/StudyDetailsDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.859"
-        app:srcCompat="@drawable/atrium_map" />
+<!--    <ImageView-->
+<!--        android:id="@+id/SDimageview"-->
+<!--        android:layout_width="398dp"-->
+<!--        android:layout_height="232dp"-->
+<!--        android:layout_marginStart="6dp"-->
+<!--        android:layout_marginEnd="7dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/StudyDetailsDescription"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.859"-->
+<!--        app:srcCompat="@drawable/atrium_map" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

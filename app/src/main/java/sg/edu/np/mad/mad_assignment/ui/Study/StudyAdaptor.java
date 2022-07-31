@@ -4,6 +4,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static sg.edu.np.mad.mad_assignment.myImageAdapter.getDrawable;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -18,6 +19,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -30,9 +36,12 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
 
     ArrayList<StudyPlaces> SList;
     ArrayList<StudyPlaces> SListcheck;
+    private String Uri1 = "";
+    Context context;
 
-    public StudyAdaptor(ArrayList<StudyPlaces> input) {
+    public StudyAdaptor(ArrayList<StudyPlaces> input, Context contex) {
         this.SList = input;
+        this.context = contex;
     }
 
     public boolean setItems(ArrayList<StudyPlaces> spl){
@@ -97,6 +106,36 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
         int drawable = getDrawable( holder.simage.getContext(), parse_img_name);
         holder.simage.setImageURI(Uri.parse("android.resource://" + MainActivity.PACKAGENAME + "/" + drawable));
 
+        if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22") && Uri1.equals("")){
+            DAOStudyPlaces daosd = new DAOStudyPlaces();
+
+            daosd.getimage(sp.getKey()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    for(DataSnapshot data : snapshot.getChildren()){
+                        Uri1 =  data.getValue(String.class);
+                        sp.setUri(Uri1);
+                        Log.d("Uri1", "" + Uri1);
+//                        holder.simage.setImageURI(Uri.parse(Uri1));
+                        Glide.with(context).load(Uri1).into(holder.simage);
+                        break;
+                    }
+                    notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+        else{
+            if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22")){
+                Glide.with(context).load(sp.getUri()).into(holder.simage);
+            }
+            Log.d("Uri1Blank", "" + Uri1);
+        }
         holder.stxt1.setText(Sname);
 
         holder.viewmore.setOnClickListener(new View.OnClickListener() {
@@ -107,54 +146,63 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                 intent.putExtra("Desc",Sdesc);
                 intent.putExtra("Loc",Sloc);
                 intent.putExtra("Draw", drawable);
+                intent.putExtra("Key", sp.getKey());
                 holder.viewmore.getContext().startActivity(intent);
             }
         });
-        holder.options.setOnClickListener(new View.OnClickListener() {
+        holder.options.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(holder.options.getContext(), holder.options);
-                popupMenu.inflate(R.menu.option_menu);
-                popupMenu.setOnMenuItemClickListener(item ->
-                {
-                    switch (item.getItemId()) {
-                        case R.id.menu_edit:
-                            Intent intent = new Intent(holder.options.getContext(), EditStudyLocation.class);
-                            intent.putExtra("EDIT", (Serializable) sp);
-                            holder.options.getContext().startActivity(intent);
-                            break;
+                if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22")) {
 
-                        case R.id.menu_remove:
-                            DAOStudyPlaces dao = new DAOStudyPlaces();
-                            new AlertDialog.Builder(holder.options.getContext())
-                                    .setTitle("Confirm Delete?")
-                                    .setMessage("StudyPlaces will be permanently deleted\nand are not recoverable")
-                                    .setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dao.remove(sp.getKey()).addOnSuccessListener(suc ->
-                                            {
-                                                Toast.makeText(holder.options.getContext(), "Record is removed", Toast.LENGTH_SHORT).show();
-                                                SList.remove(pos);
-                                                notifyItemRemoved(pos);
-                                            }).addOnFailureListener(er ->
-                                            {
-                                                Toast.makeText(holder.options.getContext(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-                                            });
-                                        }
-                                    })
-                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                        }
-                                    })
-                                    .create().show();
-                            break;
-                    }
-                    return false;
-                });
-                popupMenu.show();
+                    PopupMenu popupMenu = new PopupMenu(holder.options.getContext(), holder.options);
+                    popupMenu.inflate(R.menu.option_menu);
+                    popupMenu.setOnMenuItemClickListener(item ->
+                    {
+                        switch (item.getItemId()) {
+                            case R.id.menu_edit:
+                                Intent intent = new Intent(holder.options.getContext(), EditStudyLocation.class);
+                                intent.putExtra("EDIT", (Serializable) sp);
+                                holder.options.getContext().startActivity(intent);
+                                break;
+
+                            case R.id.menu_remove:
+                                DAOStudyPlaces dao = new DAOStudyPlaces();
+                                new AlertDialog.Builder(holder.options.getContext())
+                                        .setTitle("Confirm Delete?")
+                                        .setMessage("StudyPlaces will be permanently deleted\nand are not recoverable")
+                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dao.remove(sp.getKey()).addOnSuccessListener(suc ->
+                                                {
+                                                    Toast.makeText(holder.options.getContext(), "Record is removed", Toast.LENGTH_SHORT).show();
+                                                    SList.remove(pos);
+                                                    notifyItemRemoved(pos);
+                                                    notifyDataSetChanged();
+                                                }).addOnFailureListener(er ->
+                                                {
+                                                    Toast.makeText(holder.options.getContext(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                                                });
+                                            }
+                                        })
+                                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                            }
+                                        })
+                                        .create().show();
+                                break;
+                        }
+                        return false;
+                    });
+                    popupMenu.show();
+                }
+                else{
+                    Toast.makeText(holder.options.getContext(), "Admin Generated Data, not editable or removable", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         Log.d("spSize  ","size: " + SList.size());

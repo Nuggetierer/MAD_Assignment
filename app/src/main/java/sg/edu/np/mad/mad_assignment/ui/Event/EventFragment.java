@@ -43,6 +43,7 @@ public class EventFragment extends Fragment {
     String currentUserID;
     EventAdaptor adapter;
     private ArrayList<Event> eventlist;
+    private int count = 0;
 
     private FragmentEventBinding binding;
     RecyclerView recyclerView;
@@ -91,16 +92,22 @@ public class EventFragment extends Fragment {
             }
         }
         else{
-            new AlertDialog.Builder(getContext())
-                    .setTitle("ALERT")
-                    .setMessage("Log in to save your attendance.\n\nRegistration or logging in \nis done on the settings page.")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .create().show();
+            if(count==1){
+                new AlertDialog.Builder(getContext())
+                        .setTitle("ALERT")
+                        .setMessage("Log in to save your attendance.\n\nRegistration or logging in \nis done on the settings page.")
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .create().show();
+                count += 1;
+            }
+            else {
+                count += 1;
+            }
         }
 
         loadData();

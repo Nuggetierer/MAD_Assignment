@@ -8,13 +8,15 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="408dp"
-        android:layout_height="242dp">
+        android:layout_width="wrap_content"
+        android:layout_height="245dp">
 
         <ImageView
+            android:id="@+id/SdImageLayout"
             android:layout_width="394dp"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:src="@drawable/atrium_map" />
 
     </RelativeLayout>

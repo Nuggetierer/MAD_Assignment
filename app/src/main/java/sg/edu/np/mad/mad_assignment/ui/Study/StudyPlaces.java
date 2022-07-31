@@ -15,22 +15,24 @@ public class StudyPlaces implements Serializable {
     private String studyName;
     private String studyDescription;
     private String studyLocation;//Like block 22 #05-01
-    private Drawable drawable;
+    private String  uri;
 
-
-    public Drawable getDrawable() {
-        return drawable;
+    public String getUri() {
+        return uri;
     }
 
-    public void setDrawable(Drawable drawable) {
-        this.drawable = drawable;
-    }
-
-    public StudyPlaces(Drawable drawable) {
-        this.drawable = drawable;
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 
     public StudyPlaces(){}
+
+//    public StudyPlaces(String studyName, String studyDescription, String studyLocation, String uri) {
+//        this.studyName = studyName;
+//        this.studyDescription = studyDescription;
+//        this.studyLocation = studyLocation;
+//        this.uri = uri;
+//    }
 
     public StudyPlaces(String studyName, String studyDescription, String studyLocation) {
         this.studyName = studyName;

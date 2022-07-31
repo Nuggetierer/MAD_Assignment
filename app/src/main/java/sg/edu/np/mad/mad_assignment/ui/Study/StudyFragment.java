@@ -51,7 +51,7 @@ public class StudyFragment extends Fragment implements Serializable {
         final RecyclerView studyRecyclerview = binding.StudyRecyclerview;
 
 
-        studyAdaptor =  new StudyAdaptor(Studylist);
+        studyAdaptor =  new StudyAdaptor(Studylist, getContext());
         studyRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         studyRecyclerview.setAdapter(studyAdaptor);
 
