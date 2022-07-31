@@ -339,9 +339,10 @@ public class SettingsFragment extends Fragment {
         TextView accountText = binding.accountInfoText;
 
         if(status){
-            title.setText("Welcome " + user.getNickname().toString() + "!");
+            title.setText("User Information");
             accountText.setText
-                    ("Email: " + user.getEmail().toString());
+                    ("Username: " + user.getNickname() +
+                            "Email: " + user.getEmail().toString());
         }
         else{
             title.setText("Login to use the following!");

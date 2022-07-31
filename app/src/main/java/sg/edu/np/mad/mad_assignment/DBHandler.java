@@ -48,7 +48,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String column_stalldescription = "Stall_Description";
 
 
-    public static int DATABASE_VERSION =4;
+    public static int DATABASE_VERSION = 4;
 
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
