@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignment">
         <activity
+            android:name=".ui.Study.UpdateImages"
+            android:exported="false" />
+        <activity
             android:name=".ui.Food.MakanPlace.MknPlc"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.Food.FoodClub.FdCb"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.Study.ImportImages"
             android:exported="false" />

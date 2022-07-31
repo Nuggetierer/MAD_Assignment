@@ -15,7 +15,7 @@ public class StudyPlaces implements Serializable {
     private String studyName;
     private String studyDescription;
     private String studyLocation;//Like block 22 #05-01
-    private String  uri;
+    private String uri;
 
     public String getUri() {
         return uri;

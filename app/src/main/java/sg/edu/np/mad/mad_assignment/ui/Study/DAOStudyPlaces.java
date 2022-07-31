@@ -54,7 +54,7 @@ public class DAOStudyPlaces {
         return databaseReference.child(Key).removeValue();
     }
 
-    public Task<Void> addImages(String key ,String uri)
+    public Task<Void> addImages(String key ,Images uri)
     {
         return databaseReference.child(key).child("Images").push().setValue(uri);
     }
@@ -62,15 +62,20 @@ public class DAOStudyPlaces {
     {
         return databaseReference.child(key).child("Images").updateChildren(hashMap);
     }
+    public Task<Void> removeImage(String keymain,String Key)
+    {
+        return databaseReference.child(keymain).child("Images").child(Key).removeValue();
+    }
 
     public UploadTask addStorageImages(Uri uri)
     {
         return reference.putFile(uri);
     }
-    public Task<Void> updateStorageImage(String key, HashMap<String,Object> hashMap, String urikey)
-    {
-        return databaseReference.child(key).child("Uri").child(urikey).updateChildren(hashMap);
-    }
+
+//    public Task<Void> updateStorageImage(String key, HashMap<String,Object> hashMap, String urikey)
+//    {
+//        return databaseReference.child(key).child("Uri").child(urikey).updateChildren(hashMap);
+//    }
 
     public Query get()
     {
@@ -86,6 +91,7 @@ public class DAOStudyPlaces {
     {
         return databaseReference2.push().setValue(event);
     }
+
     public Task<Void> updatee(String key, HashMap<String,Object> hashMap)
     {
         return databaseReference2.child(key).updateChildren(hashMap);

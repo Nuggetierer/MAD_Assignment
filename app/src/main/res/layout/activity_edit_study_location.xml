@@ -107,13 +107,14 @@
             android:inputType="textMultiLine"
             android:singleLine="true"
             android:textColor="#000000" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/EditbuttonsubmitStudy"
         android:layout_width="379dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/blue_china"
         android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,5 +132,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/study_book" />
+
+    <Button
+        android:id="@+id/UpdateImagesButton"
+        android:layout_width="379dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="108dp"
+        android:text="Update Images"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,7 @@
     <string name="search">Search</string>
     <string name="sendemail">Include Event Title \nEvent Description \nand Event Date</string>
     <string name="EventEmail">Include Event Name, Date and Short Description</string>
+    <string name="addimage">AddImage</string>
     <color name="lightgrey">#E6E6E6</color>
 
 </resources>

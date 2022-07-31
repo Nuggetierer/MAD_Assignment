@@ -65,9 +65,10 @@ public class AddStudyLocation extends AppCompatActivity {
                                         sp.setKey(data.getKey());
                                         spal.add(sp);
                                         Key = data.getKey();
+                                        Images i = new Images(Uri);
                                         if(titlestr.equals(sp.getStudyName()) && count == 0){
                                             count += 1;
-                                            dao.addImages(sp.getKey() ,Uri);
+                                            dao.addImages(sp.getKey() ,i);
                                         }
                                     }
                                 }
@@ -86,21 +87,22 @@ public class AddStudyLocation extends AppCompatActivity {
                         {
                             Toast.makeText(AddStudyLocation.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
                         });
+                        finish();
                     }
                     else{
-                        StudyPlaces newsp = new StudyPlaces(titlestr,locationstr,descstr);
-                        dao.add(newsp).addOnSuccessListener(suc->
-                        {
-                            Toast.makeText(AddStudyLocation.this, "Study is Added", Toast.LENGTH_SHORT).show();
-                            title.setText("");
-                            location.setText("");
-                            desc.setText("");
-                        }).addOnFailureListener(er->
-                        {
-                            Toast.makeText(AddStudyLocation.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
-                        });
+//                        StudyPlaces newsp = new StudyPlaces(titlestr,locationstr,descstr);
+//                        dao.add(newsp).addOnSuccessListener(suc->
+//                        {
+//                            Toast.makeText(AddStudyLocation.this, "Study is Added", Toast.LENGTH_SHORT).show();
+//                            title.setText("");
+//                            location.setText("");
+//                            desc.setText("");
+//                        }).addOnFailureListener(er->
+//                        {
+//                            Toast.makeText(AddStudyLocation.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
+//                        });
+                        Toast.makeText(AddStudyLocation.this, "Please Upload 1 Image", Toast.LENGTH_SHORT).show();
                     }
-                    finish();
                 }
                 else {
                     Toast.makeText(AddStudyLocation.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
@@ -111,13 +113,18 @@ public class AddStudyLocation extends AppCompatActivity {
         UploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!title.getText().toString().isEmpty() && !location.getText().toString().isEmpty()
-                        && !desc.getText().toString().isEmpty()) {
-                    Intent uploadintent = new Intent(AddStudyLocation.this, ImportImages.class);
-                    startActivityForResult(uploadintent, 1);
+                if(Uri.equals("")) {
+                    if (!title.getText().toString().isEmpty() && !location.getText().toString().isEmpty()
+                            && !desc.getText().toString().isEmpty()) {
+                        Intent uploadintent = new Intent(AddStudyLocation.this, ImportImages.class);
+                        startActivityForResult(uploadintent, 1);
+                    } else {
+                        Toast.makeText(AddStudyLocation.this, "Please fill all the fields first", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    Toast.makeText(AddStudyLocation.this, "Please fill all the fields first", Toast.LENGTH_SHORT).show();
+                else
+                {
+                    Toast.makeText(AddStudyLocation.this, "Only 1 image can be uploaded.\nTo upload more please use edit ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

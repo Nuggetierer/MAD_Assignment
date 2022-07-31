@@ -24,6 +24,8 @@ Nathan Quek
 - Event recycler view
 - Fragment setup
 - DB interactions (Cloud and local)
+- FireBase Realtime Database and Storage implementation
+- New Study Page with various functions, such as add, edit and delete
 
 Elijah Chang
 - Block Details page

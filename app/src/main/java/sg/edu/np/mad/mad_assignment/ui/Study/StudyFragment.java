@@ -46,7 +46,9 @@ public class StudyFragment extends Fragment implements Serializable {
 
         DBHandler dbHandler = new DBHandler(getActivity(), null, null, 1);
 
-        ArrayList<StudyPlaces> Studylist = dbHandler.retrieveStudy();
+//        ArrayList<StudyPlaces> Studylist = dbHandler.retrieveStudy();
+
+        ArrayList<StudyPlaces> Studylist = new ArrayList<StudyPlaces>();
 
         final RecyclerView studyRecyclerview = binding.StudyRecyclerview;
 

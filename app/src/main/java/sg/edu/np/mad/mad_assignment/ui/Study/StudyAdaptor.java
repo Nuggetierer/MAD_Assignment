@@ -64,8 +64,9 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                     Log.d("spTest ","found");
                     if(!sp1.getStudyName().equals(sp2.getStudyName()) || !sp1.getStudyLocation().equals(sp2.getStudyLocation()) ||
                             !sp1.getStudyDescription().equals(sp2.getStudyDescription())){
+                        Uri1 = "";
                         SList.set(j, sp1 );
-                        notifyItemChanged(i+2);
+                        notifyItemChanged(i);
                         Log.d("Update List ", i + " " + j + " size: " + SList.size());
                     }
                     break;
@@ -103,10 +104,10 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
         String name = Sname.replace(" ", "_").toLowerCase();
         String parse_img_name = name + "_map";
 
-        int drawable = getDrawable( holder.simage.getContext(), parse_img_name);
-        holder.simage.setImageURI(Uri.parse("android.resource://" + MainActivity.PACKAGENAME + "/" + drawable));
+//        int drawable = getDrawable( holder.simage.getContext(), parse_img_name);
+//        holder.simage.setImageURI(Uri.parse("android.resource://" + MainActivity.PACKAGENAME + "/" + drawable));
 
-        if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22") && Uri1.equals("")){
+        if(Uri1.equals("")){
             DAOStudyPlaces daosd = new DAOStudyPlaces();
 
             daosd.getimage(sp.getKey()).addValueEventListener(new ValueEventListener() {
@@ -114,11 +115,13 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     for(DataSnapshot data : snapshot.getChildren()){
-                        Uri1 =  data.getValue(String.class);
-                        sp.setUri(Uri1);
-                        Log.d("Uri1", "" + Uri1);
 //                        holder.simage.setImageURI(Uri.parse(Uri1));
-                        Glide.with(context).load(Uri1).into(holder.simage);
+                        Images i =  data.getValue(Images.class);
+                        i.setKey(data.getKey());
+                        Log.d("SAUri1", "" + i.getUri() +" " + Sname);
+                        Uri1 = i.getUri();
+                        sp.setUri(Uri1);
+                        Glide.with(context).load(i.getUri()).into(holder.simage);
                         break;
                     }
                     notifyDataSetChanged();
@@ -131,11 +134,9 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
             });
         }
         else{
-            if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22")){
-                Glide.with(context).load(sp.getUri()).into(holder.simage);
-            }
-            Log.d("Uri1Blank", "" + Uri1);
+            Glide.with(context).load(sp.getUri()).into(holder.simage);
         }
+
         holder.stxt1.setText(Sname);
 
         holder.viewmore.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +146,6 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                 intent.putExtra("Name",Sname);
                 intent.putExtra("Desc",Sdesc);
                 intent.putExtra("Loc",Sloc);
-                intent.putExtra("Draw", drawable);
                 intent.putExtra("Key", sp.getKey());
                 holder.viewmore.getContext().startActivity(intent);
             }
@@ -154,7 +154,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
 
             @Override
             public void onClick(View view) {
-                if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22")) {
+//                if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22")) {
 
                     PopupMenu popupMenu = new PopupMenu(holder.options.getContext(), holder.options);
                     popupMenu.inflate(R.menu.option_menu);
@@ -171,7 +171,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                                 DAOStudyPlaces dao = new DAOStudyPlaces();
                                 new AlertDialog.Builder(holder.options.getContext())
                                         .setTitle("Confirm Delete?")
-                                        .setMessage("StudyPlaces will be permanently deleted\nand are not recoverable")
+                                        .setMessage("The StudyPlace will be permanently deleted\nand is not recoverable")
                                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
@@ -200,10 +200,9 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                     });
                     popupMenu.show();
                 }
-                else{
-                    Toast.makeText(holder.options.getContext(), "Admin Generated Data, not editable or removable", Toast.LENGTH_SHORT).show();
-                }
-            }
+//                else{
+//                    Toast.makeText(holder.options.getContext(), "Admin Generated Data, not editable or removable", Toast.LENGTH_SHORT).show();
+//                }
         });
         Log.d("spSize  ","size: " + SList.size());
     }

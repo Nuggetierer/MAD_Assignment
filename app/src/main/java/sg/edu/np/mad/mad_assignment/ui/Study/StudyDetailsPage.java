@@ -7,13 +7,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -63,12 +67,11 @@ public class StudyDetailsPage extends AppCompatActivity implements Serializable 
 
     private void getData() {
             if (getIntent().hasExtra("Name") && getIntent().hasExtra("Desc")
-                && getIntent().hasExtra("Loc") && getIntent().hasExtra("Draw")) {
+                && getIntent().hasExtra("Loc") && getIntent().hasExtra("Key")) {
 
             sdnamestr = getIntent().getStringExtra("Name");
             sddescstr = getIntent().getStringExtra("Desc");
             sdlocstr = getIntent().getStringExtra("Loc");
-            sdimgstr = getIntent().getIntExtra("Draw",0);
             sdkey = getIntent().getStringExtra("Key");
 
         } else {
@@ -88,9 +91,10 @@ public class StudyDetailsPage extends AppCompatActivity implements Serializable 
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 for(DataSnapshot data : snapshot.getChildren()){
-                    String uri1 =  data.getValue(String.class);
-                    Log.d("Uri1", "" + uri1);
-                    images.add(uri1);
+                    Images i =  data.getValue(Images.class);
+                    i.setKey(data.getKey());
+                    Log.d("Uri1", "" + i.getUri());
+                    images.add(i.getUri());
                 }
                 mysdAdapter.notifyDataSetChanged();
             }
