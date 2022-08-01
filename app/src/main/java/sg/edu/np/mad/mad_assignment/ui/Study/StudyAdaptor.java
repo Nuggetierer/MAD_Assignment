@@ -168,32 +168,37 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                                 break;
 
                             case R.id.menu_remove:
-                                DAOStudyPlaces dao = new DAOStudyPlaces();
-                                new AlertDialog.Builder(holder.options.getContext())
-                                        .setTitle("Confirm Delete?")
-                                        .setMessage("The StudyPlace will be permanently deleted\nand is not recoverable")
-                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                dao.remove(sp.getKey()).addOnSuccessListener(suc ->
-                                                {
-                                                    Toast.makeText(holder.options.getContext(), "Record is removed", Toast.LENGTH_SHORT).show();
-                                                    SList.remove(pos);
-                                                    notifyItemRemoved(pos);
-                                                    notifyDataSetChanged();
-                                                }).addOnFailureListener(er ->
-                                                {
-                                                    Toast.makeText(holder.options.getContext(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-                                                });
-                                            }
-                                        })
-                                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                dialogInterface.dismiss();
-                                            }
-                                        })
-                                        .create().show();
+                                if(!Sname.equals("Atrium") && !Sname.equals("StudyLounge 22")) {
+                                    DAOStudyPlaces dao = new DAOStudyPlaces();
+                                    new AlertDialog.Builder(holder.options.getContext())
+                                            .setTitle("Confirm Delete?")
+                                            .setMessage("The StudyPlace will be permanently deleted\nand is not recoverable")
+                                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dao.remove(sp.getKey()).addOnSuccessListener(suc ->
+                                                    {
+                                                        Toast.makeText(holder.options.getContext(), "Record is removed", Toast.LENGTH_SHORT).show();
+                                                        SList.remove(pos);
+                                                        notifyItemRemoved(pos);
+                                                        notifyDataSetChanged();
+                                                    }).addOnFailureListener(er ->
+                                                    {
+                                                        Toast.makeText(holder.options.getContext(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                                                    });
+                                                }
+                                            })
+                                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    dialogInterface.dismiss();
+                                                }
+                                            })
+                                            .create().show();
+                                }
+                                else{
+                                    Toast.makeText(holder.options.getContext(), "Delete not allowed.\nCreated by Admin", Toast.LENGTH_SHORT).show();
+                                }
                                 break;
                         }
                         return false;
