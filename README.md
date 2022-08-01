@@ -26,6 +26,7 @@ Nathan Quek
 - DB interactions (Cloud and local)
 - FireBase Realtime Database and Storage implementation
 - New Study Page with various functions, such as add, edit and delete
+- Email to add new events
 
 Elijah Chang
 - Block Details page
