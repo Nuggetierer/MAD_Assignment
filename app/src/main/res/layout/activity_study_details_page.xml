@@ -5,96 +5,110 @@
     android:id="@+id/StudyDetailsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.Study.StudyDetailsPage">
+
 
     <TextView
         android:id="@+id/StudyDetailsTop"
         android:layout_width="233dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="67dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="61dp"
+        android:background="@color/white"
         android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/NametextView6"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/StudyDetailsBottom"
-        android:layout_width="129dp"
-        android:layout_height="27dp"
+        android:layout_width="233dp"
+        android:layout_height="25dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginBottom="10dp"
+        android:background="@color/white"
         android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/StudyDetailshorizontalRv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StudyDetailsTop" />
+        app:layout_constraintTop_toBottomOf="@+id/StudyDetailsTop"
+        app:layout_constraintVertical_bias="0.705" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/StudyDetailshorizontalRv"
         android:layout_width="411dp"
         android:layout_height="224dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginTop="108dp"
         android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/study_details_layout" />
 
     <TextView
         android:id="@+id/NametextView6"
-        android:layout_width="64dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
         android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/LocationtextView5"
         app:layout_constraintEnd_toStartOf="@+id/StudyDetailsTop"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/LocationtextView5"
-        android:layout_width="64dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="3dp"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
         android:text="Location:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/StudyDetailshorizontalRv"
         app:layout_constraintEnd_toStartOf="@+id/StudyDetailsBottom"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NametextView6" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/StudyDetailsDescription"
-        android:layout_width="317dp"
-        android:layout_height="171dp"
+        android:layout_width="337dp"
+        android:layout_height="193dp"
         android:layout_marginStart="97dp"
         android:layout_marginEnd="98dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="168dp"
+        android:background="@color/white"
         android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/Commentrecyclerview"-->
-<!--        android:layout_width="377dp"-->
-<!--        android:layout_height="105dp"-->
-<!--        android:layout_marginBottom="60dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.529"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/Commentrecyclerview"-->
+    <!--        android:layout_width="377dp"-->
+    <!--        android:layout_height="105dp"-->
+    <!--        android:layout_marginBottom="60dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.529"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <!--    <ImageView-->
     <!--        android:id="@+id/SDimageview"-->
