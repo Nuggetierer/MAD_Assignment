@@ -34,14 +34,31 @@ public class SendEmail extends AppCompatActivity {
             public void onClick(View v) {
                 if (!subject.getText().toString().isEmpty() && !body.getText().toString().isEmpty()) {
                     String email = "NpGuideApp@gmail.com";
-                    Intent intent = new Intent(Intent.ACTION_SENDTO);
-                    intent.putExtra(Intent.EXTRA_EMAIL, email);
-                    intent.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
-                    intent.putExtra(Intent.EXTRA_TEXT, body.getText().toString());
-                    intent.setType("message/rfc822");
+                    Intent intentMail = new Intent(Intent.ACTION_SENDTO);
+                    intentMail.setData(Uri.parse("mailto:"+email));
+//                    intentMail.putExtra(Intent.EXTRA_EMAIL, new String[]{"NpGuideApp@gmail.com" });
+                    intentMail.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
+                    intentMail.putExtra(Intent.EXTRA_TEXT, body.getText().toString());
+                    intentMail.setType("message/rfc822");
 
-                    if (intent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(intent);
+//                    Intent chooser = Intent.createChooser(intentMail, "Mail to ..");
+//
+//                    if (intentMail.resolveActivity(getPackageManager()) != null) {
+//                        startActivity(chooser);
+//                    }
+//                    else{
+//                        Toast.makeText(SendEmail.this, "There is no application",
+//                                Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    try {
+//                        startActivity(Intent.createChooser(intentMail, "Message to User to do what next"));
+//                    } catch (android.content.ActivityNotFoundException ex) {
+//                        Toast.makeText(SendEmail.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+//                    }
+
+                    if (intentMail.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intentMail);
                     } else {
                         Toast.makeText(SendEmail.this, "There is no application that support this action",
                                 Toast.LENGTH_SHORT).show();

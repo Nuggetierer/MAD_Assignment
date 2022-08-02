@@ -136,17 +136,25 @@ public class EventFragment extends Fragment {
             daoE.geteUser().addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    ArrayList<Event> events = new ArrayList<>();
-                    for (DataSnapshot data : snapshot.getChildren()) {
-                        Event event = data.getValue(Event.class);
-                        event.setKey(data.getKey());
-                        events.add(event);
-                        Key = data.getKey();
+                    if (snapshot != null && snapshot.getValue() != null) {
+                        ArrayList<Event> events = new ArrayList<>();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Event event = data.getValue(Event.class);
+                            event.setKey(data.getKey());
+                            events.add(event);
+                            Key = data.getKey();
+                        }
+                        if (events != null) {
+                            boolean check = adapter.setItems(events);
+                            if (check == FALSE) {
+                                adapter.notifyDataSetChanged();
+                            }
+                        }
                     }
-                    if (events != null) {
-                        boolean check = adapter.setItems(events);
-                        if (check == FALSE) {
-                            adapter.notifyDataSetChanged();
+                    else{
+                        Log.d("Esize", " "+ eventlist.size());
+                        for (int i = 0; i < eventlist.size(); i++) {
+                            daoE.addeUser(eventlist.get(i));
                         }
                     }
                 }

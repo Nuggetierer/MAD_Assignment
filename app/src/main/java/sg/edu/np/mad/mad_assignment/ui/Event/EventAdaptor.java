@@ -101,7 +101,10 @@ public class EventAdaptor extends RecyclerView.Adapter<EventResultViewHolder> {
         DAOStudyPlaces dao = new DAOStudyPlaces();
         DAOEvent daoE = new DAOEvent();
 
-        //using data to set text
+        if(i.getAttend() == null){
+            i.setAttend("1");
+        }
+
         String Eattend = i.getAttend();
         String Header = "Date: " + Edate + ", " +  Ename;
 

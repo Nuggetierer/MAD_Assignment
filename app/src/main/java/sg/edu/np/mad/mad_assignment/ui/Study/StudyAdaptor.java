@@ -107,7 +107,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
 //        int drawable = getDrawable( holder.simage.getContext(), parse_img_name);
 //        holder.simage.setImageURI(Uri.parse("android.resource://" + MainActivity.PACKAGENAME + "/" + drawable));
 
-        if(Uri1.equals("")){
+        if(Uri1.equals("") || sp.getUri() == null){
             DAOStudyPlaces daosd = new DAOStudyPlaces();
 
             daosd.getimage(sp.getKey()).addValueEventListener(new ValueEventListener() {
@@ -124,6 +124,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
                         Glide.with(context).load(i.getUri()).into(holder.simage);
                         break;
                     }
+                    notifyItemChanged(pos);
                     notifyDataSetChanged();
                 }
 
@@ -134,6 +135,7 @@ public class StudyAdaptor extends RecyclerView.Adapter<StudyViewHolder> implemen
             });
         }
         else{
+            Log.d("Print", "" + sp.getUri() +" " + Sname);
             Glide.with(context).load(sp.getUri()).into(holder.simage);
         }
 
